@@ -1,0 +1,100 @@
+<DOCTYPE>
+	<html>
+	<head>
+	</head>
+	<body>
+		<script>
+			class DivisorNumberError extends Error {
+  				constructor(message) {
+    					super(message); // (1)
+    					this.name = "DivisorNumberError"; // (2)
+  				}
+			}
+
+			class DivisorIsNotNumberError extends DivisorNumberError {
+  				constructor(message) {
+    					super(message); // (1)
+    					this.name = "DivisorIsNotNumberError"; // (2)
+  				}
+			}
+	  	
+			 
+			var testsData = [
+			["RR", 10, 5, 5],
+			[-15, "RR", 5, 5],
+			[-15, 10, 5, "RR"],
+			[15, -10, 5, 5],
+			[-15, 10, 5, 0],
+			[5, 10, 15, 5],
+			[5, 15, 0, 5],
+			[5, 15, -5, 5],
+			[-15, 10, 5, 5]
+			]
+
+			function isNumber(value) {
+				return typeof value === 'number' && isFinite(value);
+			}
+
+			function getDivisorNumbers(min, max, step, divisor) {
+
+				if (!isNumber(min)) {
+					throw new DivisorNumberError("Минимальное значение должно быть числом")
+				}
+				if (!isNumber(max)) {
+					throw new DivisorNumberError("Максимальное значение должно быть числом")
+				}
+				if (!isNumber(divisor)) {
+					throw new DivisorIsNotNumberError()
+				}
+
+				if (min >= max) {
+					throw new DivisorNumberError("Минимальное значение должно быть меньше максимального")
+				}
+				if (divisor === 0) {
+					throw new DivisorNumberError("Делитель не должен быть равeн нулю")
+				}
+				if (step > (max - min)) {
+				    throw new DivisorNumberError("Значение шага не должен превышать разницу между минимальным и максимальным значением")
+				}
+				if(step <= 0){
+                    throw new DivisorNumberError("Шаг не должен быть меньше нуля и равен нулю")
+				}
+			    var result = []
+				for (var i = min; i < max; i += step) {
+					result.push(i + '/' + divisor + '=' + (i / divisor))
+				}
+				return result
+			}
+
+			for (i = 0; i < testsData.length; i++) {
+				var min = testsData[i][0]
+				var max = testsData[i][1]
+				var step = testsData[i][2]
+				var divisor = testsData[i][3]
+				console.log ("Вызываем функцию getDivisorNumbers с параметрами: min = \"" + min + "\", " + "max = \"" + max + "\", " + "divisor = \"" + divisor + "\"" +" с шагом " + "\"" +step +"\"")
+				console.log("Результат работы функции:")
+				try{
+					try{
+					   var result = getDivisorNumbers(min, max, step, divisor)
+					   console.log(result)
+				    } catch (e) {
+				    	if(e instanceof DivisorNumberError){
+	                        console.log("Это наша ошибка:" + e)
+	                	} else {
+	                		throw e
+	                	}
+				    }
+				} catch (e){
+					if(e instanceof SyntaxError){
+					   console.log("Все ошибки связанные с синтаксисомЖ"+e)
+				    } else {
+				    	throw e
+				    }
+				}
+				console.log("=====================================")
+			}
+
+			
+		</script>
+	</body>
+	</html>
