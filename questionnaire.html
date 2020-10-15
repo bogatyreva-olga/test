@@ -1,14 +1,14 @@
 <html lang="en">
 <script>
-    function signInForm() {
+    function showSignInForm() {
         var shortInfo = document.getElementById("sh-in")
-        var completeInfo = document.getElementById("comp-in")
+        var completeInfo = document.getElementById("com-in")
         completeInfo.style = "display: none"
         shortInfo.style = "display: block"
     }
 
-    function signUpForm() {
-        var completeInfo = document.getElementById("comp-in")
+    function showSignUpForm() {
+        var completeInfo = document.getElementById("com-in")
         var shortInfo = document.getElementById("sh-in")
         completeInfo.style = "display: block"
         shortInfo.style = "display: none"
@@ -114,15 +114,14 @@
                 "<div>Дата рождения: " + userDayBirthDay.value + "-" + userMonthBirthDay.value + "-" + userYearBirthDay.value + "</div>" +
                 "<div>Пол: " + gender + "</div>"
         }
-
     }
 
     function briefInfo() {
         restoreErrorsState()
-        var result = document.getElementById("result-second-form")
+        var result = document.getElementById("result-sign-in-form")
         result.innerHTML = ""
-        var userEmail = document.getElementById("email-second-form")
-        var userPassword = document.getElementById("password-second-form")
+        var userEmail = document.getElementById("email-sign-in-form")
+        var userPassword = document.getElementById("password-sign-in-form")
         var isError = false
 
         if (userEmail.value == '') {
@@ -145,7 +144,6 @@
                 "<div>Password пользователя: " + userPassword.value
         }
     }
-
 
 </script>
 <style type="text/css">
@@ -183,7 +181,6 @@
 
     select {
         border-radius: 6px;
-
     }
 
     .button-form {
@@ -234,12 +231,12 @@
         text-align: center;
     }
 
-    #result-second-form div {
+    #result-sign-in-form div {
         margin: 15px;
         text-align: center;
     }
 
-    .short-info {
+    short-info {
         display: none;
     }
 
@@ -247,12 +244,12 @@
 <body>
 <div class="questionnaire">
     <div>
-        <p><input type="button" onclick="signUpForm()" id="sign-up" value="Sign Up Free" class="button-form"></p>
+        <p><input type="button" onclick="showSignUpForm()" id="sign-up" value="Sign Up Free" class="button-form"></p>
     </div>
     <div>
-        <p><input type="button" value="Sign In" onclick="signInForm()" id="sign-in" class="button-form"></p>
+        <p><input type="button" value="Sign In" onclick="showSignInForm()" id="sign-in" class="button-form"></p>
     </div>
-    <div class="complete-info" id="com-in">
+    <div id="com-in">
         <div class="common-info-container">
             <div>
                 <div class="error error-name"></div>
@@ -339,16 +336,16 @@
         <div class="common-info-container">
             <div>
                 <div class="error error-email-in-form"></div>
-                <input type="text" name="email" id="email-second-form" placeholder="Your Email">
+                <input type="text" name="email" id="email-sign-in-form" placeholder="Your Email">
             </div>
             <div>
                 <div class="error error-password-in-form"></div>
-                <input type="password" name="password" id="password-second-form" placeholder="Password">
+                <input type="password" name="password" id="password-sign-in-form" placeholder="Password">
             </div>
             <div class="submit-button-container">
                 <p><input type="button" value="Submit Now" onclick="briefInfo()"></p>
             </div>
-            <div id="result-second-form"></div>
+            <div id="result-sign-in-form"></div>
         </div>
     </div>
 </div>
