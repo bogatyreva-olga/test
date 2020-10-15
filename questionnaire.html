@@ -27,7 +27,7 @@
         }
     }
 
-    function commonInfo() {
+    function sendSignUpForm() {
         restoreErrorsState()
 
         var result = document.getElementById("result")
@@ -116,7 +116,7 @@
         }
     }
 
-    function briefInfo() {
+    function sendSignInForm() {
         restoreErrorsState()
         var result = document.getElementById("result-sign-in-form")
         result.innerHTML = ""
@@ -327,7 +327,7 @@
                 USA</p>
         </div>
         <div class="submit-button-container">
-            <p><input type="button" value="Submit Now" onclick="commonInfo()"></p>
+            <p><input type="button" value="Submit Now" onclick="sendSignUpForm()"></p>
         </div>
         <div id="result"></div>
     </div>
@@ -343,7 +343,7 @@
                 <input type="password" name="password" id="password-sign-in-form" placeholder="Password">
             </div>
             <div class="submit-button-container">
-                <p><input type="button" value="Submit Now" onclick="briefInfo()"></p>
+                <p><input type="button" value="Submit Now" onclick="sendSignInForm()"></p>
             </div>
             <div id="result-sign-in-form"></div>
         </div>
