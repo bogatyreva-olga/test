@@ -1,13 +1,18 @@
 <html lang="en">
 <script>
     function signInForm() {
-        var buttonSingIn = document.getElementById("sign-in")
-        var shortInfo = document.getElementsByClassName("short-info")
-        var completeInfo = document.getElementsByClassName("complete-info")
-        if (buttonSingIn.onclick) {
-            completeInfo.style = "display: none"
-            shortInfo.style = "display: block"
-        }
+        var shortInfo = document.getElementById("sh-in")
+        var completeInfo = document.getElementById("comp-in")
+        completeInfo.style = "display: none"
+        shortInfo.style = "display: block"
+    }
+
+    function signUpForm() {
+        var completeInfo = document.getElementById("comp-in")
+        var shortInfo = document.getElementById("sh-in")
+        completeInfo.style = "display: block"
+        shortInfo.style = "display: none"
+
     }
 
     function restoreErrorsState() {
@@ -229,6 +234,11 @@
         text-align: center;
     }
 
+    #result-second-form div {
+        margin: 15px;
+        text-align: center;
+    }
+
     .short-info {
         display: none;
     }
@@ -242,7 +252,7 @@
     <div>
         <p><input type="button" value="Sign In" onclick="signInForm()" id="sign-in" class="button-form"></p>
     </div>
-    <div class="complete-info">
+    <div class="complete-info" id="com-in">
         <div class="common-info-container">
             <div>
                 <div class="error error-name"></div>
@@ -325,7 +335,7 @@
         <div id="result"></div>
     </div>
 
-    <div class="short-info">
+    <div class="short-info" id="sh-in">
         <div class="common-info-container">
             <div>
                 <div class="error error-email-in-form"></div>
