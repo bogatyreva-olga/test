@@ -1,17 +1,17 @@
 <html lang="en">
 <script>
     function showSignInForm() {
-        var shortInfo = document.getElementById("short-info")
-        var completeInfo = document.getElementById("complete-info")
-        completeInfo.style = "display: none"
-        shortInfo.style = "display: block"
+        var signInForm = document.getElementById("sign-in-form")
+        var signUpForm = document.getElementById("sign-up-form")
+        signUpForm .style = "display: none"
+        signInForm.style = "display: block"
     }
 
     function showSignUpForm() {
-        var completeInfo = document.getElementById("complete-info")
-        var shortInfo = document.getElementById("short-info")
-        completeInfo.style = "display: block"
-        shortInfo.style = "display: none"
+        var signUpForm  = document.getElementById("sign-up-form")
+        var signInForm = document.getElementById("sign-in-form")
+        signUpForm .style = "display: block"
+        signInForm.style = "display: none"
 
     }
 
@@ -249,7 +249,7 @@
     <div>
         <p><input type="button" value="Sign In" onclick="showSignInForm()" id="sign-in" class="button-form"></p>
     </div>
-    <div id="complete-info">
+    <div id="sign-up-form">
         <div class="common-info-container">
             <div>
                 <div class="error" id="error-name"></div>
@@ -332,7 +332,7 @@
         <div id="result"></div>
     </div>
 
-    <div id="short-info">
+    <div id="sign-in-form">
         <div class="common-info-container">
             <div>
                 <div class="error" id="error-email-in-form"></div>
