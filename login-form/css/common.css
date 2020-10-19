@@ -1,0 +1,95 @@
+html {
+    padding-top: 25px;
+}
+.questionnaire {
+    display: block;
+    width: 17%;
+    height: auto;
+    border: 3px solid;
+    background-color: #00b2dd;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-color: white;
+}
+
+.common-info-container input {
+    width: 220px;
+    border-radius: 6px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 6px;
+    margin: 3px
+}
+
+.radio {
+    text-align: center;
+    width: 45%;
+}
+
+.checkbox {
+    margin-left: 60px;
+}
+
+select {
+    border-radius: 6px;
+}
+
+.button-form {
+    background-color: #f9d200;
+    width: 100px;
+    position: relative;
+    left: 34%;
+    transform: translate(-50%, 0);
+    border-radius: 6px;
+    text-align: center;
+    padding: 10px
+}
+
+.submit-button-container input {
+    background-color: #f9d200;
+    width: 200px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 6px;
+}
+
+.birth-day-container {
+    padding-left: 17% !important;
+}
+
+.birth-day-container select {
+    width: 70px;
+}
+
+.error {
+    display: none;
+    padding-left: 17% !important;
+}
+
+.error-input {
+    background-color: #FFA07A;
+}
+
+.result-agee {
+    color: red;
+    padding-left: 17% !important;
+
+}
+
+#result div {
+    margin: 15px;
+    text-align: center;
+}
+
+#result-sign-in-form div {
+    margin: 15px;
+    text-align: center;
+}
+
+.short-info{
+    display: none;
+}
