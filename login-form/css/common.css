@@ -1,6 +1,7 @@
 html {
     padding-top: 25px;
 }
+
 .questionnaire {
     display: block;
     width: 17%;
@@ -90,6 +91,6 @@ select {
     text-align: center;
 }
 
-.short-info{
+.short-info {
     display: none;
 }
