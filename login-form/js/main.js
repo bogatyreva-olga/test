@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", function (event) {
+    alert("DOM fully loaded and parsed");
+});
+
 function showSignInForm() {
     document.getElementById("sign-up-form").style = "display: none"
     document.getElementById("sign-in-form").style = "display: block"
@@ -137,3 +141,9 @@ function sendSignInForm() {
             "<div>Password пользователя: " + userPassword.value
     }
 }
+
+var submitSignUpForm = document.getElementById("submit-sign-up-form")
+submitSignUpForm.addEventListener('click', sendSignUpForm)
+
+var submitSignInForm = document.getElementById("submit-sign-in-form")
+submitSignInForm.addEventListener('click', sendSignInForm)
