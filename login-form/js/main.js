@@ -142,8 +142,11 @@ function sendSignInForm() {
     }
 }
 
-var submitSignUpForm = document.getElementById("submit-sign-up-form")
-submitSignUpForm.addEventListener('click', sendSignUpForm)
+document.addEventListener("DOMContentLoaded", function (event) {
+        var submitSignUpForm = document.getElementById("submit-sign-up-form")
+        submitSignUpForm.addEventListener('click', sendSignUpForm)
 
-var submitSignInForm = document.getElementById("submit-sign-in-form")
-submitSignInForm.addEventListener('click', sendSignInForm)
+        var submitSignInForm = document.getElementById("submit-sign-in-form")
+        submitSignInForm.addEventListener('click', sendSignInForm)
+    }
+)
