@@ -1,7 +1,3 @@
-document.addEventListener("DOMContentLoaded", function (event) {
-    alert("DOM fully loaded and parsed");
-});
-
 function showSignInForm() {
     document.getElementById("sign-up-form").style = "display: none"
     document.getElementById("sign-in-form").style = "display: block"
@@ -148,5 +144,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         var submitSignInForm = document.getElementById("submit-sign-in-form")
         submitSignInForm.addEventListener('click', sendSignInForm)
+
+        var signUpFree = document.getElementById("sign-up-free")
+        signUpFree.addEventListener('click', showSignUpForm)
+
+        var signInFree = document.getElementById("sign-in-free")
+        signInFree.addEventListener('click', showSignInForm)
+
     }
 )
