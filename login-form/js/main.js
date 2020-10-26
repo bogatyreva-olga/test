@@ -138,25 +138,28 @@ function sendSignInForm() {
     }
 }
 
+function showYearOfBirth() {
+    var userYear = document.getElementById("year")
+    var result = '<option value="">Year</option>'
+    for (var i = 1930; i < 2010; i++) {
+        result += '<option value=' + i + '>' + i + '</option>'
+        userYear.innerHTML = result
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function (event) {
-        var submitSignUpForm = document.getElementById("submit-sign-up-form")
-        submitSignUpForm.addEventListener('click', sendSignUpForm)
+    var submitSignUpForm = document.getElementById("submit-sign-up-form")
+    submitSignUpForm.addEventListener('click', sendSignUpForm)
 
-        var submitSignInForm = document.getElementById("submit-sign-in-form")
-        submitSignInForm.addEventListener('click', sendSignInForm)
+    var submitSignInForm = document.getElementById("submit-sign-in-form")
+    submitSignInForm.addEventListener('click', sendSignInForm)
 
-        var signUpFree = document.getElementById("sign-up-free")
-        signUpFree.addEventListener('click', showSignUpForm)
+    var signUpFree = document.getElementById("sign-up-free")
+    signUpFree.addEventListener('click', showSignUpForm)
 
         var signInFree = document.getElementById("sign-in-free")
         signInFree.addEventListener('click', showSignInForm)
 
-        var userYear = document.getElementById("year")
-        var result = ""
-        for (var i = 1930; i < 2010; i++) {
-            result += '<option value=' + i + '>' + i + '</option>'
-            userYear.innerHTML = result
-        }
-
+    showYearOfBirth()
     }
 )
