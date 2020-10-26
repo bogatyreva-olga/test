@@ -151,5 +151,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         var signInFree = document.getElementById("sign-in-free")
         signInFree.addEventListener('click', showSignInForm)
 
+        var userYear = document.getElementById("year")
+        var result = ""
+        for (var i = 1930; i < 2010; i++) {
+            result += '<option value=' + i + '>' + i + '</option>'
+            userYear.innerHTML = result
+        }
+
     }
 )
