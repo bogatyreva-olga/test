@@ -156,20 +156,31 @@ function fillDayOfBirth() {
     }
 }
 
+function fillMonthOfBirth() {
+    var userMonth = document.getElementById("month")
+    var result = '<option value="">Month</option>'
+    var month = ["January", "February", "March", "April", "May", "June", "Jule", "August", "September", "October", "November", "December"]
+    for (var i = 0; i < 12; i++) {
+        result += '<option value=' + month[i] + '>' + month[i] + '</option>'
+        userMonth.innerHTML = result
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function (event) {
-        var submitSignUpForm = document.getElementById("submit-sign-up-form")
-        submitSignUpForm.addEventListener('click', sendSignUpForm)
+    var submitSignUpForm = document.getElementById("submit-sign-up-form")
+    submitSignUpForm.addEventListener('click', sendSignUpForm)
 
-        var submitSignInForm = document.getElementById("submit-sign-in-form")
-        submitSignInForm.addEventListener('click', sendSignInForm)
+    var submitSignInForm = document.getElementById("submit-sign-in-form")
+    submitSignInForm.addEventListener('click', sendSignInForm)
 
-        var signUpFree = document.getElementById("sign-up-free")
-        signUpFree.addEventListener('click', showSignUpForm)
+    var signUpFree = document.getElementById("sign-up-free")
+    signUpFree.addEventListener('click', showSignUpForm)
 
         var signInFree = document.getElementById("sign-in-free")
         signInFree.addEventListener('click', showSignInForm)
 
         fillYearOfBirth()
-        fillDayOfBirth()
+    fillDayOfBirth()
+    fillMonthOfBirth()
     }
 )
