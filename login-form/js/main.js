@@ -138,7 +138,7 @@ function sendSignInForm() {
     }
 }
 
-function showYearOfBirth() {
+function fillYearOfBirth() {
     var userYear = document.getElementById("year")
     var result = '<option value="">Year</option>'
     for (var i = 1930; i < 2010; i++) {
@@ -147,19 +147,29 @@ function showYearOfBirth() {
     }
 }
 
+function fillDayOfBirth() {
+    var userDay = document.getElementById("day")
+    var result = '<option value="">Day</option>'
+    for (var i = 1; i < 32; i++) {
+        result += '<option value=' + i + '>' + i + '</option>'
+        userDay.innerHTML = result
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function (event) {
-    var submitSignUpForm = document.getElementById("submit-sign-up-form")
-    submitSignUpForm.addEventListener('click', sendSignUpForm)
+        var submitSignUpForm = document.getElementById("submit-sign-up-form")
+        submitSignUpForm.addEventListener('click', sendSignUpForm)
 
-    var submitSignInForm = document.getElementById("submit-sign-in-form")
-    submitSignInForm.addEventListener('click', sendSignInForm)
+        var submitSignInForm = document.getElementById("submit-sign-in-form")
+        submitSignInForm.addEventListener('click', sendSignInForm)
 
-    var signUpFree = document.getElementById("sign-up-free")
-    signUpFree.addEventListener('click', showSignUpForm)
+        var signUpFree = document.getElementById("sign-up-free")
+        signUpFree.addEventListener('click', showSignUpForm)
 
         var signInFree = document.getElementById("sign-in-free")
         signInFree.addEventListener('click', showSignInForm)
 
-    showYearOfBirth()
+        fillYearOfBirth()
+        fillDayOfBirth()
     }
 )
