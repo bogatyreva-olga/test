@@ -158,29 +158,44 @@ function fillDayOfBirth() {
 
 function fillMonthOfBirth() {
     var userMonth = document.getElementById("month")
-    var result = '<option value="">Month</option>'
-    var month = ["January", "February", "March", "April", "May", "June", "Jule", "August", "September", "October", "November", "December"]
-    for (var i = 0; i < 12; i++) {
-        result += '<option value=' + month[i] + '>' + month[i] + '</option>'
+    var result = '<option value="Month"></option>'
+    var month = {
+        "1": {"name": "January", "countDays": 31},
+        "2": {"name": "February", "countDays": 28},
+        "3": {"name": "March", "countDays": 31},
+        "4": {"name": "April", "countDays": 30},
+        "5": {"name": "May", "countDays": 31},
+        "6": {"name": "June", "countDays": 30},
+        "7": {"name": "Jule", "countDays": 31},
+        "8": {"name": "August", "countDays": 31},
+        "9": {"name": "September", "countDays": 30},
+        "10": {"name": "October", "countDays": 31},
+        "11": {"name": "November", "countDays": 30},
+        "12": {"name": "December", "countDays": 31},
+    }
+
+    for (let mounth of Object.values(month)) {
+        result += '<option value=' + mounth.name + '>' + mounth.name + '</option>'
         userMonth.innerHTML = result
     }
 }
 
+
 document.addEventListener("DOMContentLoaded", function (event) {
-    var submitSignUpForm = document.getElementById("submit-sign-up-form")
-    submitSignUpForm.addEventListener('click', sendSignUpForm)
+        var submitSignUpForm = document.getElementById("submit-sign-up-form")
+        submitSignUpForm.addEventListener('click', sendSignUpForm)
 
-    var submitSignInForm = document.getElementById("submit-sign-in-form")
-    submitSignInForm.addEventListener('click', sendSignInForm)
+        var submitSignInForm = document.getElementById("submit-sign-in-form")
+        submitSignInForm.addEventListener('click', sendSignInForm)
 
-    var signUpFree = document.getElementById("sign-up-free")
-    signUpFree.addEventListener('click', showSignUpForm)
+        var signUpFree = document.getElementById("sign-up-free")
+        signUpFree.addEventListener('click', showSignUpForm)
 
         var signInFree = document.getElementById("sign-in-free")
         signInFree.addEventListener('click', showSignInForm)
 
         fillYearOfBirth()
-    fillDayOfBirth()
-    fillMonthOfBirth()
+        fillDayOfBirth()
+        fillMonthOfBirth()
     }
 )
