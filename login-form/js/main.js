@@ -143,23 +143,23 @@ function fillYearOfBirth() {
     var result = '<option value="">Year</option>'
     for (var i = 1930; i < 2010; i++) {
         result += '<option value=' + i + '>' + i + '</option>'
-        userYear.innerHTML = result
     }
+    userYear.innerHTML = result
 }
 
 function fillDayOfBirth() {
+    var startDay = 1
+    var endDay = 32
     var userDay = document.getElementById("day")
     var result = '<option value="">Day</option>'
-    for (var i = 1; i < 32; i++) {
+    for (var i = startDay; i < endDay; i++) {
         result += '<option value=' + i + '>' + i + '</option>'
-        userDay.innerHTML = result
     }
+    userDay.innerHTML = result
 }
 
-function fillMonthOfBirth() {
-    var userMonth = document.getElementById("month")
-    var result = '<option value="Month"></option>'
-    var month = {
+function getMonthsObject() {
+    return {
         "1": {"name": "January", "countDays": 31},
         "2": {"name": "February", "countDays": 28},
         "3": {"name": "March", "countDays": 31},
@@ -173,11 +173,17 @@ function fillMonthOfBirth() {
         "11": {"name": "November", "countDays": 30},
         "12": {"name": "December", "countDays": 31},
     }
+}
 
-    for (let mounth of Object.values(month)) {
-        result += '<option value=' + mounth.name + '>' + mounth.name + '</option>'
-        userMonth.innerHTML = result
+function fillMonthOfBirth() {
+    var userMonth = document.getElementById("month")
+    var result = '<option value="">Month</option>'
+    var months = getMonthsObject()
+
+    for (const [monthNumber, month] of Object.entries(months)) {
+        result += '<option value=' + monthNumber + '>' + month.name + '</option>'
     }
+    userMonth.innerHTML = result
 }
 
 
@@ -197,5 +203,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
         fillYearOfBirth()
         fillDayOfBirth()
         fillMonthOfBirth()
+
+        var userMonth = document.getElementById("month")
+        userMonth.addEventListener('change', function () {
+            var userMonth = document.getElementById("month")
+            alert(userMonth.value)
+
+        })
+
+        var userMonth = document.getElementById("month")
+        userMonth.addEventListener('change', function (e) {
+            var monthNumber = e.target.value
+            var months = getMonthsObject()
+            alert(months[monthNumber].countDays)
+        })
+
     }
 )
