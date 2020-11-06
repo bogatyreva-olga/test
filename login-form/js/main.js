@@ -219,7 +219,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         userMonth.addEventListener('change', function (e) {
             var monthNumber = e.target.value
             var months = getMonthsObject()
-            if (monthsNumber === 2) {
+            var countDays = months[monthNumber].countDays
+            if (monthNumber === 2) {
                 var selectedYear = document.getElementById('year')
                 if (isLeapYear(selectedYear.value)) {
                     countDays = 29
