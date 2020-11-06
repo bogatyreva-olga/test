@@ -191,46 +191,46 @@ function isLeapYear(year) {
 
 
 document.addEventListener("DOMContentLoaded", function (event) {
-    var submitSignUpForm = document.getElementById("submit-sign-up-form")
-    submitSignUpForm.addEventListener('click', sendSignUpForm)
+        var submitSignUpForm = document.getElementById("submit-sign-up-form")
+        submitSignUpForm.addEventListener('click', sendSignUpForm)
 
-    var submitSignInForm = document.getElementById("submit-sign-in-form")
-    submitSignInForm.addEventListener('click', sendSignInForm)
+        var submitSignInForm = document.getElementById("submit-sign-in-form")
+        submitSignInForm.addEventListener('click', sendSignInForm)
 
-    var signUpFree = document.getElementById("sign-up-free")
-    signUpFree.addEventListener('click', showSignUpForm)
+        var signUpFree = document.getElementById("sign-up-free")
+        signUpFree.addEventListener('click', showSignUpForm)
 
-    var signInFree = document.getElementById("sign-in-free")
-    signInFree.addEventListener('click', showSignInForm)
+        var signInFree = document.getElementById("sign-in-free")
+        signInFree.addEventListener('click', showSignInForm)
 
-    fillYearOfBirth()
-    fillDayOfBirth(31)
-    fillMonthOfBirth()
+        fillYearOfBirth()
+        fillDayOfBirth(31)
+        fillMonthOfBirth()
 
 
-    /*var userMonth = document.getElementById("month")
-    userMonth.addEventListener('change', function () {
+        /*var userMonth = document.getElementById("month")
+        userMonth.addEventListener('change', function () {
+            var userMonth = document.getElementById("month")
+            alert(userMonth.value)
+
+        })*/
+
         var userMonth = document.getElementById("month")
-        alert(userMonth.value)
+        userMonth.addEventListener('change', function (e) {
+            var monthNumber = e.target.value
+            var months = getMonthsObject()
+            if (monthsNumber === 2) {
+                var selectedYear = document.getElementById('year')
+                if (isLeapYear(selectedYear.value)) {
+                    countDays = 29
+                } else {
+                    countDays = 28
+                }
 
-    })*/
-
-    var userMonth = document.getElementById("month")
-    userMonth.addEventListener('change', function (e) {
-        var monthNumber = e.target.value
-        var months = getMonthsObject()
-        if (monthsNumber === 2) {
-            var selectedYear = document.getElementById('year')
-            if (isLeapYear(selectedYear.value)) {
-                countDays = 29
-            } else {
-                countDays = 28
             }
+            fillDayOfBirth(countDays)
 
-        }
-        fillDayOfBirth(countDays)
-
-    })
+        })
 
     }
 )
