@@ -137,3 +137,101 @@ function sendSignInForm() {
             "<div>Password пользователя: " + userPassword.value
     }
 }
+
+function fillYearOfBirth() {
+    var userYear = document.getElementById("year")
+    var result = '<option value="">Year</option>'
+    for (var i = 1930; i < 2010; i++) {
+        result += '<option value=' + i + '>' + i + '</option>'
+    }
+    userYear.innerHTML = result
+}
+
+function fillDayOfBirth(endDay) {
+    var startDay = 1
+    var userDay = document.getElementById("day")
+    var result = '<option value="">Day</option>'
+    for (var i = startDay; i <= endDay; i++) {
+        result += '<option value=' + i + '>' + i + '</option>'
+    }
+    userDay.innerHTML = result
+}
+
+function getMonthsObject() {
+    return {
+        "1": {"name": "January", "countDays": 31},
+        "2": {"name": "February", "countDays": 29},
+        "3": {"name": "March", "countDays": 31},
+        "4": {"name": "April", "countDays": 30},
+        "5": {"name": "May", "countDays": 31},
+        "6": {"name": "June", "countDays": 30},
+        "7": {"name": "Jule", "countDays": 31},
+        "8": {"name": "August", "countDays": 31},
+        "9": {"name": "September", "countDays": 30},
+        "10": {"name": "October", "countDays": 31},
+        "11": {"name": "November", "countDays": 30},
+        "12": {"name": "December", "countDays": 31},
+    }
+}
+
+function fillMonthOfBirth() {
+    var userMonth = document.getElementById("month")
+    var result = '<option value="">Month</option>'
+    var months = getMonthsObject()
+    for (const [monthNumber, month] of Object.entries(months)) {
+        result += '<option value=' + monthNumber + '>' + month.name + '</option>'
+    }
+    userMonth.innerHTML = result
+}
+
+
+function isLeapYear(year) {
+    return (((year.value % 4 == 0) && (year.value % 100 != 0)) || (year.value % 400 == 0))
+}
+
+
+document.addEventListener("DOMContentLoaded", function (event) {
+        var submitSignUpForm = document.getElementById("submit-sign-up-form")
+        submitSignUpForm.addEventListener('click', sendSignUpForm)
+
+        var submitSignInForm = document.getElementById("submit-sign-in-form")
+        submitSignInForm.addEventListener('click', sendSignInForm)
+
+        var signUpFree = document.getElementById("sign-up-free")
+        signUpFree.addEventListener('click', showSignUpForm)
+
+        var signInFree = document.getElementById("sign-in-free")
+        signInFree.addEventListener('click', showSignInForm)
+
+        fillYearOfBirth()
+        fillDayOfBirth(31)
+        fillMonthOfBirth()
+
+
+        /*var userMonth = document.getElementById("month")
+        userMonth.addEventListener('change', function () {
+            var userMonth = document.getElementById("month")
+            alert(userMonth.value)
+
+        })*/
+
+        var userMonth = document.getElementById("month")
+        userMonth.addEventListener('change', function (e) {
+            var monthNumber = e.target.value
+            var months = getMonthsObject()
+            var countDays = months[monthNumber].countDays
+            if (monthNumber === 2) {
+                var selectedYear = document.getElementById('year')
+                if (isLeapYear(selectedYear.value)) {
+                    countDays = 29
+                } else {
+                    countDays = 28
+                }
+
+            }
+            fillDayOfBirth(countDays)
+
+        })
+
+    }
+)
