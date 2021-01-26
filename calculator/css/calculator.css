@@ -4,19 +4,25 @@ html {
 }
 
 #result {
-    width: 250px;
+    width: 280px;
     height: 40px;
     border-style: solid;
     font-size: 30px;
-    font-weight: bold;
-
+    font-weight: normal;
+    border-radius: 5px;
+    line-height: 50px;
+    margin: 4px 4px 4px 4px;
 }
 
 .calculator-form {
-    width: 280px;
+    width: 300px;
     height: 350px;
     border-style: solid;
+    border-width: 2px;
+    border-color: silver;
     margin: 0 auto;
+    background-color: #FFFAFA;
+    border-radius: 5px;
 
 }
 
@@ -27,21 +33,29 @@ html {
 }
 
 .input-button {
-    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
     width: 50px;
-    height: 50px;
-    margin: 4px;
+    height: 35px;
+    margin: 0px 4px 4px 4px;
     text-align: center;
-    font-size: 30px;
-    font-weight: bold;
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: normal;
+    background-color: #D3D3D3;
+    line-height: 50px;
 }
 
-.symbol {
-    border-style: solid;
+.memory-button {
+    border-radius: 5px;
+    border-width: 2px;
     width: 50px;
-    height: 50px;
-    margin: 4px;
+    height: 35px;
+    margin: 0px 4px 4px 4px;
     text-align: center;
-    font-size: 30px;
-    font-weight: bold;
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: normal;
+    background-color: #D3D3D3;
+    line-height: 50px;
 }
