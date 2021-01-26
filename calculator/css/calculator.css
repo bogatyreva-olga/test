@@ -1,13 +1,13 @@
 html {
-    height: 100%;
     margin: 0;
-    -webkit-font-smoothing: antialiased;
 }
 
 #result {
     width: 250px;
     height: 40px;
     border-style: solid;
+    font-size: 30px;
+    font-weight: bold;
 
 }
 
@@ -15,6 +15,7 @@ html {
     width: 280px;
     height: 350px;
     border-style: solid;
+    margin: 0 auto;
 
 }
 
