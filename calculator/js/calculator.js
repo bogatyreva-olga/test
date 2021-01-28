@@ -9,6 +9,7 @@ function inputOperatorToResult(e) {
     if (['+', '-', '/', '*'].includes(result.charAt(result.length - 1))) {
         result.slice(0, -1) + operator
     }
+
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
