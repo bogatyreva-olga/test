@@ -63,7 +63,6 @@ function memoryRead() {
 
 function memoryClear() {
     document.getElementById("memory").innerHTML = ""
-
 }
 
 function subtractToMemory() {
