@@ -41,6 +41,40 @@ function inputDotToResult() {
 
 }
 
+function getCalculateResult() {
+    let result = document.getElementById("result").value
+    return parseFloat(eval(result))
+
+}
+
+function calculateResult() {
+    document.getElementById("result").value = getCalculateResult()
+}
+
+function addToMemory() {
+    let memoryValue = parseFloat(document.getElementById("memory").innerHTML)
+    calculateResult()
+    document.getElementById("memory").innerHTML = memoryValue + getCalculateResult()
+}
+
+function memoryRead() {
+    document.getElementById("result").value = document.getElementById("memory").innerHTML
+}
+
+function memoryClear() {
+    document.getElementById("memory").innerHTML = ""
+
+}
+
+function subtractToMemory() {
+    let memoryValue = parseFloat(document.getElementById("memory").innerHTML)
+    calculateResult()
+    document.getElementById("memory").innerHTML = memoryValue - getCalculateResult()
+}
+
+function clearResalt() {
+    document.getElementById("result").value = ""
+}
 
 document.addEventListener("DOMContentLoaded", function (event) {
     let inputNumbers = document.getElementsByClassName("input-number")
@@ -51,18 +85,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
     for (let i = 0; i < inputOperators.length; i++) {
         inputOperators[i].addEventListener("click", inputOperatorToResult)
     }
-    document.getElementById("clear").addEventListener("click", function () {
-        document.getElementById("result").value = ""
-    })
+    document.getElementById("clear").addEventListener("click", clearResalt)
     document.getElementById("dot").addEventListener("click", inputDotToResult)
+    document.getElementById('calculator').addEventListener("click", calculateResult)
+    document.getElementById("memory-add").addEventListener("click", addToMemory)
+    document.getElementById("memory-read").addEventListener("click", memoryRead)
+    document.getElementById("memory-clear").addEventListener("click", memoryClear)
+    document.getElementById("memory-subtract").addEventListener("click", subtractToMemory)
 
+})
 
 /*
    +результаты закрыты для ручного ввода
 
    +Точка не может быть первым символом в строке.
    +Точка не может ставиться после оператора
-   +Нельзя ставить точки подряд.
+   +Нельзя ставить точки подря
   + В числе м.б. тольк одна точка.
 
 
@@ -73,5 +111,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
    +если первый символ 0 и потом вводится точка, то мы добавляем точку.
 
   + Если нажимаешь на С, то происходит очистка окна результата.
+
+    отнимание из памяти
+   + восстановление из памяти input result;
+   + очистка памятиж
+   00
+   удаление последнего символа
+   квадратный корень
+
 
     */

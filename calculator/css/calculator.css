@@ -14,6 +14,10 @@ html {
     margin: 4px 4px 4px 4px;
 }
 
+.memory {
+    margin-left: 10px;
+}
+
 .calculator-form {
     width: 300px;
     height: 350px;
@@ -43,6 +47,8 @@ html {
     font-size: 20px;
     font-weight: normal;
     background-color: #D3D3D3;
-    line-height: 50px;
+    line-height: 35px;
+
 }
+
 
