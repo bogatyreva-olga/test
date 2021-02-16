@@ -12,7 +12,7 @@ function inputNumberToResult(e) {
 
 function inputOperatorToResult(e) {
     let result = document.getElementById("result").value
-    let operator = e.target.innerHTML
+    let operator = e.target.getAttribute("data-value")
     if (result === "" && operator !== '-') {
         return
     }
@@ -71,8 +71,25 @@ function subtractToMemory() {
     document.getElementById("memory").innerHTML = memoryValue - getCalculateResult()
 }
 
-function clearResalt() {
+function clearResult() {
     document.getElementById("result").value = ""
+}
+
+function inputDoubleZeroToResult() {
+    let result = document.getElementById("result").value
+    if (result === "") {
+        document.getElementById("result").value = '0'
+        return
+    }
+    if (['+', '-', '/', '*'].includes(result.charAt(result.length - 1))) {
+        document.getElementById("result").value += '0'
+        return
+    }
+    let arr = result.split(/[+\-\*\/]+/)
+    if (arr[arr.length - 1] === '0') {
+        return
+    }
+    document.getElementById("result").value += '00'
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -84,14 +101,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
     for (let i = 0; i < inputOperators.length; i++) {
         inputOperators[i].addEventListener("click", inputOperatorToResult)
     }
-    document.getElementById("clear").addEventListener("click", clearResalt)
+    document.getElementById("clear").addEventListener("click", clearResult)
     document.getElementById("dot").addEventListener("click", inputDotToResult)
     document.getElementById('calculator').addEventListener("click", calculateResult)
     document.getElementById("memory-add").addEventListener("click", addToMemory)
     document.getElementById("memory-read").addEventListener("click", memoryRead)
     document.getElementById("memory-clear").addEventListener("click", memoryClear)
     document.getElementById("memory-subtract").addEventListener("click", subtractToMemory)
-
+    document.getElementById("double-zero").addEventListener("click", inputDoubleZeroToResult)
 })
 
 /*
@@ -111,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   + Если нажимаешь на С, то происходит очистка окна результата.
 
-    отнимание из памяти
+   + отнимание из памяти
    + восстановление из памяти input result;
    + очистка памятиж
    00
