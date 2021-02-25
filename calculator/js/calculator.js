@@ -92,6 +92,10 @@ function inputDoubleZeroToResult() {
     document.getElementById("result").value += '00'
 }
 
+function inputBackspaceToResult() {
+    document.getElementById("result").value = document.getElementById("result").value.slice(0, document.getElementById("result").value - 2)
+}
+
 document.addEventListener("DOMContentLoaded", function (event) {
     let inputNumbers = document.getElementsByClassName("input-number")
     for (let i = 0; i < inputNumbers.length; i++) {
@@ -109,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     document.getElementById("memory-clear").addEventListener("click", memoryClear)
     document.getElementById("memory-subtract").addEventListener("click", subtractToMemory)
     document.getElementById("double-zero").addEventListener("click", inputDoubleZeroToResult)
+    document.getElementById("backspace").addEventListener("click", inputBackspaceToResult)
 })
 
 /*
