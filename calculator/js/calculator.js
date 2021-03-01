@@ -93,7 +93,7 @@ function inputDoubleZeroToResult() {
 }
 
 function inputBackspaceToResult() {
-    document.getElementById("result").value = document.getElementById("result").value.slice(0, document.getElementById("result").value - 2)
+    document.getElementById("result").value = document.getElementById("result").value.slice(0, document.getElementById("result").value.length - 1)
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
