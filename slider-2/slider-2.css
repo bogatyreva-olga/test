@@ -28,10 +28,10 @@ html, body {
 }
 
 .slider {
-    position: relative;
-    width: 860px;
+    position: absolute;
+    width: auto;
     margin: 0 auto;
-    left: 33%;
+    left: 30%;
     top: 20%;
     z-index: 2;
 }
