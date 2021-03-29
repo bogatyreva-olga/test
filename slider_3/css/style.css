@@ -4,7 +4,7 @@ img {
 
 .slider {
     z-index: 2;
-    position: absolute;
+    position: fixed;
     left: 0%;
     top: 0%;
     background: rgba(126, 126, 126, 0.8);
