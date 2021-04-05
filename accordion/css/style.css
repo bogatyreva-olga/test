@@ -1,0 +1,51 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.collapser {
+    position: relative;
+    top: 200px;
+}
+
+.content-div {
+    display: none;
+    border: 1px solid lightgray;
+    padding-left: 20px;
+    background-color: white;
+}
+
+.label-active .content-div {
+    display: block !important;
+}
+
+.click-div {
+    border: 1px solid lightgray;
+    position: relative;
+    left: 22%;
+    width: 50%;
+    background-color: #F5F5F5;
+}
+
+.click-div, .content-div {
+    font-size: x-large;
+}
+
+.content-title {
+    display: flex;
+    padding: 12px;
+}
+
+.arrow {
+    display: block;
+    transition: all 0.4s ease;
+    width: 20px;
+}
+
+.label-active .arrow {
+    transform: rotate(90deg);
+}
+
+.content-title div {
+    padding: 20px;
+}

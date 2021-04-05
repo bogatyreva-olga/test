@@ -1,0 +1,584 @@
+<html lang="en">
+<head>
+</head>
+<body>
+<script>
+    /*1. Клонирование массива
+Напишите функцию copyArr(arr), которая копирует массив не изменяя иригинал.
+
+    var vegetables = ['Капуста', 'Репа', 'Редиска', 'Морковка'];
+    function arrayClone(arr) {
+     return arr.slice(0)
+    }
+
+    var arr1 = arrayClone(vegetables);
+    console.log(arr1); // ['Капуста', 'Репа', 'Редиска', 'Морковка']*/
+    //============================================================================================
+
+    /*Преобразование массива в строку
+    Напишите код, который преобразовывает и объединяет все элементы массива в одно строковое значение.
+        Элементы массива будут разделены запятой. Получите результат двумя разными методами.*/
+
+    /*var vegetables = ['Капуста', 'Репа', 'Редиска', 'Морковка'];
+    var str1 = vegetables.join(", ")
+    var str2 = vegetables.toString()
+
+    console.log(str1)
+    console.log(str2) */
+    //=================================================================================================
+
+    /*Двоеточие между нечётными числами
+    Пользователь вводит многозначное число через promt.Напишите функцию colonOdd(num), которая принимает число
+    num в качестве аргумента и вставляет двоеточие (:) между двумя нечетными числами. Например, если вводится число
+    55639217, то на выход должно быть 5:563:921:7.*/
+
+    /* var num = prompt('Введите число', 25534456633324456);
+
+     function colonOdd(num) {
+         var str = num.toString()
+         var result = ""
+         for (var i = 0; i < str.length-1; i++) {
+             if (str[i] % 2 !== 0 && str[i + 1] % 2 !== 0) {
+                 result += str[i] + ":"
+             } else {
+                 result += str[i]
+             }
+         }
+         return result
+     }
+
+     console.log(colonOdd(num))*/
+
+    //=====================================================================================================
+
+    /*Замена регистра символов
+    Пользователь вводит строку кириллицей разного регистра. Напишите функцию, которая принимает строку в
+    качестве аргумента и заменяет регистр каждого символа на противоположный.
+        Например, если вводится «КаЖдЫй ОхОтНиК», то на выходе должен быть массив [кАжДыЙ оХоТнИк].*/
+
+    /*var str = prompt('Введите слово', 'КаЖдЫй ОхОтНиК');
+
+    function changeRegister(str) {
+        var result = ""
+        for (var i = 0; i < str.length; i++) {
+          if(str[i] === str[i].toUpperCase()){
+              result += str[i].toLowerCase()
+          }else{
+              result += str[i].toUpperCase()
+          }
+        }
+        return result
+    }
+    document.writeln(changeRegister(str))*/
+    //============================================================================================================
+    /*Удалить повторяющиеся элементы массива
+    Напишите функцию removeDuplicates(arr), которая возвращает массив, в котором удалены повторяющиеся
+    элементы из массива arr (игнорируйте чувствительность к регистру).
+     */
+    /*var arr = ["php", "php", "css", "css", "Script", "script", "html", "html", "java"];
+
+    function removeDuplicates(arr) {
+
+        /*  var result = []
+          for (var lem of arr) {
+              if (!result.includes(lem)) {
+                  result.push(lem)
+              }
+          }
+          return result
+      }*/
+    /* var obj = {}
+     for (var i = 0; i < arr.length; i++) {
+         obj[arr[i].toLowerCase()] = 0
+     }
+     return Object.keys(obj)
+ }
+
+ console.log(removeDuplicates(arr))*/
+
+
+    //=======================================================================================================
+
+    /* Високосным годом является каждый четвертый год и века начинаются только на высокостные года,
+         отличие високосного года от обычного заключается в появлении 366-го дня.
+         Напишите функцию chooseYears(start, end), которая принимает в качестве аргументов диапозон лет и
+     возвращает массив високосных лет в заданном диапазоне.*/
+    /*  function isLeapYear(year) {
+          return ((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0)
+      }
+
+      function chooseYears(start, end) {
+          var result = []
+          for (var i = start; i < end; i++) {
+              if (isLeapYear(i)) {
+                  result.push(i)
+              }
+          }
+
+          return result
+      }
+
+      console.log(chooseYears(2000, 2018));*/
+
+    //=============================================================================================================
+    /* Отобразить элементы в случайном порядоке
+     Используя метод sort перепишите предсталенный ниже код, который с помощью цикла for случайно изменяет
+     порядок расстановки элементов массива.*/
+
+    /*  function shuffle(arr) {
+          arr.sort(function (a, b) {
+              if(a.age === b.age){
+                  return a.weight - b.weight
+              }
+              return a.age - b.age
+
+          })
+
+           return arr;
+       }
+
+       var array = [
+           {"age": 10, "weight": 25},
+           {"age": 12, "weight": 35},
+           {"age": 9, "weight": 20},
+           {"age": 10, "weight": 22}
+       ];
+      console.log(shuffle(array))*/
+    //=============================================================================================================
+    /* Напишите код, который создаёт массив элементов представляющих собой сумму
+     соответствующих элементов заданных массивов.*/
+    // var arr1 = [1, 2, 3, 4, 5];
+    //
+    // var arr2 = [4, 5, 6];
+    /*var arr1 = [1, 2, 3, 4, 5];
+    var arr2 = [4, 5, 6, 5, 6]
+    var arr3 = []
+    if (arr1.length === arr2.length) {
+        var maxLenght = arr1.length
+    }
+    if (arr1.length > arr2.length) {
+        var maxLenght = arr1.length
+    }
+    if (arr2.length > arr1.length) {
+        var maxLenght = arr2.length
+    }
+    for (var i = 0; i < maxLenght; i++) {
+        var a = 0
+        var b = 0
+        if (typeof arr1[i] !== 'undefined') {
+            a = arr1[i]
+        }
+        if (typeof arr2[i] !== 'undefined') {
+            b = arr2[i]
+        }
+        arr3.push(a + b)
+    }
+    console.log(arr3)*/
+
+    //=============================================================================================================
+
+    /* Напишите функцию getFirst(array, n), которая возвращает фрагмент массива,
+     содержащий первые 'n' элементов массива.
+     */
+
+    /*var array = [2,3,4,5,6,7,8,9];
+
+    function getFirst(array, n) {
+      var maxLenght = arr1.length
+        if (n === 0) {
+            n = 1
+        }
+        if (n < 0) {
+            n = array.length - n
+        }
+        if(n > array.length){
+            throw new Error("значение n не должно быть больше длины массива ")
+        }
+        for (var i = 0; i < n; i++) {
+            console.log(array[i])
+        }
+    }
+    try {
+        console.log(getFirst(array, 20))
+    }catch (e) {
+        console.log(e)
+
+    }*/
+    //=============================================================================================================
+    /* Напишите функцию getLast(array, n), которая возвращает фрагмент массива, содержащий последние 'n'
+    элементов массива.
+     */
+    /*var array = [1,2,3,4,5,6,7,8,9];
+
+    function getLast(array, n) {
+      if (n === 0){
+           n = array.length
+      }
+      for (var i = array.length - n; i < array.length; i++){
+          console.log(array[i])
+      }
+    }
+    console.log(getLast( array, 3))*/
+    //=============================================================================================================
+    /*Напишите функцию countIdentic(arr), которая возвращает количество повторяющихся элементов в массиве.*/
+    /*var array = [3, 3, 7, 7, 3, 3, 4, 5, 5, 8, 8, 8]
+
+    function countIdentic(arr) {
+        var result = {}
+        for (var i = 0; i < arr.length; i++) {
+            var sym = arr[i]
+            if (result[sym] != undefined) {
+                result[sym]++
+            } else {
+                result[sym] = 1
+            }
+        }
+        var counter = 0
+        for (var key in result) {
+            if (result[key] > 1) {
+                counter++
+            }
+        }
+        return counter
+    }
+
+    console.log(countIdentic(array))*/
+
+    //=============================================================================================================
+    /*Напишите функцию union, которая возвращает массив состоящий только из уникальных элементов из каждого массива.*/
+
+    /* var array1 = [5, 2, 1, -10, 8];
+     var array2 = [5, 2, 1, -9, 3, 7];
+
+     function union(array1, array2) {
+         var result = {};
+         for (var i = 0; i < array1.length; i++) {
+             result[array1[i]] = 0
+         }
+         for (i = 0; i < array2.length; i++) {
+             result[array2[i]] = 0
+         }
+         return Object.keys(result)
+     }
+
+     union(array1, array2)*/
+
+    //=============================================================================================================
+    /* Напишите функцию union, которая возвращает массив, содержащий все элементы arr1, которые не
+    находятся в arr2 и наоборот.
+     */
+    /*  var arr1 = [1, 2, 'a'];
+      var arr2 = [1, 2, 3, 4, 'b'];
+
+      function arrayDiff(arr1, arr2) {
+          var result = {}
+          var arr = arr1.concat(arr2)
+          for (var i = 0; i < arr.length; i++) {
+              var sym = arr[i]
+              if (result[sym] !== undefined) {
+                  result[sym]++
+              } else {
+                  result[sym] = 1
+              }
+          }
+          var arr3 = []
+          for (var key in result) {
+              if (result[key] < 2) {
+                  arr3.push(key)
+              }
+          }
+          console.log(arr3)
+
+      }
+      console.log(arrayDiff(arr1, arr2)); // [a,3,4,b]*/
+    //=============================================================================================================
+
+    /*Напишите функцию countIdentic(arr), которая возвращает количество повторяющихся элементов в массиве.*/
+
+    /* var array = [3, 3, 7, 7, 3, 3, 4, 5, 5, 8, 8, 8]
+
+     function countIdentic(arr) {
+         var result = {}
+         for (var i = 0; i < arr.length; i++) {
+             var sym = arr[i]
+             if (result[sym] !== undefined) {
+                 result[sym]++
+             } else {
+                 result[sym] = 1
+             }
+         }
+         var counter = 0
+         for (var key in result) {
+             if (result[key] > 1) {
+                 counter++
+
+             }
+         }
+         return counter
+     }
+
+     console.log(countIdentic(array))*/
+
+
+    //=============================================================================================================
+    /*Напишите код, который определяет сумму и произведение значений массива.*/
+    /* var arr = [ 1, 2 , 3 , 4 , 5 , 6 , 7, 8 ,9];
+     var sum = 0
+     var prod = 1
+      for (var i = 0; i < arr.length; i++){
+          sum += arr[i]
+           prod *= arr[i]
+      }
+
+
+     console.log(" Сумма : "+sum + " Произведение : " + prod);*/ /* Сумма : 45
+                                     Произведение : 362880 */
+    //=============================================================================================================
+    /*Напишите код, который отсортирует массив объектов litmir по значению свойства title.*/
+
+    /*  var litmir = [
+          {author: 'Хэленка', title: 'Улетела сказка'},
+          {author: 'Коул Кресли', title: 'Восстание Аркан'},
+          {author: 'Райчел Мид', title: 'Золотая лилия'}
+      ]
+      litmir.sort(function (a, b) {
+          var nameA = a.title.toLowerCase()
+          var nameB = b.title.toLowerCase()
+          if (nameA < nameB) { //сортируем строки по возрастанию}
+              return -1
+          }
+          if (nameA > nameB) {
+              return 1
+          }
+          return 0
+      })
+      console.log(litmir)*/
+
+    //=============================================================================================================
+
+    /* Напишите функцию startingSubstring(arr), которая возвращает
+    общую начальную подстроку в массиве строк.
+    document.writeln(res1); // Кап
+    document.writeln(res2); // Ре
+     */
+
+    /* var arr1 = ['Капитальная', 'Капля', "Капитальный"];
+     var arr2 = ['Репа', 'Редиска'];
+
+     function startingSubstring(arr) {
+         var minLen = arr[0].length
+         for (var i = 0; i < arr.length; i++) {
+             if (arr[i].length < minLen) {
+                 minLen = arr[i].length
+             }
+         }
+
+         var result = ""
+         for (i = 0; i < minLen; i++) {
+             var char = arr[0].charAt(i)
+             for (var j = 0; j < arr.length; j++) {
+                 if (arr[j].charAt(i) !== char) {
+                     return result
+                 }
+             }
+             result += char
+         }
+         return result
+     }
+
+     console.log(startingSubstring(arr1))
+     // var res2 = startingSubstring(arr2);*/
+
+
+    //=============================================================================================================
+    // Напишите функцию removeItem(arr, num), которая удаляет определенный элемент из массива.
+    // document.writeln(removeItem([3, 5, 7, 8, 5], 5)); // [3,7,8]
+
+    /*function removeItem(arr, num) {
+        var result = []
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] !== num) {
+                result.push(arr[i])
+            }
+        }
+        return result
+    }
+
+    document.writeln(removeItem([3, 5, 7, 8, 5], 5)); // [3,7,8]
+    */
+    //=============================================================================================================
+    // Массив указанной длины
+    // Напишите функцию generateNumbers(start, len), которая генерирует массив заданной длины len,
+    //     заполненный целыми числами, где каждое число больше предыдущего на единицу.
+    // document.writeln(generateNumbers(0, 5));  // 0,1,2,3,4
+    // document.writeln(generateNumbers(-5, 4)); // -5,-4,-3,-2
+
+    /*function generateNumbers(start, len) {
+        var arr = []
+        for (var i = start; i < start + len; i++) {
+            arr.push(i)
+        }
+        return arr
+    }
+
+    console.log(generateNumbers(0, 5));  // 0,1,2,3,4
+    console.log(generateNumbers(-5, 4)); // -5,-4,-3,-2*/
+    //=============================================================================================================
+
+    /*Массив, содержащий все целые числа между start и end
+    Напишите функцию generateRange(start, end), которая генерирует массив заданной длины len,
+        заполненный целыми числами. Каждое последующее число в массиве должно быть больше предыдущего на единицу.
+    document.writeln(generateNumbers(0, 5));  // 0,1,2,3,4
+    document.writeln(generateNumbers(-5, 4)); // -5,-4,-3,-2 */
+
+    /* function generateRange(start, end) {
+     var arr =[]
+         for(var i = start; i < end; i++){
+             arr.push(i)
+         }
+         return arr
+
+     }
+
+ console.log(generateRange(0, 5))
+ console.log(generateRange(-5, 4))
+ =============================================================================================================
+     Используя метод map() напишите код, который получает из массива строк новый массив,
+     содержащий их длины.
+     */
+
+    /* var vegetables = ['Капуста', 'Репа', 'Редиска', 'Морковка'];
+        var vegetableLength = vegetables.map(function(len) {
+           return len.length
+        })
+
+   console.log(vegetableLength); // 7,4,7,8*/
+    //=============================================================================================================
+
+    // Напишите код, который получает из массива чисел новый массив, содержащий пары чисел,
+    //     которые в сумме должны быть равны семи: (0:7), (1:6) и т.д.
+
+    /* var arr = [0, 1, 2, 3, 4, 5, 6, 7];
+function sumSeven(numbers) {
+    var sum = 7;
+    var arr1 = []
+    for(var i = 0; i < arr.length; i++){
+        for(var j = 0; j < arr.length; j++){
+            if(i < j && arr[i] + arr[j] === sum){
+                arr1.push(arr[i] + ":" + arr[j])
+
+            }
+
+        }
+
+    }
+    return arr1
+}
+
+console.log(sumSeven(arr)); // [0:7, 1:6, 2:5, 3:4]*/
+
+    //=============================================================================================================
+
+    // Перед вами переменная, содержащая строку. Напишите код, создащий массив,
+    //     который будет состоять из первых букв слов строки str. При написании данного кода,
+    //     позаимствуйте у объека Array метод filter.  document.write(array);  // [К,о,ж,з,г,с,ф]
+
+    /*   var str = "Каждый охотник желает знать, где сидит фазан.";
+           var arr = str.split(" ")
+           var result = arr.map(function (litera) {
+              return litera[0]
+           })
+
+
+   console.log(result);  // [К,о,ж,з,г,с,ф]*/
+
+    //=============================================================================================================
+
+    /*Перед вами переменная, содержащая строку. Напишите код, создащий массив, который
+    будет состоять из строк, состоящих из предыдущего, текущего и следующего символа строки str.
+     При написании данного кода, позаимствуйте у объека Array метод map.
+     document.writeln(arr); // [Ja,Jav,ava,vaS,aSc,Scr,cri,rip,ipt,pt]
+     */
+
+    /* var str = "JavaScript";
+     var arr = str.split("")
+     var result = []
+     for(var i = 0; i < arr.length; i++){
+         var symb = ""
+         if(arr[i-1] !== undefined){
+             symb += arr[i-1]
+         }
+         symb += arr[i]
+         if(arr[i+1] !== undefined){
+             symb += arr[i+1]
+         }
+         result.push(symb)
+     }
+
+     console.log(result); // [Ja,Jav,ava,vaS,aSc,Scr,cri,rip,ipt,pt]*/
+    //=============================================================================================================
+    /*Напишите ф-ию range(), принимающую два аргумента: начало и конец диапазона, вкл.чая начальное и конечное.
+        третий необязательный аргумент - шаг для построения массива. убедитесь, что функция работает с отрицательным шагом
+    range(5, 2, -1) возвращает [5, 4, 3, 2]*/
+
+    /* function range(start, end, step) {
+         var arr = []
+         step = step === undefined ? 1 : step
+         if (start < end) {
+             for (var i = start; i <= end; i += step) {
+                 arr.push(i)
+             }
+         } else {
+             if (step > 0) {
+                 for (var i = end; i >= start; i += step) {
+                     arr.push(i)
+                 }
+             } else {
+                 for (var i = start; i >= end; i += step) {
+                     arr.push(i)
+                 }
+             }
+         }
+         return arr
+     }*/
+    /*
+        console.log(range(1, 5)) //'возвращает [1,2,3,4,5]*!/')
+        console.log(range(1, 5, 2))// 'возвращает [1,3,5]*!/')
+        console.log(range(5, 1)) //'возвращает []*!/ - пустой массив?')
+        console.log(range(5, 1, -1)) //'возвращает [5,4,3,2,1]*!/')*/
+    //=============================================================================================================
+
+    /*  Функция принимает на вход массив или объект, подобный массиву. Функция возвращает массив, полученный из аргумента
+      удалением триплов. Триплом будем считать элемент, которые повторяется 3 и более раз. Пример:
+      var a = f([1, 2, 1, 3, 1, 3, 1, 4]); // a = [2, 3, 3, 4]
+      var b = f("mama ramu"); // b = [" ", "r", "u"];
+    */
+    /*function removeThirdItem(elements) {
+
+        var tempMap = new Map();
+        for (var i = 0; i < elements.length; i++) {
+            if (tempMap.has(elements[i])) {
+                tempMap.set(elements[i], tempMap.get(elements[i]) + 1)
+            } else {
+                tempMap.set(elements[i], 1)
+            }
+        }
+        var result = []
+        for (i = 0; i < elements.length; i++) {
+            if (tempMap.get(elements[i]) < 3) {
+                result.push(elements[i])
+            }
+        }
+        return result
+    }
+
+    console.log(removeThirdItem([1, 2, 1, 3, 1, 3, 1, 4])); // a = [2, 3, 3, 4]
+    console.log(removeThirdItem("mama ramu"))*/
+    //=============================================================================================================
+
+
+    //=============================================================================================================
+    //=============================================================================================================
+</script>
+</body>
+</html>

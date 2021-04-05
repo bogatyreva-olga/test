@@ -140,9 +140,15 @@ function sendSignInForm() {
 
 function fillYearOfBirth() {
     var userYear = document.getElementById("year")
-    var result = '<option value="">Year</option>'
-    for (var i = 1930; i < 2010; i++) {
-        result += '<option value=' + i + '>' + i + '</option>'
+    var result = ''
+    var startYear = 1930
+    var endYear = 2010
+    for (var i = startYear; i < endYear; i++) {
+        if (i === 1991) {
+            result += '<option value=' + i + ' selected>' + i + '</option>'
+        } else {
+            result += '<option value=' + i + '>' + i + '</option>'
+        }
     }
     userYear.innerHTML = result
 }
@@ -150,9 +156,15 @@ function fillYearOfBirth() {
 function fillDayOfBirth(endDay) {
     var startDay = 1
     var userDay = document.getElementById("day")
-    var result = '<option value="">Day</option>'
+    var userSelectedDay = parseInt(userDay.value)
+
+    var result = ''
     for (var i = startDay; i <= endDay; i++) {
-        result += '<option value=' + i + '>' + i + '</option>'
+        if (i === userSelectedDay) {
+            result += '<option value=' + i + ' selected>' + i + '</option>'
+        } else {
+            result += '<option value=' + i + '>' + i + '</option>'
+        }
     }
     userDay.innerHTML = result
 }
@@ -176,7 +188,7 @@ function getMonthsObject() {
 
 function fillMonthOfBirth() {
     var userMonth = document.getElementById("month")
-    var result = '<option value="">Month</option>'
+    var result = ''
     var months = getMonthsObject()
     for (const [monthNumber, month] of Object.entries(months)) {
         result += '<option value=' + monthNumber + '>' + month.name + '</option>'
@@ -186,7 +198,24 @@ function fillMonthOfBirth() {
 
 
 function isLeapYear(year) {
-    return (((year.value % 4 == 0) && (year.value % 100 != 0)) || (year.value % 400 == 0))
+    year = parseInt(year)
+    return new Date(year, 1, 29).getDate() === 29;
+}
+
+function changeMonthAndYearHandler() {
+    var monthNumber = document.getElementById("month").value
+    var months = getMonthsObject()
+    var countDays = months[monthNumber].countDays
+    if (parseInt(monthNumber) === 2) {
+        var selectedYear = document.getElementById('year')
+        if (isLeapYear(selectedYear.value)) {
+            countDays = 29
+        } else {
+            countDays = 28
+        }
+
+    }
+    fillDayOfBirth(countDays)
 }
 
 
@@ -215,22 +244,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         })*/
 
+
         var userMonth = document.getElementById("month")
         userMonth.addEventListener('change', function (e) {
-            var monthNumber = e.target.value
-            var months = getMonthsObject()
-            var countDays = months[monthNumber].countDays
-            if (monthNumber === 2) {
-                var selectedYear = document.getElementById('year')
-                if (isLeapYear(selectedYear.value)) {
-                    countDays = 29
-                } else {
-                    countDays = 28
-                }
+            changeMonthAndYearHandler()
+        })
 
-            }
-            fillDayOfBirth(countDays)
-
+        var userYear = document.getElementById("year")
+        userYear.addEventListener('change', function (e) {
+            changeMonthAndYearHandler()
         })
 
     }
