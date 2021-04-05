@@ -11,7 +11,8 @@ html, body {
 .content-div {
     display: none;
     border: 1px solid lightgray;
-    background-color: #F5F5F5;
+    padding-left: 20px;
+    background-color: white;
 }
 
 .label-active .content-div {
@@ -22,7 +23,6 @@ html, body {
     border: 1px solid lightgray;
     position: relative;
     left: 22%;
-    padding: 15px;
     width: 50%;
     background-color: #F5F5F5;
 }
@@ -31,10 +31,21 @@ html, body {
     font-size: x-large;
 }
 
-.label-active .content-title {
-    margin-bottom: 20px;
+.content-title {
+    display: flex;
+    padding: 12px;
 }
 
 .arrow {
+    display: block;
+    transition: all 0.4s ease;
+    width: 20px;
+}
+
+.label-active .arrow {
     transform: rotate(90deg);
+}
+
+.content-title div {
+    padding: 20px;
 }
