@@ -25,11 +25,20 @@ function hideButtons() {
 
 function addNumberButton() {
     let inputNumberValue = parseInt(document.getElementById("input-number-js").value)
-    if (inputNumberValue === NaN) {
-        inputNumberValue = 0
-    }
-    inputNumberValue++
+    inputNumberValue = isNaN(inputNumberValue) ? 0 : inputNumberValue + 1
     document.getElementById("input-number-js").value = inputNumberValue
+    if (inputNumberValue >= 10) {
+        document.getElementById("up-js").classList.add("up-button-disabled")
+    }
+}
+
+function decreaseNumberButton() {
+    let inputNumberValue = parseInt(document.getElementById("input-number-js").value)
+    inputNumberValue--
+    document.getElementById("input-number-js").value = inputNumberValue
+    if (inputNumberValue > 0) {
+        document.getElementById("down-js").classList.add("down-button-disabled")
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -37,5 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("input-container-js").addEventListener("mouseover", showButtons)
     document.getElementById("input-container-js").addEventListener("mouseout", hideButtons)
     document.getElementById("up-js").addEventListener("click", addNumberButton)
+    document.getElementById("down-js").addEventListener("click", decreaseNumberButton)
 })
 //document.getElementById("input-number-js").disabled = true

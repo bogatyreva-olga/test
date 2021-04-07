@@ -44,3 +44,10 @@ html body {
     width: 25px;
 }
 
+.up-button-disabled {
+    pointer-events: none;
+}
+
+.down-button-disabled {
+    pointer-events: none;
+}
