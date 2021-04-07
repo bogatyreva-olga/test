@@ -35,7 +35,7 @@ html body {
     z-index: 1;
     top: -56px;
     left: 181px;
-    /*display: none;*/
+    display: none;
 }
 
 .up-button, .down-button {
@@ -43,3 +43,4 @@ html body {
     height: 25px;
     width: 25px;
 }
+
