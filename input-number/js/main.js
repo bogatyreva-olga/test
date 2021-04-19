@@ -1,7 +1,7 @@
 function inputDisabled() {
     let inputNumbers = document.getElementById("input-number-js")
     inputNumbers.disabled = !inputNumbers.disabled
-    inputNumbers.value = ""
+    inputNumbers.value = parseInt(document.getElementById("input-number-js").value) ? parseInt(document.getElementById("input-number-js").value) : 0
 
     // inputNumbers.setAttribute("disabled", "disabled")
     //  if (inputNumbers.getAttribute("disabled") === "disabled"){
@@ -11,6 +11,10 @@ function inputDisabled() {
     //  }
 }
 
+function getInputNumberValue() {
+
+    return parseInt(document.getElementById("input-number-js").value.replace(/[^\d\.]/, ""));
+}
 
 function showButtons() {
     let isDisabledInput = document.getElementById("input-number-js").disabled
@@ -24,21 +28,43 @@ function hideButtons() {
 }
 
 function addNumberButton() {
-    let inputNumberValue = parseInt(document.getElementById("input-number-js").value)
+    let inputNumberValue = getInputNumberValue()
     inputNumberValue = isNaN(inputNumberValue) ? 0 : inputNumberValue + 1
     document.getElementById("input-number-js").value = inputNumberValue
-    if (inputNumberValue >= 10) {
-        document.getElementById("up-js").classList.add("up-button-disabled")
-    }
 }
 
 function decreaseNumberButton() {
-    let inputNumberValue = parseInt(document.getElementById("input-number-js").value)
-    inputNumberValue--
+    console.log("decreaseNumberButton")
+    let inputNumberValue = getInputNumberValue()
+    inputNumberValue = isNaN(inputNumberValue) ? 0 : inputNumberValue - 1
     document.getElementById("input-number-js").value = inputNumberValue
-    if (inputNumberValue > 0) {
-        document.getElementById("down-js").classList.add("down-button-disabled")
+}
+
+
+function inputNumberChangeHandler() {
+    let hasMin = document.getElementById("input-number-js").hasAttribute("min")
+    let min = parseInt(document.getElementById("input-number-js").getAttribute("min"))
+    let hasMax = document.getElementById("input-number-js").hasAttribute("max")
+    let max = parseInt(document.getElementById("input-number-js").getAttribute("max"))
+    let inputNumberValue = getInputNumberValue()
+    if (hasMax && inputNumberValue >= max) {
+        document.getElementById("input-number-js").value = max
+        document.getElementById("up-js").classList.add("button-disabled")
+    } else {
+        document.getElementById("up-js").classList.remove("button-disabled")
     }
+    if (hasMin && inputNumberValue <= min) {
+        document.getElementById("input-number-js").value = min
+        document.getElementById("down-js").classList.add("button-disabled")
+    } else {
+        document.getElementById("down-js").classList.remove("button-disabled")
+    }
+
+
+}
+
+function inputNumberValue() {
+    document.getElementById("input-number-js").value = getInputNumberValue()
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -47,5 +73,11 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("input-container-js").addEventListener("mouseout", hideButtons)
     document.getElementById("up-js").addEventListener("click", addNumberButton)
     document.getElementById("down-js").addEventListener("click", decreaseNumberButton)
+    document.getElementById("input-number-js").addEventListener("input", inputNumberChangeHandler)
+    document.getElementById("input-number-js").addEventListener("change", inputNumberChangeHandler)
+    document.getElementById("up-js").addEventListener("click", inputNumberChangeHandler)
+    document.getElementById("down-js").addEventListener("click", inputNumberChangeHandler)
+    document.getElementById("input-number-js").addEventListener("change", inputNumberValue)
+
 })
 //document.getElementById("input-number-js").disabled = true
