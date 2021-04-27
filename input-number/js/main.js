@@ -1,18 +1,12 @@
 function inputDisabled() {
     let inputNumbers = document.getElementById("input-number-js")
     inputNumbers.disabled = !inputNumbers.disabled
-    inputNumbers.value = parseInt(document.getElementById("input-number-js").value) ? parseInt(document.getElementById("input-number-js").value) : 0
+    inputNumbers.value = getInputNumberValue()
 
-    // inputNumbers.setAttribute("disabled", "disabled")
-    //  if (inputNumbers.getAttribute("disabled") === "disabled"){
-    //      inputNumbers.removeAttribute("disabled")
-    //  }else{
-    //      inputNumbers.setAttribute("disabled", "disabled")
-    //  }
 }
 
 function getInputNumberValue() {
-    return parseFloat(document.getElementById("input-number-js").value.replace(/[^\d.]/, ""));
+    return parseFloat(document.getElementById("input-number-js").value.replace(/[^\d.\-]/, ""))
 }
 
 function showButtons() {
@@ -29,6 +23,7 @@ function hideButtons() {
 function addNumberButton() {
     let inputNumberValue = getInputNumberValue()
     inputNumberValue = isNaN(inputNumberValue) ? 0 : inputNumberValue + getStepValue()
+    inputNumberValue = inputNumberValue.toFixed(getStepFixed())
     document.getElementById("input-number-js").value = inputNumberValue
 }
 
@@ -36,12 +31,28 @@ function decreaseNumberButton() {
     console.log("decreaseNumberButton")
     let inputNumberValue = getInputNumberValue()
     inputNumberValue = isNaN(inputNumberValue) ? 0 : inputNumberValue - getStepValue()
+    inputNumberValue = inputNumberValue.toFixed(getStepFixed())
     document.getElementById("input-number-js").value = inputNumberValue
 }
 
+function getStepFixed() {
+    let stepValue = getStepValue().toString().replace(/^\d+\./, "").length
+    let inputNumbers = getInputNumberValue().toString().replace(/^-?\d+\./, "").length
+    if (stepValue >= inputNumbers) {
+        return stepValue
+    }
+    return inputNumbers
+}
+
+/*
+* {0,}
++ {1,}
+? {0,1}
+* /^-?\d+\./
+* */
 function getStepValue() {
     if (document.getElementById("input-number-js").hasAttribute("step")) {
-        return parseFloat(document.getElementById("input-number-js").getAttribute("step"))
+        return Math.abs(parseFloat(document.getElementById("input-number-js").getAttribute("step")))
     }
     return 1
 }
@@ -72,6 +83,11 @@ function inputNumberValue() {
     document.getElementById("input-number-js").value = getInputNumberValue()
 }
 
+function minMaxDifference() {
+    let min = parseFloat(document.getElementById("input-number-js").getAttribute("min"))
+    let max = parseFloat(document.getElementById("input-number-js").getAttribute("max"))
+    return max > min
+}
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("toggle-disabled-js").addEventListener("click", inputDisabled)
     document.getElementById("input-container-js").addEventListener("mouseover", showButtons)
@@ -85,4 +101,3 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("input-number-js").addEventListener("change", inputNumberValue)
 
 })
-//document.getElementById("input-number-js").disabled = true
