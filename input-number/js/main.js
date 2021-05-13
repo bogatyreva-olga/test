@@ -14,7 +14,7 @@ function getInputNumberValue() {
 }
 
 function showButtons() {
-    let isDisabledInput = document.getElementById("input-number-js").disabled
+    let isDisabledInput = getInputNumberElement().disabled
     if (!isDisabledInput) {
         document.getElementById("up-down-container-js").style.display = "block"
     }
@@ -112,14 +112,14 @@ function isMinMaxSuccessCondition() {
 
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("toggle-disabled-js").addEventListener("click", inputDisabled)
-    document.getElementById("input-container-js").addEventListener("mouseover", showButtons)
+    getInputNumberElement().addEventListener("mouseover", showButtons)
     document.getElementById("input-container-js").addEventListener("mouseout", hideButtons)
     document.getElementById("up-js").addEventListener("click", addNumberButton)
     document.getElementById("down-js").addEventListener("click", decreaseNumberButton)
-    document.getElementById("input-number-js").addEventListener("input", inputNumberChangeHandler)
-    document.getElementById("input-number-js").addEventListener("change", inputNumberChangeHandler)
+    getInputNumberElement().addEventListener("input", inputNumberChangeHandler)
+    getInputNumberElement().addEventListener("change", inputNumberChangeHandler)
     document.getElementById("up-js").addEventListener("click", inputNumberChangeHandler)
     document.getElementById("down-js").addEventListener("click", inputNumberChangeHandler)
-    document.getElementById("input-number-js").addEventListener("change", inputNumberValue)
+    getInputNumberElement().addEventListener("change", inputNumberValue)
 
 })
