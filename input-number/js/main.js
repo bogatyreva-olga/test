@@ -6,7 +6,6 @@ function inputDisabled() {
     let inputNumbers = getInputNumberElement()
     inputNumbers.disabled = !inputNumbers.disabled
     inputNumbers.value = getInputNumberValue()
-
 }
 
 function getInputNumberValue() {
