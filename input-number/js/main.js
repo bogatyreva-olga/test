@@ -12,15 +12,19 @@ function getInputNumberValue() {
     return parseFloat(getInputNumberElement().value.replace(/[^\d.\-]/, ""))
 }
 
+function getContainerElement() {
+    return document.getElementById("up-down-container-js")
+}
+
 function showButtons() {
     let isDisabledInput = getInputNumberElement().disabled
     if (!isDisabledInput) {
-        document.getElementById("up-down-container-js").style.display = "block"
+        getContainerElement().style.display = "block"
     }
 }
 
 function hideButtons() {
-    document.getElementById("up-down-container-js").style.display = "none"
+    getContainerElement().style.display = "none"
 }
 
 function addNumberButton() {
@@ -78,6 +82,14 @@ function getMax() {
     return parseFloat(getInputNumberElement().getAttribute("max"));
 }
 
+function getUpButton() {
+    return document.getElementById("up-js")
+}
+
+function getDownButton() {
+    return document.getElementById("down-js")
+}
+
 function inputNumberChangeHandler() {
     if (!isMinMaxSuccessCondition()) {
         console.warn("Max-min condition failure")
@@ -86,15 +98,15 @@ function inputNumberChangeHandler() {
     let inputNumberValue = getInputNumberValue()
     if (hasMax() && inputNumberValue >= getMax()) {
         getInputNumberElement().value = getMax()
-        document.getElementById("up-js").classList.add("button-disabled")
+        getUpButton().classList.add("button-disabled")
     } else {
-        document.getElementById("up-js").classList.remove("button-disabled")
+        getUpButton().classList.remove("button-disabled")
     }
     if (hasMin() && inputNumberValue <= getMin()) {
         getInputNumberElement().value = getMin()
-        document.getElementById("down-js").classList.add("button-disabled")
+        getDownButton().classList.add("button-disabled")
     } else {
-        document.getElementById("down-js").classList.remove("button-disabled")
+        getDownButton().classList.remove("button-disabled")
     }
 }
 
@@ -113,12 +125,12 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("toggle-disabled-js").addEventListener("click", inputDisabled)
     getInputNumberElement().addEventListener("mouseover", showButtons)
     document.getElementById("input-container-js").addEventListener("mouseout", hideButtons)
-    document.getElementById("up-js").addEventListener("click", addNumberButton)
-    document.getElementById("down-js").addEventListener("click", decreaseNumberButton)
+    getUpButton().addEventListener("click", addNumberButton)
+    getDownButton().addEventListener("click", decreaseNumberButton)
     getInputNumberElement().addEventListener("input", inputNumberChangeHandler)
     getInputNumberElement().addEventListener("change", inputNumberChangeHandler)
-    document.getElementById("up-js").addEventListener("click", inputNumberChangeHandler)
-    document.getElementById("down-js").addEventListener("click", inputNumberChangeHandler)
+    getUpButton().addEventListener("click", inputNumberChangeHandler)
+    getDownButton().addEventListener("click", inputNumberChangeHandler)
     getInputNumberElement().addEventListener("change", inputNumberValue)
 
 })
