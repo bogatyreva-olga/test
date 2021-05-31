@@ -27,6 +27,16 @@ function test(e) {
     alert(e.target.firstChild.innerHTML + " скопировано " + e.target.lastChild.innerHTML)
 }
 
+function positionTopFirstSpan(e) {
+    let elem = e.target.firstElementChild
+    return elem.style.top = "5%"
+}
+
+function outPositionTopFirstSpan(e) {
+    let elem = e.target.firstElementChild
+    return elem.style.top = "20%"
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     let paletteElement = document.getElementById("palette-js")
 
@@ -57,5 +67,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         paletteElement.appendChild(colorItemElement)
 
+        colorItemElement.addEventListener("mouseover", positionTopFirstSpan)
+        colorItemElement.addEventListener("mouseout", outPositionTopFirstSpan)
+
     }
+
 })
