@@ -9,11 +9,9 @@ let colors = [
     {"name": "цвет -8", "color": "#0050b3"},
     {"name": "цвет -9", "color": "#003a8c"},
     {"name": "цвет -10", "color": "#002766"},
-
 ]
 
-
-function test(e) {
+function copyColorToClipboard(e) {
     const el = document.createElement('textarea');
     el.value = e.target.lastChild.innerHTML;
     el.setAttribute('readonly', '');
@@ -25,16 +23,6 @@ function test(e) {
     document.body.removeChild(el);
 
     alert(e.target.firstChild.innerHTML + " скопировано " + e.target.lastChild.innerHTML)
-}
-
-function positionTopFirstSpan(e) {
-    let elem = e.target.firstElementChild
-    return elem.style.top = "5%"
-}
-
-function outPositionTopFirstSpan(e) {
-    let elem = e.target.firstElementChild
-    return elem.style.top = "20%"
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -53,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let colorItemElement = document.createElement("div")
         colorItemElement.style.background = colors[i].color
         colorItemElement.style.color = textColor
-        colorItemElement.addEventListener("click", test)
+        colorItemElement.addEventListener("click", copyColorToClipboard)
 
         let colorNameElement = document.createElement("span")
         colorNameElement.innerHTML = colors[i]["name"]
@@ -66,10 +54,5 @@ document.addEventListener("DOMContentLoaded", function () {
         colorItemElement.appendChild(colorHashElement)
 
         paletteElement.appendChild(colorItemElement)
-
-        colorItemElement.addEventListener("mouseover", positionTopFirstSpan)
-        colorItemElement.addEventListener("mouseout", outPositionTopFirstSpan)
-
     }
-
 })
