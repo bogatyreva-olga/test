@@ -9,13 +9,14 @@
 <body>
 <div class="border">
     <div class="frame">
-        <div class="input-component">
-            <input type="checkbox" class="checkbox"><span class="checked-status">Unchecked</span>&ndash;<span
-                class="blocking-status">Enabled</span>
+        <div class="checkbox-component">
+            <input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox"><span class="checked-status"
+                                                                                              id="check-status">Unchecked</span>&ndash;<span
+                class="blocking-status" id="block-status">Enabled</span></label>
         </div>
         <div class="buttons">
-            <button class="check-button">Check</button>
-            <button class="disable-button">Disable</button>
+            <input type="button" class="check-button" id="check-button" value="Check">
+            <input type="button" class="disable-button" id="disable-button" value="Disable">
         </div>
     </div>
 </div>
