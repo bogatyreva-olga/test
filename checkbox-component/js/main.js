@@ -27,14 +27,21 @@ function checkButtonClickHandle() {
 }
 
 function disableCheckbox() {
+    let statusCheckbox = document.getElementById("check-status")
+    let blockStatus = document.getElementById("block-status")
     let checkbox = document.getElementById("checkbox")
     let disableButton = document.getElementById("disable-button")
     if (disableButton.value === "Disable") {
         checkbox.disabled = true
         disableButton.value = "Enable"
+        statusCheckbox.style.color = "#d3d3d3"
+        blockStatus.style.color = "#d3d3d3"
+
     } else {
         checkbox.disabled = false
         disableButton.value = "Disable"
+        statusCheckbox.style.color = "black"
+        blockStatus.style.color = "black"
     }
 
 }

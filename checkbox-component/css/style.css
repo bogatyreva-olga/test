@@ -9,6 +9,7 @@ html, body {
     margin-left: 35%;
     border: 2px solid #ebe1e1;
     padding: 3% 2%;
+    width: 300px;
 }
 
 .input-component {
