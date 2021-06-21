@@ -42,9 +42,8 @@ html, body {
     width: 20px;
 }
 
-.l43
-
-;
+.label-active .arrow {
+    transform: rotate(90deg);
 }
 
 .content-title div {
