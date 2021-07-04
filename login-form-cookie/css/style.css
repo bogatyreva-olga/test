@@ -16,7 +16,6 @@ html, body {
 .component {
     position: relative;
     height: 34px;
-    width: 600px;
     margin-top: 30px;
     left: 20%;
 }
@@ -24,6 +23,7 @@ html, body {
 .user-name, .password {
     height: 40px;
     width: 500px;
+    border-color: #c4c4c4;
 }
 
 div span {
@@ -63,7 +63,7 @@ div input {
 }
 
 .form-input {
-    position: fixed;
+    position: absolute;
 }
 
 .submit-button {
