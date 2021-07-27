@@ -1,0 +1,36 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.border {
+    position: absolute;
+    top: 30%;
+    margin-left: 35%;
+    border: 2px solid #ebe1e1;
+    padding: 3% 2%;
+    width: 300px;
+}
+
+.input-component {
+    margin-bottom: 30px;
+}
+
+.checked-status, .blocking-status {
+    border: none;
+    font-size: 24px;
+}
+
+.checkbox {
+    transform: scale(2);
+    margin-right: 12px;
+}
+
+.check-button, .disable-button {
+    font-size: 20px;
+    background-color: #00BFFF;
+    color: white;
+    border: #00BFFF;
+    padding: 8px 8px;
+    margin-top: 20px;
+}
