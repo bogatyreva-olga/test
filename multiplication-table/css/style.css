@@ -1,0 +1,30 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.multiplication-table {
+    display: flex;
+    border: blue;
+    height: 800px;
+    width: 800px;
+    padding: unset;
+    margin: 200px auto;
+}
+
+.row-style {
+    position: center;
+    width: 600px;
+    height: 60px;
+    border: 5px solid black;
+}
+
+.column-style {
+    background-color: #f9d200;
+    width: 60px;
+    height: 60px;
+    position: center;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 30px;
+}
