@@ -1,0 +1,19 @@
+<html lang="en">
+<script>
+    function showImage() {
+        var div = document.getElementById("image")
+        div.innerHTML = "<img width='200px' src='randomPicture'>"
+        var arr = ['http://www.youloveit.ru/uploads/gallery/main/995/youloveit_ru_kartinki_tri_kota48.png', 'http://www.youloveit.ru/uploads/gallery/comthumb/995/youloveit_ru_kartinki_tri_kota51.png', 'http://www.youloveit.ru/uploads/gallery/comthumb/995/youloveit_ru_kartinki_tri_kota33.png','http://www.youloveit.ru/uploads/gallery/comthumb/995/youloveit_ru_kartinki_tri_kota01.png','http://www.youloveit.ru/uploads/gallery/comthumb/995/youloveit_ru_kartinki_tri_kota23.png']
+        var randomPicture = arr[randomInteger(0, arr.length)]
+    }    
+    
+
+</script>
+<body>
+<input onclick="showImage()" type="button" value="Нажми меня и появится изображение">
+<input onclick="showImage()" type="button" value="Увеличить изображение">
+<input onclick="showImage()" type="button" value="Уменьшить изображение">
+<input onclick="showImage()" type="button" value="Кот">
+<div id="image" >здесь будет изображение</div>
+</body>
+</html>

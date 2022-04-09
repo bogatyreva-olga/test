@@ -1,0 +1,75 @@
+<html lang="en">
+<script>
+  function selectOnChange(element) {
+
+    var changeColorElements = document.getElementsByClassName("change-color") 
+    var style = ""
+    switch (element.value){
+      case '1':
+      style = "color: green"
+      break;
+      case '2':
+      style = "color: red"
+      break;
+      case '3':
+      style = "color: blue"
+      break;
+    }
+    for (var i = 0; i < changeColorElements.length; i++) {
+      changeColorElements[i].style = style
+
+    }
+  }
+  function restoreColor(element){
+   element.style = ""
+ }
+
+ function changeDropdownColor(element){
+   var dropdown = document.getElementById("dropdown")
+
+   if(element.value ==="1"){
+     dropdown.style = "color: orange"
+   }
+   if(element.value ==="2"){
+    dropdown.style = "color: yellow"
+  }
+
+}
+function restoreColorToAll(element){
+  var restoreColorToAll = document.getElementsByClassName("restore-color") 
+  for (var i = 0; i < restoreColorToAll.length; i++) {
+    restoreColorToAll[i].style = "" 
+  }
+}
+
+</script>
+<style type="text/css">
+  .element{
+    margin:30px;
+  }
+  .inline-block{
+   display: inline-block;
+ }
+</style>
+<body>
+  <div class="element">
+    <select class="restore-color" id="dropdown" onchange="selectOnChange(this)">
+      <option value="1">Зелёный</option>
+      <option value="2">Красный</option>
+      <option value="3">Синий</option>
+    </select>
+  </div>
+  <div class="element inline-block">
+    <button class="change-color restore-color" id="btn" onclick="restoreColor(this)">Цветная кнопка</button>
+  </div>
+
+  <div class="element">
+    <input onclick="changeDropdownColor(this)" name="color" type="radio" value="1" id="radio1"><label class="change-color restore-color" for="radio1">Оранжевый</label>
+
+    <input onclick="changeDropdownColor(this)" name="color" type="radio" value="2" id="radio2"><label class="change-color restore-color" for="radio2">Жёлтый</label>
+  </div>
+  <div class="element inline-block">
+    <button onclick="restoreColorToAll()">Сброс</button>
+  </div>
+</body>
+</html>

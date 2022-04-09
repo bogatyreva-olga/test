@@ -1,0 +1,138 @@
+<DOCTYPE>
+	<html>
+	<head>
+	</head>
+	<body>
+		<script>
+
+			/*Напишите функцию repeatStr(str, n), которая вовращает строку повторяемую определённое количество раз.*/
+			/*function repeatStr(str, n) {
+				var result = ""
+				var i = 0
+				while(i < n){
+					result += str	
+					i++
+				}
+				return result
+			}
+			console.log(repeatStr('Hello!', 3))*/
+			function repeatStr(str, n) { 
+				var result = ""
+				for(var i = 0; i < n; i++ ){
+					 result += str
+				}
+				return result
+				} 
+			console.log(repeatStr('Hello!', 3))
+//==============================================================
+			/*Напишите функцию getSubstr(str, char, pos), которая возвращает часть строки, расположенную после или до указанного символа char в зависимости от параметра pos.*/
+
+			/*var str = 'Астрономия — Наука о небесных телах';
+
+			function getSubstr(str, char, pos) {
+			   	if(pos === "after"){
+                   return str1 = arr.slice(0, char)
+			   	}	
+				if(pos === "before"){
+					return str1 = arr.slice(char)
+				}
+			
+			}
+
+console.log(getSubstr(str, '—','after')); // Наука о небесных телах
+console.log(getSubstr(str, 'Н','before')); // Астрономия —*/
+//============================================			
+			/*Напишите функцию repeatStr(str, n), которая вовращает строку повторяемую определённое количество раз.*/
+
+			/*function repeatStr(str, n) { 
+				 return str.repeat(n)
+			}
+
+      console.log(repeatStr('Hello!', 3)); // Hello!Hello!Hello!/*
+
+			/*Напишите функцию insensitive_search(str1, str2), которая осуществляет поиск подстроки str2 в строке str1 без учёта регистра символов.*/
+
+			/*function insensitive_search(str1, str2) {
+			  if(str1.toLowerCase().includes(str2.toLowerCase())){
+                  return "Соответсвует"
+			  }else{
+			  	return "Не соответствует"
+			  }	
+			}
+
+         console.log(insensitive_search('Изучаю JavaScript', 'javascript')); 
+         console.log(insensitive_search('Изучаю JavaScript', 'javascriptS'));*/
+//==================================================
+			/*Напишите функцию change_register(str), которая принимает в качестве аргумента строку и и заменяет регистр каждого символа на противоположный.
+			Например, если вводится «КаЖдЫй ОхОтНиК», то на выходе должно быть «кАжДыЙ оХоТнИк».*/
+
+			/*var str = "КаЖдЫй ОхОтНиК жЕлАеТ зНаТь";  
+
+			function change_register(str) {
+				var result = ""
+                for (var i = 0; i < str.length; i++) {
+                	if(str[i] === str[i].toUpperCase()){
+                       result += str[i].toLowerCase()
+                	}else{
+                       result += str[i].toUpperCase() 
+                	}
+                }
+                return result
+            }
+
+console.log(change_register(str)); // "кАжДыЙ оХоТнИк ЖеЛаЕт ЗнАтЬ"*/
+
+			/*Первая буква каждого слова заглавная
+			Напишите функцию capitalize(str), которая возвращает строку, в которой каждое слово начинается с заглавной буквы.*/
+
+			/*var str = "каждый охотник желает знать";  
+
+			function capitalize(str) {
+               var str1 = str.split(' ')
+              var arr = str1.map(function(letter, index){
+					return letter[0].toUpperCase() + letter.slice(1)
+				})
+               var result = arr.join(" ")
+               return result
+
+            }
+
+            console.log(capitalize(str));*/ // "Каждый Охотник Желает Знать"
+
+			//Преобразуйте строку 'var_test_text' в 'varTestText'. Скрипт, конечно же, должен работать с любыми аналогичными строками.
+
+			/*var str = 'var_test_text'
+			function CamelCase(str){
+				var arr = []
+				var str1 = str.split("_")
+
+				var arr = str1.map(function(letter, index){
+					return letter[0].toUpperCase() + letter.slice(1)
+				})
+				var result = arr.join("")
+				return result[0].toLowerCase()+result.slice(1)
+
+			}
+			console.log(CamelCase(str))*/
+			 //============================================================//
+			
+			/*Количество вхождений символа в строке
+			Напишите функцию count(str, stringsearch), которая возвращает количество символов stringsearch в строке str.*/
+
+// 			var symb = "у"
+// 			var str = "Астрономия это наука о небесных объектах";
+// 			function count(str, symb) {
+// 				var counter = 0
+// 				for (var i = 0; i < str.length; i++) {
+// 					if(symb === str[i]){
+// 						counter ++  
+// 					}
+// 				}
+// 				return counter	
+// 			}
+
+// console.log(count(str, symb)) // 5
+
+		</script>
+	</body>
+	</html>

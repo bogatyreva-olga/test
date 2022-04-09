@@ -1,0 +1,867 @@
+<DOCTYPE>
+    <html>
+    <head>
+    </head>
+    <body>
+    </body>
+    </html>
+    <script>
+
+        function getSqrWithCache(cache, number) {
+            if (cache.has(number)) {
+                console.log("get from cache");
+                return cache.get(number);
+            }
+            let sqr = Math.pow(number, 2);
+            cache.set(number, sqr);
+            console.log("get from solved");
+            return sqr;
+        }
+
+        let cache = new Map();
+        console.log(getSqrWithCache(cache, 2));
+        console.log(getSqrWithCache(cache, 2));
+
+        /*вывести уникальные символы*/
+        //
+        // let str = "hello, world";
+        //
+        // function getUniqueElements(str) {
+        //     let result = "";
+        //     let arr = str.split("");
+        //     for (let i = 0; i < arr.length; i++) {
+        //         if (result.indexOf(arr[i]) === -1 ) {
+        //             result += arr[i]
+        //         }
+        //     }
+        //     return result;
+        // }
+        //
+        // console.log(getUniqueElements(str));
+        // Написать функцию, которая принимает массив котов и второй аргумент - количество лет,
+        //     и возвращает массив имён тех котов, которые старше чем переданный параметр "количество лет"
+
+        //   let cats = [
+        //       {"name": "kitty", "age": 10},
+        //       {"name": "jessy", "age": 3},
+        //       {"name": "villy", "age": 6},
+        //       {"name": "graycy", "age": 9}
+        //   ];
+        //
+        //   function getNameCat(arr, age) {
+        //       let cat = []
+        //       for (let i = 0; i < arr.length; i++) {
+        //           if (arr[i].age > age){
+        //               cat.push(arr[i].name)
+        //           }
+        //       }
+        //       return cat
+        //   }
+        // console.log(getNameCat(cats, 6))
+
+        //Дана матрица. Написать функцию, которая будет возвращать произведение элементов
+        // под главной диагональю,
+        // которые больше 10. Если матрица не квадратная, то выкинуть ошибку.
+
+        // let matrix = [
+        //     [1, 8, 4],
+        //     [15, 3, 9],
+        //     [7, 11, 1]
+        // ];
+        //
+        // function getProductElementsAnderMainDiagonal(matrix) {
+        //     let prod = 1;
+        //     for (let i = 0; i < matrix.length; i++) {
+        //             if (matrix.length !== matrix[i].length) {
+        //                 throw new Error("Матрица не квадратная")
+        //             }
+        //     }
+        //     for (let i = 0; i < matrix.length; i++) {
+        //         for (let j = 0; j < matrix.length; j++) {
+        //             if (j < i && matrix[i][j] > 10) {
+        //                 prod *= matrix[i][j];
+        //             }
+        //         }
+        //     }
+        //     return prod;
+        // }
+        //
+        // console.log(getProductElementsAnderMainDiagonal(matrix));
+
+        // Дан массив. Необходимо написать функцию, которая возвращает количество элементов,
+        //     значение которых больше чем среднее арифметическое значение этого массива.
+
+        // let arr = [20, 21, 90, 3, 30, 44, 100, 25, 80, 10, 75];
+        //
+        // function getNumbersMoreAverageMeaning(arr) {
+        //     let sum = 0;
+        //     let averageNumber;
+        //     let counter = 0;
+        //     for (let i = 0; i < arr.length; i++) {
+        //         sum += arr[i];
+        //     }
+        //     averageNumber = sum / arr.length
+        //     for (let i = 0; i < arr.length; i++) {
+        //         if (arr[i] > averageNumber) {
+        //             counter++
+        //         }
+        //     }
+        //     return counter
+        // }
+        //
+        // console.log(getNumbersMoreAverageMeaning(arr));
+
+        // Дан массив. Необходимо написать функцию,
+        // которая на вход принимает массив, и возвращает индекс максимального элемента этого массива.
+
+        // let arr = [20, -21, 3, 30, 44, 100, 2, -200, 10];
+        //
+        // function getIndexMaxNumber(arr) {
+        //     let indexMaxNum = 0;
+        //     for (let i = 0; i < arr.length; i++) {
+        //         if (arr[i] > arr[indexMaxNum]) {
+        //           indexMaxNum = i
+        //         }
+        //     }
+        //     return indexMaxNum
+        // }
+        // console.log(getIndexMaxNumber(arr));
+
+        // Требуется написать программу, вычисляющую значение какой-либо функции у = f(x). Допустим, такой:
+
+        // у = x – 2, если x > 0,
+        // y = 0, если x = 0,
+        // y = |x|, если x < 0.
+
+        // function f(x) {
+        //     if (x > 0) {
+        //         return x - 2
+        //     }
+        //     if (x === 0) {
+        //         return 0
+        //     }
+        //     if (x < 0) {
+        //         return Math.abs(x)
+        //     }
+        // }
+        //
+        // function getFResult (start, end, step) {
+        //     let result = new Map()
+        //     let i = start
+        //     while (i < end){
+        //     result.set(i, f(i))
+        //         i += step
+        //     }
+        //     return result
+        // }
+        // console.log(getFResult(-5, 5, 0.2))
+
+
+        // Вывести на экран ряд чисел Фибоначчи, состоящий из n элементов.
+        //  let n = 11
+        //
+        //  function getNumbersFibonacci (n) {
+        //   let sum = 0;
+        //   let sequence = [1, 2]
+        //    for (let i = 2; i <= n; i++) {
+        //        sum = sequence[i-1] + sequence[i-2]
+        //        sequence.push(sum)
+        //        sum = 0
+        //    }
+        //    return sequence
+        //  }
+        //
+        //  console.log(getNumbersFibonacci(n))
+        //Напечатать таблицу значений функции f=(3x^2-13x+5)^(1/2) в интервале [-5;5] с шагом 0.5 с
+
+        // function getFResult(start, end, step) {
+        //     let result = new Map()
+        //     for (let i = start; i <= end; i += step) {
+        //         result.set(i, f(i))
+        //     }
+        //     return result
+        // }
+        //
+        // console.log(getFResult(-5, 5, 0.5))
+        //
+        // function f(x) {
+        //     return Math.sqrt(Math.pow(3 * x, 2) - 13 * x + 5)
+        // }
+
+        // Описать функцию вычисления f(x) по формуле:
+        // f(x)= x^2 при -2<=x<2;
+        // x^2+4x+5 при x>=2;
+        // 4 при x<-2.
+        // function getFxResult(arr) {
+        //     let result = []
+        //     for (let i = 0; i < arr.length; i++) {
+        //         result[i] = f(arr[i])
+        //     }
+        //     return result
+        // }
+        //
+        // function f(x) {
+        //     if (x < -2) {
+        //         return 4
+        //     }
+        //     if (-2 <= x < 2) {
+        //         return Math.pow(x, 2)
+        //     }
+        //     if (x >= 2) {
+        //         return Math.pow(x, 2) + 4 * x + 5
+        //     }
+        // }
+
+        //================================================================================================================
+        // Оставить в строке только один экземпляр каждого встречающегося символа.
+
+        // let str = "lddobnbnwbnppett"
+        //
+        // function deleteRepeatSymbol(str) {
+        //     let str2 = {}
+        //     let result = ""
+        //     let arr = str.split("")
+        //     for (let i = 0; i < arr.length; i++) {
+        //         if (str2[arr[i]] !== undefined) {
+        //             str2[arr[i]]++
+        //         } else {
+        //             str2[arr[i]] = 1
+        //         }
+        //     }
+        //     for (let key in str2) {
+        //         if (str2[key] === 1) {
+        //             result += key
+        //         }
+        //     }
+        //     return result
+        // }
+        // console.log(deleteRepeatSymbol(str))
+
+        //==========================================================================================================
+
+        // Сформировать массив B из положительных элементов массива A, имеющих четный индекс
+        // Дан массив A вещественного типа, содержащий 20 положительных и отрицательных элементов.
+        // Сформировать массив B из положительных элементов массива A, имеющих четный индекс.
+        //  Найти сумму квадратов элементов нового массива.
+
+        //  let arr = [2, 5, -5, -7, 8, 4, 6, -7, 8, -9, 10, 11,  25]
+        //  let arr2 = []
+        //  for (let i =0; i < arr.length; i++) {
+        //      if(i % 2 === 0 && arr[i] > 0){
+        //         arr2.push(arr[i])
+        //      }
+        //  }
+        // console.log(arr2)
+
+        //======================================================================================================
+
+        // Найти количество положительных элементов массива
+        // let arr = [2, 5, -5, -7, 8, 4]
+        // let counter = 0;
+        // for (let i = 0; i < arr.length; i++) {
+        //     if (arr[i] > 0) {
+        //         counter ++
+        //     }
+        // }
+        // console.log(counter)
+
+        // - 5/2 + 10/4  - 15/6 + 20/8 - 25/10 + 30/12
+        // (5 * i) * Math.pow(-1, i) / (i * 2)
+
+
+        // - 1/2 - 2/4 - 3/6 - 4/8 - 5/10
+        // - i /  (i * 2)
+
+
+        // 3/5 + 9/6 + 27/7 +  81/8 + 243/9
+        //  Math.pow(3, i)/ (4 + i)           /
+
+
+        // 2/2 + 4/2 + 6/2 + 8/2 + 10/2 + 12/2
+        // 2*i / 2
+
+        // 1/4 + 2/8 + 4/16 + 8/32 + 16/64
+        // Math.pow(2, i - 1) / Math.pow(2, i + 1 )
+
+
+        // Найти сумму и количество элементов последовательности, которые по модулю больше 0.001. Последовательность:
+        //S = 1/2 - 2/4 + 3/8 - 4/16 + ... - ...
+
+        // let n = 4
+        // let result = 0
+        // for (let i = 1; i <= n; i++) {
+        //     result += i / Math.pow(2, i) * Math.pow(-1, i + 1)
+        // }
+        // console.log(result)
+
+        //Найти сумму n-го количества элементов ряда 1, -0.5, 0.25, -0.125, …
+        // 1/1 - 1/2 + 1/4 - 1/8 + 1/16
+
+        // let n = 4
+        // let result = 0
+        // for (let i = 1; i <= n; i++) {
+        //     result += 1 / Math.pow(2, i - 1) * Math.pow(-1, i + 1)
+        // }
+        // console.log(result)
+
+
+        //Вычисление факториала числа. Факториал числа представляет собой произведение всех
+        // натуральных чисел от 1 до этого числа включительно.
+        // let f = 5
+        //
+        // function factorial(f) {
+        //     let result = 1
+        //     for (let i = 1; i <= f; i++) {
+        //         result *= i
+        //     }
+        //     return result
+        // }
+        //
+        // console.log(factorial(f))
+
+        //Вводится число. Преобразовать его в другое число, цифры которого будут следовать
+        // в обратном порядке по сравнению с введенным числом.
+
+        // let number = 1234567
+        //
+        // function coupNumber(number) {
+        //    // return parseInt(number.toString().split("").reverse().join())
+        //
+        //     let str = number.toString()
+        //     let result = ""
+        //     console.log(str)
+        //     for (let i = str.length - 1; i >= 0; i--) {
+        //         result += str.charAt(i)
+        //     }
+        //     return parseInt(result)
+        // }
+        //
+        // console.log(coupNumber(number))
+
+        //=========================================================================================================
+
+        //Расстояние между точками в n-мерном пространстве
+        //При заданных координатах A1, A2, ..., An одной точки и координатах B1, B2, ...,//
+        // Bn другой точки n-мерного пространства. Найти расстояние между ними по формуле sqrt(sqr(A1-B1) + ... + sqr(An-Bn)).
+        // Описание переменных
+        // a - коордитаны первой точки;
+        // b - координаты второй точки;
+        // n - количество измерений пространства;
+        // sqr_sum - сумма квадратов разности между соответствующими координатами точек.
+
+
+        // let a = [1, 2, 3, 4, 5]
+        // let b = [6, 7, 8, 9, 10]
+        //
+        // function getDistanceBetweenPoints(a, b) {
+        //     let result = 0
+        //     if (a.length !== b.length) {
+        //         return false
+        //     }
+        //     let len = a.length
+        //     for (let i = 0; i < len; i++) {
+        //         result += Math.pow((a[i] - b[i]), 2)
+        //     }
+        //     return Math.sqrt(result)
+        // }
+        //
+        // console.log(getDistanceBetweenPoints(a, b))
+        //
+        // result = 0
+        // for(...){
+        //     result += sqr(a[i] - b[i])
+        // }
+        // result = sqrt(result)
+        //
+        // return result
+        //
+
+        //===========================================================================================================
+
+
+        //Дан массив, содержащий положительные и отрицательные числа. Заменить все элементы массива
+        // на противоположные по знаку.
+
+        // let arr = [-5, -3, -1, 0, 3, 7, 9]
+        //
+        // for(let i = 0; i < arr.length; i++) {
+        //     if(arr[i] === 0){
+        //         arr[i] = 0
+        //         continue
+        //     }
+        //   arr[i] = arr[i]* -1
+        // }
+        //
+        // console.log(arr)
+        // Создайте из четных символов строки str1 строку str2 и из нечетных символов - строку str3.
+        //
+        // let str1 = "ксоорбоавкаа  мсыпчиитт"
+        //
+        // function divisionString (str) {
+        //     let str2 = ""
+        //     let str3 = ""
+        //     let result = ""
+        //     for (let i = 0; i < str.length; i++){
+        //         if(i % 2 === 0) {
+        //             str2 += str[i]
+        //         }else{
+        //             str3+= str[i]
+        //         }
+        //
+        //     }
+        //     return [str2, str3]
+        // }
+        // console.log(divisionString(str1))
+
+        //найти первый положительный элемент массива
+
+        // let arr = [-21, -45, -28, 2, 35, 15]
+        //
+        // function firstPositiveNumber(arr) {
+        //     let positiveNumber = 0
+        //     for (let i = 0; i < arr.length; i++) {
+        //         if (arr[i] > 0) {
+        //             positiveNumber = arr[i]
+        //           break
+        //         }
+        //     }
+        //     return positiveNumber
+        // }
+        //
+        // console.log(firstPositiveNumber(arr))
+
+        // Все элементы массива поделить на значение наибольшего элемента этого массива.
+        //  let arr = [10, 14, 45, 65, 100, 50]
+        //
+        //  function divisionByMaxElement(arr) {
+        //      let max = arr[0]
+        //      let result = []
+        //      for (let i = 0; i < arr.length; i++) {
+        //          if (max < arr[i]) {
+        //              max = arr[i]
+        //          }
+        //      }
+        //      for (let i = 0; i < arr.length; i++) {
+        //          result.push(arr[i]/max)
+        //      }
+        //     return result
+        //  }
+        // console.log(divisionByMaxElement(arr))
+
+        //Найти сумму чётных чисел числа
+
+        // let n =125232
+        //     function evenNumbers(n) {
+        //         let sum = 0
+        //         for (let i = 0; i < n.length; i++) {
+        //             if (i % 2 === 0) {
+        //                sum += n[i]                                   ??????
+        //             }
+        //         }
+        //       return sum
+        //     }
+        // console.log(evenNumbers(n))
+
+        //Вывести элементы числового массива, которые больше, чем элементы, стоящие перед ними.
+        // Например, дан массив [3, 9, 8, 4, 5, 1]. Следует вывести числа 9 и 5,
+        //     так как перед ними стоят соответственно числа 3 и 4, которые меньше их.
+
+        // let arr = [3, 9, 8, 4, 5, 1]
+        // let result = []
+        //
+        // for (let i = 1; i < arr.length; i++) {
+        //     if (arr[i] > arr[i - 1]) {
+        //         result.push(arr[i])
+        //     }
+        // }
+        // console.log(result)
+
+        // let matrix = [
+        //     [1, 2],
+        //     [5, 6],
+        //
+        // ]
+        // let matrix1 = [
+        //     [1, 2],
+        //     [5, 6],
+        // ]
+        //
+        // function MultiplyMatrix(A, B) {
+        //     var rowsA = A.length, colsA = A[0].length,
+        //         rowsB = B.length, colsB = B[0].length,
+        //         C = [];
+        //     if (colsA != rowsB) return false;
+        //     for (var i = 0; i < rowsA; i++) {
+        //         C[i] = []
+        //     }
+        //     for (var k = 0; k < colsB; k++) {
+        //         for (var i = 0; i < rowsA; i++) {
+        //             var t = 0;
+        //             for (var j = 0; j < rowsB; j++) {
+        //                 t += A[i][j] * B[j][k]
+        //             }
+        //             C[i][k] = t;
+        //         }
+        //     }
+        //     return C;
+        // }
+
+        // Найти наибольший по модулю элемент матрицы.
+        // Вывести на экран его индексы и значение.
+
+        // let matrix = [
+        //     [-1, 2, 4, 5],
+        //     [5, -60, 7, 8],
+        //     [-100, 2, -1, -40],
+        //     [5, 6, 77, 8]
+        // ]
+        //
+        // function getLargestModule(matrix) {
+        //     let max = Math.abs(matrix[0][0])
+        //     let maxI = 0
+        //     let maxJ = 0
+        //     //let maxResult = [Math.abs(matrix[0][0]), 0, 0]
+        //     for (let i = 0; i < matrix.length; i++) {
+        //         for (let j = 0; j < matrix[i].length; j++) {
+        //             if (max < Math.abs(matrix[i][j])) {
+        //                 max = Math.abs(matrix[i][j])
+        //                 maxI = i
+        //                 maxJ = j
+        //             }
+        //         }
+        //     }
+        //     return [max, maxI, maxJ]
+        // }
+        //
+        // console.log(getLargestModule(matrix))
+
+        // Написать функцию, которая на вход принимает n, создаёт массив размером n и заполняет ее целыми
+        // числами. Функция должна возвращать максимальное значение среди чисел, чьи индексы нечётные и больше
+        // либо равно 3
+
+        // function randomInteger(min, max) {
+        //     return Math.floor(Math.random() * (max - min) + min);
+        // }
+        //
+        // function getRandomOddIndex(n) {
+        //     let arr = []
+        //     let max = null
+        //     for (let i = 0; i < n; i++) {
+        //         arr.push(randomInteger(0, 10))
+        //     }
+        //     console.log(arr)
+        //    for (let i = 0; i < arr.length; i++ ) {
+        //         if(i % 2 !== 0 && i >=3 ){
+        //             if (max === null){
+        //                 max = arr[i]
+        //             }
+        //             if(arr[i] > max){
+        //               max = arr[i]
+        //             }
+        //         }
+        //    }
+        //    return max
+        // }
+        // console.log(getRandomOddIndex(12))
+
+        // Тебе дается число n (n > 2). Сгенерируй одномерный массив размером n,
+        //     заполни его случайными ЦЕЛЫМИ числами и найди минимальный ЧЕТНЫЙ ОТРИЦАТЕЛЬНЫЙ элемент.
+
+        // function randomInteger(min, max) {
+        //     return Math.floor(Math.random() * (max - min) + min);
+        // }
+
+
+        // let arr = [0, 10, 20, 30, 40] // Найти МИНИМАЛЬНЫЙ элемент средин чисел, которые больше либо равны 10
+        //
+        // function arrMin(arr) {
+        //     let min = null
+        //     for (let i = 0; i < arr.length; i++) {
+        //         if (arr[i] >= 10 ) {
+        //             if (min === null) {
+        //                 min = arr[i]
+        //             }
+        //             if (arr[i] < min) {
+        //                 min = arr[i]
+        //             }
+        //         }
+        //     }
+        //     return min
+        // }
+        //
+        // console.log(arrMin(arr))
+        //
+        // function randomInteger(min, max){
+        //     return Math.floor(Math.random() * (max - min) + min);
+        //
+        // }
+
+        // function minRandomNumber(n) {
+        //     let arr = []                           //переменная с массивом
+        //     for (let i = 0; i < n; i++) {          //цикл
+        //         arr.push(randomInteger(-5, 5))     //добавила в массив целое число
+        //     }
+        //     console.log(arr)
+        //     let min = null                            //объявляю переменную min которая равна null
+        //     for (let i = 0; i < arr.length; i++) {   //создала цикл от 0 до n
+        //         if (arr[i] % 2 === 0 && arr[i] < 0) {    //
+        //             if (min === null) {
+        //                 min = arr[i]
+        //             }
+        //             if (arr[i] < min) {
+        //                 min = arr[i]
+        //             }
+        //         }
+        //     }
+        //     return min
+        // }
+        //
+        // minRandomNumber(10)
+
+        //Найти максимальный элемент в массмве
+
+        // let arr = [25, 10, 5, 7, 26, 32, 51, 14,36,40]
+        // let max = arr[0]
+        // for(let i = 0; i < arr.length; i++){
+        //     if(max < arr[i]) {
+        //         max = arr[i]
+        //     }
+        // }
+        // console.log(max)
+
+        //Найти максимальное число из трех
+
+        // let a = -10
+        // let b = -3
+        // let c = -7
+        // let max = 0
+        //
+        // if(a > b){
+        //     max = a
+        // }else {
+        //     max = b
+        // }
+        // if(max < c){
+        //     max = c
+        // }
+        // console.log(max)
+
+
+        // Написать ф-ию, которая на вход принимает матрицу. определить, являтся ли матрица квадратной.
+        // Если да, то найти сумму элементров главной диагонали.
+
+        // let matrix = [
+        //     [1, 2, 3, 5],
+        //     [5, 6, 7, 8],
+        //     [1, 2, 3, 4],
+        //     [5, 6, 7, 8]
+        // ]
+        //
+        // function getSumElementsByMatrix(matrix) {
+        //     let sum = 0
+        //     let countRow = matrix.length
+        //     for (let i = 0; i < countRow; i++) {
+        //         if (countRow !== matrix[i].length) {
+        //             console.log("Матрица не квадратная")
+        //             return
+        //         }
+        //     }
+        //     for (let i = 0; i < countRow; i++) {
+        //         for (let j = 0; j < matrix[i].length; j++) {
+        //             if (i === j) {
+        //                 sum += matrix[i][j]
+        //             }
+        //         }
+        //     }
+        //     return sum
+        // }
+        // console.log(getSumElementsByMatrix(matrix))
+
+        //Напишите код, который находит наиболее часто используемый элемент массива.
+
+        //  var arr1 = [7, 'z', 'z', 'z', 3, 7, 'z', 7, 'z', 3, 5, 9, 7]
+        //      var counter = 0
+        //      var obj = {}
+        //      var max = 0
+        //      for (var i = 0; i < arr1.length; i++){
+        //      	(j = i; j < arr1.length; j++){
+        //      		if(arr1[i]==arr1[j]){
+        //      			counter++
+        //      		}
+        //      	}
+        //      	if(counter > max){
+        //      		max = counter
+        //      	}
+        //      }
+        // console.log (max)
+
+        //====================================================================
+        // Разница между двумя массивами
+        // Напишите функцию union, которая возвращает массив, содержащий все элементы arr1, которые не находятся в arr2 и наоборот.
+
+        /*var arr1 = [1, 2, 'a'];
+        var arr2 = [1, 2, 3, 4, 'b'];
+
+        function arrayDiff(arr1, arr2) {
+            var result = {}
+            var arr = arr1.concat(arr2)
+            for(var i = 0; i < arr.length; i++){
+                var sym = arr[i]
+                if(result[sym] != undefined){
+                    result[sym]++
+                }else{
+                    result[sym] = 1
+               }
+            }
+            var arr3 = []
+            var counter = 0
+            for(var key in result){
+                if(result[key] < 2){
+                    arr3.push(key)
+                }
+            }
+            console.log(arr3)
+        } arrayDiff(arr1, arr2)*/
+
+        ///====================================================================
+
+        // Объединить два массива без дублирования элементов
+        // Напишите функцию union, которая возвращает массив состоящий только из
+        // уникальных элементов из каждого массива.
+
+        // var array1 = [5, 2, 1, -10, 8];
+        // var array2 = [5, 2, 1, -9, 3, 7];
+
+        // var union = function(array1, array2) {
+        //     var result = {}
+        //     var arr = array1.concat(array2)
+        //     for(var key in arr){
+        //     	result[arr[key]] = 0
+        //     }
+        //     console.log(Object.keys(result))
+        // }
+        // union(array1, array2)
+
+
+        //================================================================
+
+
+        // Разворачивание массива массивов
+        // Напишите функцию expand(arr), которая разворачивает вложенный массив любой глубины.w
+
+        // var arr1 = [1, [2,[3,[4]]]];
+        // var arr2 = [1, [2], [3, [[4]]],[5,6]];
+        //
+        // function expand(arr, result){
+        // 	for (var i = 0; i < arr.length; i++) {
+        // 	   if(Array.isArray(arr[i])){
+        // 	   	  expand(arr[i], result)
+        // 	   }else{
+        // 	   	  result.push(arr[i])
+        // 	   }
+        // 	}
+        // 	return result
+        //  }
+        //
+        // console.log(expand(arr2, []))
+
+
+        //=======================================================================
+        //Напишите функцию countIdentic(arr), которая возвращает количество
+        // повторяющихся элементов в массиве.
+        /* var array = [3, 3, 7, 7, 3, 3, 4, 5, 5, 8, 8, 8]
+         function countIdentic(arr) {
+             var result = {}
+        for(var i = 0; i < arr.length; i++){
+        var sym = arr[i]
+        if(result[sym] != undefined){
+        result[sym]++
+        }else{
+        result[sym] = 1
+        }
+        }
+        var counter = 0
+             for(var key in result){
+                 if(result[key] > 1){
+        counter++
+
+        }
+        }
+
+            console.log(countIdentic(array))*/
+
+
+        //Напишите код, который создаёт массив элементов представляющих собой сумму соответствующих
+        // элементов заданных массивов.
+
+        // var arr1 = [1, 2, 3, 9, 12]
+        // var arr2 = [4, 5, 6]
+        // var arr3 = []
+        // if(arr1.length > arr2.length){
+        // 	var maxLength = arr1.length
+        // }else{
+        // 	var maxLength = arr2.length
+        // }
+        // for (var i = 0; i < maxLength; i++) {
+        // 	var a = 0
+        // 	var b = 0
+        // 	if(typeof arr1[i] != 'undefined'){
+        // 		a = arr1[i]
+        // 	}
+        // 	if(typeof arr2[i] != 'undefined'){
+        // 		b = arr2[i]
+        // 	}
+        // 	arr3.push(a + b)
+
+        // }
+        // console.log(arr3)
+
+
+        //============================================================================
+        // Напишите функцию getLast(array, n), которая возвращает фрагмент массива, содержащий последние 'n' элементов массива.
+
+        //
+        // var array = [1,2,3,4,5,6,7,8,9]
+        // function getLast(array, n) {
+        // 	if(n === 0){
+        // 		n = array.length
+        // 	}
+        // 	for(var i = array.length - n; i < array.length; i++){
+        // 		console.log(array[i])
+        // 	}
+        // 	}
+        //
+        // getLast(array, 5)
+
+        //=======================================================================
+        //Напишите функцию getFirst(array, n), которая возвращает фрагмент массива, содержащий первые 'n' элементов массива.
+        // var array = [1,2,3,4,5,6,7,8,9];
+        // function getFirst(array, n){
+        // 	if(n === 0){
+        //       n = 1
+        // 	}
+        // 	if(n < 0){
+        //       n = array.length - n
+        // 	}
+        //     for (var i = 0; i < n; i++){
+        //       console.log(array[i])
+
+
+        //     }
+        // }
+
+        // var str = 'я учу javascript!'
+        // var counter = 0
+        // var result = {}
+        // for (var i = 0; i < str.length; i++){
+        // 	var symbol = str[i]
+        // 	if(isNaN(result[symbol])){
+        // 		result[symbol] = 1
+        // 	}else{
+        // 		result[symbol]++
+        // 	}
+        // }
+        // console.log(Object.keys(result))
+
+
+    </script>

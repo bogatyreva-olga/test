@@ -1,0 +1,97 @@
+<DOCTYPE>
+	<html>
+	<head>
+	</head>
+	<body>
+		<script>
+			/*Змеиный_регистр (snake_case)
+			Напишите функцию initSnake(str), которая преобразует стиль написания составных слов строки из CamelCase в snake_case, при котором несколько слов разделяются символом подчеркивания (_), причём каждое слово пишется с маленькой буквы.*/
+
+			/*function initSnake(str) {
+				var result = ""
+				for (var i = 0; i < str.length; i++) {
+					if(str[i] === str[i].toUpperCase()){
+						result += "_" + str[i]
+					}else{
+						result += str[i]
+				}
+                    
+				}
+				return result.toLowerCase()
+            }
+				console.log(initSnake('iLoveJavaScript')); */
+
+
+
+
+
+			/*Напишите функцию removeDuplicate(str), которая возвращает строку, очищенную от слов-дупликатов, т.е. каждое слово должно повторяться не более одного раза.*/
+
+			/* var str = "вишня, груша, слива,груша"
+			function removeDuplicate(str){
+				var result = {}
+				var arr = str.split(',')
+				for(var i = 0; i < arr.length; i++){
+					var symb = arr[i].trim()
+					result[symb] = 0
+				}	
+				return (Object.keys(result)).join(', ')
+			}
+
+console.log(removeDuplicate(str)); // вишня, груша, слива*/
+//==============================================================
+			/*Напишите функцию cutString(str, n), которая удаляет лишние слова из строки str, оставив в ней n слов.*/
+
+			/*var str = "Сила тяжести приложена к центру масс тела"; 
+
+			function cutString(str, n) {
+				return str.split(' ').splice(0, n).join(" ")
+			}
+
+console.log(cutString(str, 5)) // 'Сила тяжести приложена к центру'*/
+
+//==================================================================			
+			/*Ограничить длину строки
+			Напишите функцию limitStr(str, n, symb), которая обрезает строку, если она длиннее указанного количества символов n. Усеченная строка должна заканчиваться троеточием «...» (если не задан параметр symb) или заданным символом symb.*/
+/*ВАРИАНТ В ЗАДАЧНИКЕ
+/*function limitStr(str, n, symb) {
+    if (!n && !symb) return str;
+    symb = symb || '...';
+    return str.substr(0, n - symb.length) + symb;
+}*/		
+/*ВАРИАНТ СЛАВЫ*/
+           /* function limitStr(str, n, symb = "...") { 
+           return str.slice(0, n) + symb }	//но отдает строку с ...		
+/*МОЙ ВАРИАНТ
+			function limitStr(str, n, symb) {
+				if (!n && !symb) return str
+			    if(symb === undefined){
+			    	var result = str.slice(0, n) + "..."
+			    }else{
+			    	result = str.slice(0, n) + symb
+			    }
+			    return result   
+            }*/
+/*console.log(limitStr('Каждый охотник желает знать.')); // Каждый охотник желает знать.
+console.log(limitStr('Каждый охотник желает знать.',17)); // Каждый охотник...
+console.log(limitStr('Каждый охотник желает знать.',22,'!')); // Каждый охотник желает!*/
+//=================================================================
+			/*Вставить подстроку в указанную позицию строки
+			Напишите функцию insert(str, substr, pos), которая вставляет подстроку substr в указханную позицию pos строки str. По умолчанию подстрока вставляется в начало строки.*/
+
+			/*function insert(str, substr, pos) {
+				var arr = str.split('')
+				arr.splice(pos, 0, substr)
+				return arr.join("")
+			}
+
+console.log(insert('Казнить нельзя')); // Казнить нельзя
+console.log(insert('Казнить нельзя', 'Помиловать ')); // Помиловать Казнить нельзя 
+console.log(insert('Казнить нельзя', 'Помиловать ', 8)); // Казнить Помиловать нельзя
+
+*/
+ 
+
+</script>
+</body>
+</html>

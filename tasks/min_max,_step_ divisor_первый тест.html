@@ -1,0 +1,72 @@
+<DOCTYPE>
+	<html>
+	<head>
+	</head>
+	<body>
+		<script>
+			 
+			var testsData = [
+			["RR", 10, 5, 5],
+			[-15, "RR", 5, 5],
+			[-15, 10, 5, "RR"],
+			[15, -10, 5, 5],
+			[-15, 10, 5, 0],
+			[5, 10, 15, 5],
+			[5, 15, 0, 5],
+			[5, 15, -5, 5],
+			[-15, 10, 5, 5]
+			]
+
+			function isNumber(value) {
+				return typeof value === 'number' && isFinite(value);
+			}
+
+			function showDivisorNumbers(min, max, step, divisor) {
+				if (!isNumber(min)) {
+					console.warn("Минимальное значение должно быть числом")
+					return
+				}
+				if (!isNumber(max)) {
+					console.warn("Максимальное значение должно быть числом")
+					return
+				}
+				if (!isNumber(divisor)) {
+					console.warn("Делитель должен быть числом")
+					return
+				}
+
+				if (min >= max) {
+					console.warn("Минимальное значение должно быть меньше максимального")
+					return
+				}
+				if (divisor === 0) {
+					console.warn("Делитель не должен быть равeн нулю")
+					return
+				}
+				if (step > (max - min)) {
+					console.warn("Значение шага не должен превышать разницу между минимальным и максимальным значением")
+					return
+				}
+				if(step <= 0){
+					console.warn("Шаг не должен быть меньше нуля и равен нулю")
+					return
+				}
+								console.log("Выводим числа от " + min + " до " + max + " делённые на " + divisor)
+				for (var i = min; i < max; i += step) {
+					console.log(i + '/' + divisor + '=' + (i / divisor))
+				}
+			}
+
+			for (i = 0; i < testsData.length; i++) {
+				var min = testsData[i][0]
+				var max = testsData[i][1]
+				var step = testsData[i][2]
+				var divisor = testsData[i][3]
+				console.log("Вызываем функцию showDivisorNumbers с параметрами: min = \"" + min + "\", " + "max = \"" + max + "\", " + "divisor = \"" + divisor + "\"" +" с шагом " + "\"" +step +"\"")
+				console.log("Результат работы функции:")
+				showDivisorNumbers(min, max, step, divisor)
+				console.log("=====================================")
+			}
+		</script>
+	</body>
+	</html>

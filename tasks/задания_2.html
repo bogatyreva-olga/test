@@ -1,0 +1,201 @@
+<DOCTYPE>
+    <html>
+    <head>
+    </head>
+    <body>
+    <script>
+
+        // Билет стоит 25 рублей. Сможет ли билетер обслужить всех посетителей в порядке очереди с их купюрами по 50 и 100 руб.
+
+        let firstQueue = [10, 20, 10, 10, 10, 20, 10, 10, 40, 50]
+        let secondQueue = [25, 25, 25, 50, 100]
+
+        function sumChange(change) {
+            let sum = 0
+            let keys = getKeysMap(change)
+            for (let i = 0; i < keys.length; i++) {
+                sum += parseInt(keys[i]) * change.get(keys[i])
+            }
+            return sum
+        }
+
+        function getKeysMap(map) {
+            let keysIterator = map.keys()
+            let keys = []
+            for (let key of keysIterator) {
+                keys.push(key)
+            }
+            return keys
+        }
+
+        function sortCashbox(cashbox) {
+            let cashboxKeys = getKeysMap(cashbox)
+            cashboxKeys.sort(function (a, b) {
+                return b - a;
+            })
+            let newCashbox = new Map()
+            for (let i = 0; i < cashboxKeys.length; i++) {
+                newCashbox.set(cashboxKeys[i], cashbox.get(cashboxKeys[i]))
+            }
+            return newCashbox
+        }
+
+        function changeCashbox(cashbox, change) {
+            let changeKeys = getKeysMap(change)
+            for (let i = 0; i < changeKeys.length; i++) {
+                cashbox.set(changeKeys[i], cashbox.get(changeKeys[i]) - change.get(changeKeys[i]))
+            }
+            return cashbox
+        }
+
+        function buyingTicket(arr) {
+            let ticketPrice = 10
+
+            let cashbox = new Map()
+
+            for (let i = 0; i < arr.length; i++) {
+                let userChange = arr[i] - ticketPrice
+                if (userChange === 0) {
+                    if (cashbox.has(arr[i])) {
+                        cashbox.set(arr[i], cashbox.get(arr[i]) + 1)
+                    } else {
+                        cashbox.set(arr[i], 1)
+                    }
+                    continue
+                }
+                cashbox = sortCashbox(cashbox)
+                let cashboxKeys = getKeysMap(cashbox)
+                let change = new Map()
+                nominal_loop:
+                    for (let j = 0; j < cashboxKeys.length; j++) {
+                        for (let k = 0; k < cashbox.get(cashboxKeys[j]); k++) {
+                            if (change.has(cashboxKeys[j])) {
+                                change.set(cashboxKeys[j], change.get(cashboxKeys[j]) + 1)
+                            } else {
+                                change.set(cashboxKeys[j], 1)
+                            }
+                            console.log("change1", change)
+                            if (sumChange(change) > userChange) {
+                                change.set(cashboxKeys[j], change.get(cashboxKeys[j]) - 1)
+                                break
+                            }
+                            if (sumChange(change) === userChange) {
+                                cashbox = changeCashbox(cashbox, change)
+                                if (cashbox.has(arr[i])) {
+                                    cashbox.set(arr[i], cashbox.get(arr[i]) + 1)
+                                } else {
+                                    cashbox.set(arr[i], 1)
+                                }
+                                break nominal_loop
+                            }
+                            console.log("change", change)
+                        }
+                    }
+                console.log("cashbox", cashbox)
+                if (sumChange(change) !== userChange) {
+                    return false
+                }
+
+            }
+            return true
+        }
+
+        console.log(buyingTicket(firstQueue))
+
+        // Перед вами переменная, содержащая строку. Напишите код, создащий массив, который будет состоять из первых букв слов строки str.
+        // При написании данного кода, позаимствуйте у объека Array метод filter.
+
+        // var str = "Каждый охотник желает знать, где сидит фазан."
+        // var arr = str.split(' ')
+        // var result = []
+        // for (var i = 0; i <arr.length; i++) {
+        //     result.push(arr[i][0])
+        // }
+        // console.log(result)
+
+        //=====================================================================
+        // Массив сумм чисел
+        // Имеется массив простых чисел: numbers = [2, 3, 5, 7, 11, 13, 17, 19].
+        // Использую метод reduce() напишите функцию currentSums(numbers), которая возвращает новый массив из такого же числа элементов,
+        // в котором на каждой позиции будет находиться сумма элементов массива numbers до этой позиции включительно.
+
+        // numbers = [2, 3, 5, 7, 11, 13, 17, 19]
+        // function currentSums(numbers){
+        // 	return numbers.reduce(function(result, curr){
+        // 		var lastItem = isNaN(parseInt( result.slice(-1)[0])) ? 0 : result.slice(-1)[0]
+        //                  result.push(lastItem + curr)
+        // 		return result
+        // 	}, [])
+        // }
+        // console.log(currentSums(numbers))
+
+
+        //=====================================================================
+        //Используя метод map() напишите код, который получает из массива строк новый массив, содержащий их длины.
+
+        // var vegetables = ['Капуста', 'Репа', 'Редиска', 'Морковка']
+        // var result = vegetables.map(function(item){
+        // 	  return item.length
+        // })
+        // console.log(result)
+
+        // Ваш код
+        //======================================================================
+        // Массив с заданным количеством элементов
+        // Напишите функцию arrayFilled(len, value), которая возвращает массив с заданным количеством len элементов value.
+
+        // function arrayFilled(len, value) {
+        //    var result = []
+        //    for (var i = 0; i < len; i++) {
+        //       result.push(value)
+        //    }
+        //    return result
+        // }
+        // console.log(arrayFilled(4, 10))
+
+        //========================================================================
+        // Найти пары чисел, сумма которых равна заданному значению
+        // Напишите функцию findCouple(array, number), которая ищет в массиве все пары целых чисел, сумма которых равна заданному значению.
+
+        // var num = 9;
+        // var arr = [1, 6, 5, 2, 7, 5, 1, 4, 3, 9, 8, 11, 10, 18];
+        // function findCouple(arr, number){
+        // 	var result =[]
+        // 	for (var i = 0; i < arr.length; i++) {
+        // 		for (var j = 0; j < arr.length; j++) {
+        // 			if(i < j && arr[i] + arr[j] === num){
+        // 				result.push([arr[i], arr[j]])
+        // 			}
+        // 		}
+        // 	}
+        // 	return result
+        // }
+
+        // console.log(findCouple(arr, num))
+        // Ваша пара чисел: 1 + 4,Ваша пара чисел: 2 + 3
+
+        //====================================================================
+        // Напишите функцию filterFalse(arr), которая очищает массив от ложных (false) значений: false, null, undefined, 0, –0, NaN и "" (пустя строка).
+
+        // var array = [NaN, 0, 77, false, -17, '',undefined, 99, null];
+        // function filterFalse(arr) {
+        // 	//for (var i = 0; i < arr.length; i++) {
+        // 		return arr.filter(function(a){
+        // 			return !!a
+        // 		})
+        // }
+        // console.log(filterFalse(array))
+
+
+        // var arr = [ 1, 2 , 3 , 4 , 5 , 6 , 7, 8 ,9]
+        // var sum = 0
+        // var product = 1
+        // for(var i = 0; i < arr.length; i++){
+        // 	sum += arr[i]
+        // 	product *=arr[i]
+        // }
+        // console.log(product, sum)
+        // console.log(sum)
+    </script>
+    </body>
+    </html>

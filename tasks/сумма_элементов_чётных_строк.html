@@ -1,0 +1,80 @@
+<DOCTYPE>
+	<html>
+	<head>
+	</head>
+	<body>
+		<script>
+
+			var squareThereValidMatrix = [
+			[1, 2, 3],
+			[4, 5, 6],
+			[7, 8, 9],
+			[11, 12,13]
+			]
+
+			var notArray = "Это, наверное, строка"
+			var emptyMatrix = []
+
+			var invalidSizeMatrix = [
+			[1, 2, 3],
+			[4, 5]
+			]
+
+			var notSquareMatrix = [
+			[1, 2, 3],
+			[4, 5, 6]
+			]
+
+			var testData = [
+			notArray,
+			emptyMatrix,
+			invalidSizeMatrix,
+			squareThereValidMatrix
+			]
+			
+			
+			var matrix = [
+			[1,2,3,4],
+			[5,6,7,8],
+			[9,1,2,3],
+			[4,5,6,7]
+			]
+
+			
+
+			function matrixNumber (matrix){
+				if(!Array.isArray(matrix)){
+					console.warn("Переданный аргумент не является массивом")
+					return
+				}
+				if (matrix.length == 0) {
+					console.warn("Матрица пуcтая")
+					return 
+				}
+				var sum = 0
+				for (var i = 0; i < matrix.length; i++){
+					for(var j = 0; j < matrix[i].length; j++){
+						if(matrix[0].length !== matrix[i].length){
+							console.warn("Не является матрицей")
+							return
+						}
+						if (i %2 == 0 ){
+							sum += matrix[i][j]
+						}
+					}
+				}
+				console.log("Сумма элементов в чётных строках матрицы равна: " + sum)
+			}
+			
+			for(var i = 0; i < testData.length; i ++){
+			matrixNumber(testData[i])
+		}
+			testData.forEach(function(element){
+				matrixNumber(element)
+			})
+                                  
+		</script>
+	</body>
+	</html>
+
+	

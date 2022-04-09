@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         let liElement = document.createElement('li')
 
         let spanElement = document.createElement('span')
-        spanElement.innerText = dogs[i].name
+        spanElement.innerText = dogs[i].#name
         liElement.appendChild(spanElement)
 
         spanElement = document.createElement('span')

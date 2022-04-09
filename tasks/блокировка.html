@@ -1,0 +1,43 @@
+<html lang="en">
+<script>
+function hideP1() {
+	 document.getElementById("p1").style.display = "none"
+}
+function showP1() {
+	document.getElementById("p1").style.display = "block"
+}
+function hideAllP() {
+   var hideI = document.getElementsByClassName("paragraph")
+   for (var i = 0; i < hideI.length; i++) {
+   	   hideI[i].style.display = "none"
+   }
+}
+function showAllP() {
+	var showI = document.getElementsByClassName("paragraph")
+   for (var i = 0; i < showI.length; i++) {
+   	   showI[i].style.display = "block"
+   }
+}
+</script>
+<body>
+<input type="button" value="Скрыть первый параграф" onclick="hideP1()">
+<input type="button" value="Показать первый параграф" onclick="showP1()">
+<input type="button" value="Скрыть оба параграфа" onclick="hideAllP()">
+<input type="button" value="Показать оба параграфа" onclick="showAllP()">
+<div>
+<h2>Send a batch of messages</h2>
+<p id="p1" class="paragraph">The REST API and Admin SDKs support sending messages in batches.
+You can group up to 500
+messages into a single batch and send them all in a single API call, with
+significant performance improvement over sending separate HTTP requests for
+each message.
+</p>
+<p class="paragraph">This feature can be used to build a customized set of messages and send them
+to different recipients, including topics or specific device registration tokens.
+Use this feature when, for example, you need to
+simultaneously send messages to different audiences with slightly different
+details in the message body.
+</p>
+</div>
+</body>
+</html>

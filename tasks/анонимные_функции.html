@@ -1,0 +1,54 @@
+<DOCTYPE>
+	<html>
+	<head>
+	</head>
+	<body>
+		<script>
+			var arr = [1,2,3]
+			arr.forEach(function(arrayItem, index){
+				console.log("Элемент массива: " + arrayItem + " index = " + index)
+			})
+
+
+			var callback = function(arrayItem, index){
+				console.log("Элемент массива: " + arrayItem + " index = " + index )
+			}
+
+			for(var i = 0; i < arr.length; i++){
+				callback(arr[i], i)
+			}
+
+			var child = {
+				age: 0,
+				eye: "",
+				showAge: function(a){
+					console.log("Возраст: " + this.age + "::::" + a)
+				},
+				showEye: function(){
+					function getYeasColor(eyeColor){
+						switch (eyeColor){
+							case 'blue':
+							return 'голубые'
+							case 'gray':
+							return 'серые'
+							case 'green':
+							return 'зеленые'
+							default:
+							return 'Нет такого цвета'
+						}
+					}
+
+					console.log("Глаза: " + getYeasColor(this.eye))
+				}
+			}
+
+			child.age = 10
+			child.eye = 'gray'
+
+			child.showEye()
+			child.showAge("bbbb")
+
+
+		</script>
+	</body>
+	</html>

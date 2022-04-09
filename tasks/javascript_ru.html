@@ -1,8 +1,461 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
 </head>
 <body>
 <script>
+    
+    // let i = 0
+    // while (Math.random() > 0.1) {
+    //     i++
+    // }
+    // console.log(i)
+
+    // for (var i = 0; Math.random() > 0.1; i++) {
+    // }
+    //
+    // console.log(i)
+//===========================================================================================================
+    //Циклическое вычисление суммы чисел
+    //С помощью цикла while разработать программу, которая будет вычислять сумму чисел нацело делящихся на 5.
+    // Цикл задать от 0 до введенного с клавиатуры числа. Вот пример работы программы:
+    //Введите последнее число последовательности: 200
+    //Сумма чисел делящихся на 5 из последовательности [0, 200] равна 4100
+
+    // function getSumNumbersModBy(start, end, divisor) {
+    //     let sum = 0
+    //     let i = start
+    //     while (i <= end) {
+    //         if(i % divisor === 0){
+    //             sum += i
+    //         }
+    //         i++
+    //     }
+    //     return sum
+    // }
+    //
+    // console.log(getSumNumbersModBy(0, 800, 50))
+
+    //=========================================================================================================
+    ////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //  Необходимо написать функцию, которая возвращает отсортированный по весу по убыванию массив
+    // Дан массив объектов:
+    // let arrayObj = [
+    //     {
+    //         "value": 1,
+    //         "weigth": 0.3
+    //     },
+    //     {
+    //         "value": 2,
+    //         "weigth": 0.2
+    //     },
+    //     {
+    //         "value": 5,
+    //         "weigth": 0.5
+    //     },
+    //     {
+    //         "value": 4,
+    //         "weigth": 0.4
+    //     },
+    //     {
+    //         "value": 0,
+    //         "weigth": 0.01
+    //     }
+    // ]
+    //
+    // function getRandomElementWithWeight(arr) {
+    //     arr.sort((a, b) => b.weigth - a.weigth)
+    //     // arr.sort(function (a, b){
+    //     //     return  b.weigth - a.weigth
+    //     // })
+    //     let sumWeights = 0
+    //     for (let i = 0; i < arr.length; i++) {
+    //         sumWeights += arr[i].weigth
+    //     }
+    //     let randomNumber = Math.random() * sumWeights
+    //     let left = 0
+    //     for (let i = 0; i < arr.length; i++) {
+    //         let right = left + arr[i].weigth
+    //         if (randomNumber >= left && randomNumber <= right) {
+    //             return arr[i].value
+    //         }
+    //         left = right
+    //     }
+    //     return [sumWeights, randomNumber]
+    // }
+    //
+    // console.log(getRandomElementWithWeight(arrayObj))
+    //
+
+    //=========================================================================================================
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // Написать функцию на Python которая бы выбирала элемент из массива
+    // Нужна функция на Python, которая будет выбирать элемент из массива по рандомному числу
+    // и вероятность выбора этого элемента уменьшается с увеличением индекса элемента массива.
+    //
+    //     То есть мне нужно получать функцию редкости, чтобы первые элементы выпадали чаще, чем
+    // последние. Первый самый частый, последний самый редкий. И частота выпадения с увеличением
+    // индекса уменьшалась, и на сколько реже каждый последующий будет выпадать будет исходить
+    // (каким то образом высчитываться) из длины массива.
+    //     Например, первый с вероятностью 50%, второй 30%, третий 20% (если в массиве 3 элемента)
+
+    // function getRandomElementWithWeight(arr) {
+    //     // 0, 1, 1, 2, 3
+    //     // 3, 2, 1
+    //     // 50 33 17
+    //     let weights = [0, 1]
+    //     for (let i = 2; i < arr.length + 2; i++) {
+    //         weights[i] = weights[i - 1] + weights[i - 2]
+    //     }
+    //     weights.splice(0, 2)
+    //     weights.reverse()
+    //     let sumWeights = weights.reduce(function (prev, curr) {
+    //         return prev + curr
+    //     }, 0)
+    //     let randomNumber = Math.floor(Math.random() * sumWeights) + 1
+    //     let counter = 1
+    //     for (let i = 0; i < weights.length; i++) {
+    //         for (let j = 0; j < weights[i]; j++) {
+    //             if (counter === randomNumber) {
+    //                 return arr[i]
+    //             }
+    //             counter++
+    //         }
+    //     }
+    // }
+    //
+    // for (let i = 0; i < 100; i++) {
+    //     console.log(getRandomElementWithWeight([4, 5, 9]))
+    // }
+
+
+    //=========================================================================================================
+    // class Worker {
+    //     #name;
+    //     #surname;
+    //     #rate;
+    //     #workingDays;
+    //
+    //     constructor(name, surname, rate, workingDays) {
+    //         this.#name = name;
+    //         this.#surname = surname;
+    //         this.#rate = rate;
+    //         this.#workingDays = workingDays;
+    //     }
+    //
+    //     getSalary() {
+    //         return this.#rate * this.#workingDays
+    //     }
+    //
+    //     getDays(){
+    //         return this.#workingDays
+    //     }
+    //
+    //     getName() {
+    //         return this.#name
+    //     }
+    //
+    //     getSurname() {
+    //         return this.#surname
+    //     }
+    // }
+    //
+    // class Workers {
+    //     #workers;
+    //
+    //     constructor(workers) {
+    //         this.#workers = workers;
+    //     }
+    //
+    //     addWorker(worker) {
+    //         this.#workers.push(worker)
+    //     }
+    //
+    //     getWorkersBySurname(surname) {
+    //         return this.#workers.filter(function (item) {
+    //             return item.getSurname() === surname
+    //         })
+    //     }
+    //
+    //     getWorkersByName(name) {
+    //         return this.#workers.filter(function (item) {
+    //             return item.getName() === name
+    //         })
+    //     }
+    //
+    //     getWorkersWithWorkingDaysGreatThan(days){
+    //         return this.#workers.filter(function (item) {
+    //             return item.getDays() > days
+    //         })
+    //     }
+    // }
+    //
+    // let workers = new Workers([
+    //     new Worker("Vasya", "Petrov", 10, 10),
+    //     new Worker("Petya", "Ivanov", 20, 5)
+    // ])
+    //
+    // workers.addWorker(new Worker("Iliya", "Ivanov", 10, 1))
+    //
+    // console.log(workers.getWorkersByName("Ivanov"))
+    // console.log(workers.getWorkersWithWorkingDaysGreatThan(10))
+
+    //Посчитать кол-во счастливых билетов
+
+    // function getCountLuckyTicket() {
+    //     let count = 0
+    //     for (let i = 1; i <= 999999; i++) {
+    //         let numberStr = i.toString().padStart(6, '0')
+    //         let sumLeft = parseInt(numberStr.charAt(0)) + parseInt(numberStr.charAt(1)) + parseInt(numberStr.charAt(2))
+    //         let sumRight = parseInt(numberStr.charAt(3)) + parseInt(numberStr.charAt(4)) + parseInt(numberStr.charAt(5))
+    //         if (sumLeft === sumRight) {
+    //            count++
+    //         }
+    //     }
+    //     return count
+    // }
+    //
+    // console.log(getCountLuckyTicket())
+
+    //Необходимо написать функцию, которая умеет разбивать диапазон значений на определенное кол-во пачек.
+    // и выводить начало и конец получившейся пачки.
+
+    // 55-59
+    // 60-64
+    // 65-69
+    // 70-73
+
+    // function getElementsSpecificLength(start, end, chunkCount) {
+    //     let result = []
+    //     let len = Math.floor((end - start)/ chunkCount)
+    //     for (let i = start; i < end; i = i + len) {
+    //         if (i === start) {
+    //             result.push(i + '-' + (i + len))
+    //             continue
+    //         }
+    //         if (i >= (end - len)) {
+    //             result.push((i + 1) + '-' + end)
+    //         } else {
+    //             result.push((i + 1) + '-' + (i + len + 1))
+    //             i = i + 1
+    //         }
+    //     }
+    //     return result
+    // }
+    // console.log(getElementsSpecificLength(10, 173, 9))
+
+    //=============================================================================================================
+    //Необходимо написать функцию, которая умеет разбивать диапазон значений на пачки определенной
+    // длины и выводить начало и конец получившейся пачки.
+
+    // Например. У нас есть диапазон от 100 до 200 и нужно разбить на пачки по 50.
+    // В результате работы твоего кода, на экран должно вывестить:
+    //
+    // 100-150
+    // 151-200
+    //
+    // Или у нас есть диапазон от 55 до 73 и нужно разбить на пачки по 4, должно быть на экране
+    // 55-59
+    // 60-64
+    // 65-69
+    // 70-73
+
+    // function getElementsSpecificLength(start, end, len) {
+    //     let result = []
+    //     for (let i = start; i < end; i = i + len) {
+    //         if (i === start) {
+    //             result.push(i + '-' + (i + len))
+    //             continue
+    //         }
+    //         if (i >= (end - len)) {
+    //             result.push((i + 1) + '-' + end)
+    //         } else {
+    //             result.push((i + 1) + '-' + (i + len + 1))
+    //             i = i + 1
+    //         }
+    //     }
+    //     return result
+    // }
+    //
+    // console.log(getElementsSpecificLength(55, 73, 4))
+
+    //=============================================================================================================
+    // Задача
+    // Удалить из строки все слова, длина которых меньше пяти символов. В строке не используются знаки препинания.
+
+    // let str = "is simply dummy text of the printing and"
+    //
+    // function deleteWord(str, len) {
+    //     let result = []
+    //     let arr = str.split(' ')
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (arr[i].length >= len) {
+    //             result.push(arr[i])
+    //         }
+    //     }
+    //     return result.join(" ")
+    // }
+    //
+    // console.log(deleteWord(str, 5))
+    //
+    // let result = str.split(' ').filter(function (word) {
+    //     return word.length >= 5
+    // }).join(" ")
+    // console.log(result)
+    //
+    // a = new Set()
+    // a = {}
+    //
+    // $str = "is simply dummy text of the printing and";
+    // $result = explode(' ', $str)
+    // $result = array_filter(function ($word){
+    //     return strlen($word) > 5;
+    // }, $result);
+    // $result = implode(' ', $result);
+    //
+
+
+    //============================================================================================================
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     setInterval(function () {
+    //         const lockKeyNameThread1 = 'lock1';
+    //         const lockKeyNameThread2 = 'lock2';
+    //         let element = document.getElementById('thread')
+    //         let lock = element.hasAttribute(lockKeyNameThread1) && element.getAttribute(lockKeyNameThread1) === 'true'
+    //
+    //         let rand = Math.floor(Math.random() * 100)
+    //         if (lock) {
+    //             console.log('Thread 1 is locked. Rand = ' + rand)
+    //             if (rand > 90) {
+    //                 element.removeAttribute(lockKeyNameThread1)
+    //                 element.setAttribute(lockKeyNameThread2, 'true')
+    //             }
+    //         } else {
+    //             console.log('Thread 1 DONT locked. Rand = ' + rand)
+    //             if (rand > 90) {
+    //                 element.setAttribute(lockKeyNameThread2, 'true')
+    //             }
+    //         }
+    //     }, Math.floor(Math.random() * 1500))
+    //
+    //
+    //     setInterval(function () {
+    //         const lockKeyNameThread1 = 'lock1';
+    //         const lockKeyNameThread2 = 'lock2';
+    //         let element = document.getElementById('thread')
+    //         let lock = element.hasAttribute(lockKeyNameThread2) && element.getAttribute(lockKeyNameThread2) === 'true'
+    //
+    //         let rand = Math.floor(Math.random() * 100)
+    //         if (lock) {
+    //             console.log('Thread 2 is locked. Rand = ' + rand)
+    //             if (rand > 90) {
+    //                 element.removeAttribute(lockKeyNameThread2)
+    //                 element.setAttribute(lockKeyNameThread1, 'true')
+    //             }
+    //         } else {
+    //             console.log('Thread 2 DONT locked. Rand = ' + rand)
+    //             if (rand > 90) {
+    //                 element.setAttribute(lockKeyNameThread1, 'true')
+    //             }
+    //         }
+    //     }, Math.floor(Math.random() * 1700))
+    // })
+    //============================================================================================================
+    // function rand1(){
+    //     return Math.random()
+    // }
+    // function rand2(){
+    //     return Math.random()
+    // }
+    // let i = 10
+    // while (rand1() !== rand2()) {
+    //     console.log(i)
+    //     i--
+    // }
+
+    //============================================================================================================
+    //Определить количество элементов в заданном массиве, отличающихся от заданного числа на 5.
+
+    // let arr = [2, 7, 0, -4, 10, 1]
+    //
+    // function getCount(arr, n) {
+    //     let count = 0
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (arr[i] >= n + 5 || arr[i] <= n - 5) {
+    //             count++
+    //         }
+    //     }
+    //     return count
+    // }
+    //
+    // console.log(getCount(arr, 2))
+
+    //============================================================================================================
+    //Определить количество элементов в заданном массиве, отличающихся от минимального на 5.
+    // let arr = [2, 7, 0, -4, 10, 1]
+    //
+    // function getCountOfElements(arr) {
+    //     let min = arr[0]
+    //     let count = 0
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (arr[i] < min) {
+    //             min = arr[i]
+    //         }
+    //     }
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (arr[i] >= min + 5) {
+    //             count++
+    //         }
+    //     }
+    //     return [min, count]
+    // }
+    // console.log(getCountOfElements(arr))
+
+    //=============================================================================================================
+    //В одномерном массиве удалить все четные элементы и оставить только нечетные.
+
+    // let arr = [2, 4, 5, 56, 79, 24, 99, 61, 33, 90]
+    // console.log(arr)
+    // for (let i = 0; i < arr.length; i++) {
+    //     if (arr[i] % 2 === 0) {
+    //         arr.splice(i, 1)
+    //         i--
+    //     }
+    // }
+    // console.log(arr)
+
+    //===============================================================================================================
+    //Найдите сумму и количество элементов массива, попавших в интервал [a; b]. [0, -1, 5, -5, 3], a = -2, b = 2 (c=2; s = -1)
+    // Границы интервала вводятся с клавиатуры.
+
+    // let arr = [1, 2, 3, 4, 5, 6, 7, 8, 6, 9, 10]
+    //
+    // function getSumAndCount(arr, a, b) {
+    //     let sum = 0
+    //     let count = 0
+    //     if (a >= b) {
+    //         throw new Error("invalid interval")
+    //     }
+    //     if (arr.length === 0) {
+    //         throw new Error("empty array")
+    //     }
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (arr[i] > a && arr[i] < b) {
+    //             sum += arr[i]
+    //             count += 1
+    //         }
+    //     }
+    //     return [sum, count]
+    // }
+    //
+    // try {
+    //     console.log(getSumAndCount(arr, 4, 8))
+    // } catch (e) {
+    //     console.warn(e.message)
+    // }
+
+
+    // ===============================================================================================
     /*1. Клонирование массива
 Напишите функцию copyArr(arr), которая копирует массив не изменяя иригинал.
 
@@ -70,6 +523,39 @@
         return result
     }
     document.writeln(changeRegister(str))*/
+
+    //=============================================================================================================
+
+    /* Напишите функцию getFirst(array, n), которая возвращает фрагмент массива,
+    содержащий первые 'n' элементов массива.
+    */
+
+    // var array = [2, 3, 4, 5, 6, 7, 8, 9];
+    //
+    // function getFirst(array, n) {
+    //     var maxLenght = arr1.length
+    //     if (n === 0) {
+    //         n = 1
+    //     }
+    //     if (n < 0) {
+    //         n = array.length - n
+    //     }
+    //     if (n > array.length) {
+    //         throw new Error("значение n не должно быть больше длины массива ")
+    //     }
+    //     for (var i = 0; i < n; i++) {
+    //         console.log(array[i])
+    //     }
+    // }
+    //
+    // try {
+    //     console.log(getFirst(array, 20))
+    // } catch (e) {
+    //     console.log(e)
+    //
+    // }
+
+
     //============================================================================================================
     /*Удалить повторяющиеся элементы массива
     Напишите функцию removeDuplicates(arr), которая возвращает массив, в котором удалены повторяющиеся
@@ -114,7 +600,6 @@
                   result.push(i)
               }
           }
-
           return result
       }
 
@@ -177,34 +662,6 @@
 
     //=============================================================================================================
 
-    /* Напишите функцию getFirst(array, n), которая возвращает фрагмент массива,
-     содержащий первые 'n' элементов массива.
-     */
-
-    /*var array = [2,3,4,5,6,7,8,9];
-
-    function getFirst(array, n) {
-      var maxLenght = arr1.length
-        if (n === 0) {
-            n = 1
-        }
-        if (n < 0) {
-            n = array.length - n
-        }
-        if(n > array.length){
-            throw new Error("значение n не должно быть больше длины массива ")
-        }
-        for (var i = 0; i < n; i++) {
-            console.log(array[i])
-        }
-    }
-    try {
-        console.log(getFirst(array, 20))
-    }catch (e) {
-        console.log(e)
-
-    }*/
-    //=============================================================================================================
     /* Напишите функцию getLast(array, n), которая возвращает фрагмент массива, содержащий последние 'n'
     элементов массива.
      */

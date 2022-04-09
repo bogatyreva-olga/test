@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<p>Информация о детях.</p>
+
+	<button onclick="showAnorexicChild(childs)">Худые дети</button>
+	<button onclick="showFatChilds(childs)">Толстые дети</button>
+
+	<p id="demo"></p>
+
+	<script>
+		var childs = [
+			{
+				name: "Jon",
+				eyeColor: 'blue',
+				age: 10,
+				weigth: 30,
+			},
+			{
+				name: "Niki",
+				eyeColor: 'gray',
+				age: 10,
+				weigth: 41,
+			},
+			{
+				name: "Miky",
+				eyeColor: 'green',
+				age: 13,
+				weigth: 24,
+			},
+			{
+				name: "Yakob",
+				eyeColor: 'blue',
+				age: 14,
+				weigth: 42,
+			}
+			]
+
+			function getChildInfo(child){
+				function getAgeText(age){
+					if (age > 12){
+						return"взрослый "
+					}else{
+						return"ребенок "
+					}
+				}
+				function getYeasColor(eyeColor){
+					switch (eyeColor){
+						case 'blue':
+						return 'голубые'
+						case 'gray':
+						return 'серые'
+						case 'green':
+						return 'зеленые'
+		            				default:
+						return 'Нет такого цвета'
+					}
+				}
+				return "Имя:"+ child.name + "Цвет глаз: " +getYeasColor(child.eyeColor) + "Возраст: "+getAgeText(child.age) + "Вес ребенка: " +child.weigth + " кг"	
+			}
+			function showFatChilds(childs){
+                document.getElementById("demo").innerHTML = getFatChilds(childs)
+			}
+			function getFatChilds(childs){
+				var result = []
+				for (var i = 0; i < childs.length; i++){
+					if (childs[i].weigth > 40){
+						result.push(getChildInfo(childs[i]))
+					}
+				}
+				return result.join('<br>')
+			}
+			function showAnorexicChild(childs){
+				var result = []
+				//console.log("Информация о худых детях: ")
+				childs.forEach(function(child){
+					if (child.weigth < 25){
+						result.push(getChildInfo(child))
+					}
+				})
+				document.getElementById("demo").innerHTML = result.join('<br>')
+			}
+			
+			 //showFatChilds(childs)
+			 //showAnorexicChild(childs)		
+   //          console.log("Дети, младше 13 лет: ")
+			// for (var i = 0; i < childs.length; i++){
+			//     if (childs[i].age < 13){
+			// 		showChildInfo(childs[i])
+				//}
+
+			//}
+	</script>
+</body>
+</html>

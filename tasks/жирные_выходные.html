@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<p>Мои самые любимые дни недели.</p>
+
+	<button onclick="daysOfWeek()">Нажми меня</button>
+
+	<p id="demo"></p>
+
+	<script>
+		function daysOfWeek (){
+			var week = ['mo', 'tu', 'we', 'th', 'fr', 'sa', 'su']
+			var result = ''
+			for (var i = 0; i < week.length; i++){
+				if(['sa', 'su'].includes(week[i])){
+					result += week[i].bold()             
+				} else{
+					result += week[i]
+
+				}
+				if(i < week.length-1){
+					result += ', '
+				}	
+
+			}
+			document.getElementById("demo").innerHTML = result;
+
+		}
+	</script>
+</body>
+</html>

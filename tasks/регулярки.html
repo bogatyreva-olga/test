@@ -1,0 +1,25 @@
+<DOCTYPE>
+	<html>
+	<head>
+	</head>
+	<body>
+		<script>       
+			
+
+			var str = `
+			[2019-06-10 17:43:33] app.INFO: [<😏 Received a message\n
+			[2020-07-09 17:13:33] app.INFO: Success handle TradeAbstraction.PositionOpened event for user #2075355 [] []\n
+			[2020-10-11 11:43:41] app.INFO: [<😏 Received a message\n
+			[2020-08-11 17:43:59] app.INFO: Success handle TradeAbstraction.PositionOpened event for user #4657862 [] []
+			[2020-08-11 19:43:33] app.INFO: [<😏 Received a message
+			[2020-09-11 17:04:33] app.INFO: Success handle TradeAbstraction.PositionClosed event for user #4029970 [] []
+			[2020-08-11 05:43:33] app.INFO: [<😏 Received a message
+			[2020-12-11 17:04:12] app.INFO: Success handle TradeAbstraction.PositionOpened event for user #4418559 [] []
+			[2020-05-11 09:43:33] app.INFO: [<😏 Received a message
+			[2020-08-11 17:43:11] app.INFO: Success handle TradeAbstraction.PositionClosed event for user #4456527 [] []
+			`
+			var result = str.match(/\b\d\d\d\d\-\d\d\-\d\d\b/)
+			console.log(result)
+		</script>
+	</body>
+	</html>

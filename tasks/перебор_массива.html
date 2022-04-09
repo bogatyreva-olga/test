@@ -1,0 +1,36 @@
+<DOCTYPE>
+	<html>
+	<head>
+	</head>
+	<body>
+		<script>
+			
+			
+			
+			function randomInteger(min, max){
+				return Math.floor(Math.random() * (max - min) + min);
+
+			}
+			var arr = []
+            var n = 20
+			for(i=0; i < n; i++){
+				arr.push(randomInteger(-100, 100))
+			} 
+           function arrNotEven (arr){ 
+           	arr.filter(function(number){
+           	     return number % 2 !== 0
+           	} )   
+           	return arr.filter ()
+           	}	
+           	
+          console.log(arrNotEven())
+
+		</script>
+	</body>
+	</html>
+
+	function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+смотри, тебе нужно заполнить массив и n элементов случаными целыми числами, например от -100 до 100. Тебе нужно написать цикл, в цикле ты будешь вызывать функцию randomInteger(-100, 100) и засовывать его как новый элемент массива.

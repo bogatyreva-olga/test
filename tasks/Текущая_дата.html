@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+	<p>Календарь</p>
+
+	<button onclick="getWeekDay()">Нажми меня</button>
+
+	<p id="demo"></p>
+
+	<script>
+		
+		function getWeekDay() {
+			var week = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ']
+			var result = ''
+			var now = new Date()
+			var day = now.getDay()
+			for (var i = 0; i < week.length; i++) {
+				if(day===i){
+					result += week[i].italics()
+				}else{
+					result += week[i]
+				}
+			if(i < week.length -1){
+               result += ', '
+			}
+			}
+			document.getElementById("demo").innerHTML = result;
+		}
+	</script>
+</body>
+</html>

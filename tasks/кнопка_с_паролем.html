@@ -1,0 +1,75 @@
+<html lang="en">
+<script>
+ function login(){
+     var username = document.getElementById('username')
+     var password = document.getElementById('password')
+     if(username.value == "" || password.value == ""){
+         alert("Поле не может быть пустым")    
+         return
+     }
+     if(username.value != "" || password.value != ""){
+         alert ("Вы пытаетесь авторизоваться в системе. Ваш логин: " +username.value + ", ваш пароль: " + password.value )
+     }
+ }
+
+</script>
+<style type="text/css"> 
+
+
+    body {
+        background-color: #03c03c;
+    }
+
+    .centre {
+        display: block;
+        width: 25%;
+        height: 300px;
+        border: 3px solid;
+        background-color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        border-color: white 
+    }
+    .centre div {
+        text-align: center;
+        margin: 15px;
+
+    }
+    .centre input{
+        width: 250px;
+        height: 40px;
+        border: 0px;
+        
+    }
+    .login {
+        background-color: #32CD32;
+        color: white;
+        text-transform: uppercase;
+    }
+    .input-login-form{
+        background-color: #DCDCDC
+    }
+</style>
+<body>
+    <div class="external">
+        <div class= "centre">
+            <div>
+                <input type="text" name="username" placeholder="username" class="input-login-form" id="username" >
+            </div>
+            <div>
+              <input type="password" name="password" placeholder="password" class="input-login-form" id="password">
+          </div>
+          <div>
+              <input type="button" value= "login" name="login" onclick="login()" class= "login">
+          </div>
+          <div>
+              Not registered? <a href="#">Create new account</a>
+          </div>
+
+      </div>
+  </div>
+</body>
+</html>

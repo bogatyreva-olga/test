@@ -1,0 +1,467 @@
+<DOCTYPE>
+    <html>
+    <head>
+    </head>
+    <body>
+    <script>
+        // Высшая математика. УМНОЖЕНИЕ МАТРИЦ!!! =)
+
+        let matrixA = [
+            [1, 2],
+            [3, 4],
+            [9, 10]
+        ]
+        let matrixB = [
+            [5, 6, 11],
+            [7, 8, 12]
+        ]
+
+        function getMultMatrix(a, b) {
+            if (a.length === 0 || b.length === 0) {
+                throw new Error("Matrix a or b is empty")
+            }
+            if (a[0].length !== b.length) {
+                throw new Error("Sizes matrices invalid")
+            }
+
+            let result = []
+            for (let i = 0; i < a.length; i++) {
+                result[i] = []
+                for (let j = 0; j < b[0].length; j++) {
+                    result[i][j] = 0
+                    for (let r = 0; r < b.length; r++) {
+                        result[i][j] += a[i][r] * b[r][j]
+                    }
+                }
+            }
+            return result
+        }
+
+        console.table(getMultMatrix([], []))
+        //============================================================================================================
+        //Заполнить двумерный массив по следующему правилу:
+
+        // 1 2 3 4 5
+        // 2 1 2 3 4
+        // 3 2 1 2 3
+        // 4 3 2 1 2
+        // 5 4 3 2 1
+
+
+        // function getMatrixByRule(n) {
+        //     let matrix = []
+        //     for (let i = 0; i < n; i++) {
+        //         matrix[i] = []
+        //         for (let j = 0; j < n; j++) {
+        //             matrix[i][j] = Math.abs(i - j) + 1
+        //         }
+        //     }
+        //     return matrix
+        // }
+        //
+        // console.log(getMatrixByRule(10))
+
+        //=======================================================================================================
+        // Дана матрица NxN
+        // Элементы матрицы изменить по следующим правилам:
+        //x^3 + 1, если это чётный элемент и находится на главной диагонали
+        //x/2, если это нечётный элемент и находится на главной диагонали
+        // sin(x), если это положительный элемент под главной диагональю
+        // cos(x), если модуль элемента больше 10 и она находится под главной диагональю
+        // sin(x^2) - 1, если это отрицательный элемент и он меньше чем (-10) и находится над главной диагональю
+        // |x| + x^2, если это положительный элемент и он больше чем 5 и находится над главной диагональю
+        //
+        // если к элементу не применяется ни одно из правил, оставить его без изменений.
+
+        // let matrix = [
+        //     [5, 0, 7, -6],
+        //     [1, 2, 4, -12],
+        //     [5, -3, 3, 6],
+        //     [-5, 7, -11, 1]
+        // ]
+        //
+        // function getMatrixWithChangeElements(matrix) {
+        //     for (let i = 0; i < matrix.length; i++) {
+        //         for (let j = 0; j < matrix.length; j++) {
+        //             if (i === j && matrix[i][j] % 2 === 0) {
+        //                 matrix[i][j] = Math.pow(matrix[i][j], 3) + 1
+        //             }
+        //             if (i === j && matrix[i][j] % 2 !== 0) {
+        //                 matrix[i][j] = matrix[i][j] / 2
+        //             }
+        //             if (j > i && matrix[i][j] > 0) {
+        //                 matrix[i][j] = parseFloat(Math.sin(matrix[i][j]).toFixed(2))
+        //             }
+        //             if (j > i && Math.abs(matrix[i][j]) > 10) {
+        //                 matrix[i][j] = parseFloat(Math.cos(matrix[i][j]).toFixed(2))
+        //             }
+        //             if (i > j && matrix[i][j] < 0 && matrix[i][j] < -10) {
+        //                 matrix[i][j] = parseFloat(Math.sin(Math.pow(matrix[i][j], 2)).toFixed(2))
+        //             }
+        //             if (i > j && matrix[i][j] > 0 && matrix[i][j] > 5) {
+        //                 matrix[i][j] = Math.abs(matrix[i][j]) + Math.pow(matrix[i][j], 2)
+        //             }
+        //         }
+        //     }
+        //     return matrix
+        // }
+        //
+        // console.table(getMatrixWithChangeElements(matrix))
+
+        //=======================================================================================
+        //В двумерном массиве (матрице) найти строку, сумма элементов которой является
+        // максимальной среди всех строк матрицы.
+
+        // let matrix = [
+        //     [1, 8, 4],
+        //     [4, 3, 9],
+        //     [7, 0, 1]
+        // ]
+        //
+        // function getMaxSumElementsToString(matrix) {
+        //     let maxIndex = 0
+        //     let maxSum = 0
+        //     for (let i = 0; i < matrix[0].length; i++) {
+        //         let sum = 0
+        //         for (let j = 0; j < matrix[i].length; j++) {
+        //             sum += matrix[i][j]
+        //             if (sum > maxSum) {
+        //                 maxSum = sum
+        //                 maxIndex = i
+        //             }
+        //         }
+        //     }
+        //     return [maxSum, maxIndex]
+        // }
+        //
+        // console.log(getMaxSumElementsToString(matrix))
+        //====================================================================================
+        // Есть ли на диагонали двумерного массива определенный элемент
+
+        // let matrix = [
+        //     [1, 2, 3],
+        //     [4, 5, 6],
+        //     [7, 8, 9]
+        // ]
+        //
+        // function isElementOfMainDiagonal(matrix, elem) {
+        //     for (let i = 0; i < matrix.length; i++) {
+        //         if (matrix.length !== matrix[i].length) {
+        //             throw new Error("array is not a matrix")
+        //         }
+        //         if (typeof elem !== "number" ) {
+        //             throw new Error("element must be a number")
+        //         }
+        //     }
+        //     for (let i = 0; i < matrix.length; i++) {
+        //         if (matrix[i][i] === elem) {
+        //             return "element is in main diagonal"
+        //         }
+        //     }
+        //     return "такой елемент присутствует в диагонали матрицы"
+        // }
+        // try {
+        //     console.log(isElementOfMainDiagonal(matrix, 5))
+        // }catch (e){
+        //     console.warn(e.message)
+        // }
+
+        //===================================================================================================
+        //Найти максимальные элементы каждого столбца матрицы
+
+        // let matrix = [
+        //     [-1, 2, 4, 5],
+        //     [5, 60, 7, 8],
+        //     [100, 2, -1, 40],
+        //     [5, 6, 77, 8]
+        // ]
+        //
+        // function getMaxElementsEachColumn(matrix) {
+        //     max = matrix[0]
+        //     for (let i = 0; i < matrix.length; i++) {
+        //         for (let j = 0; j < matrix[i].length; j++) {
+        //            if (matrix[i][j] > max[j]) {
+        //                max[j] = matrix[i][j]
+        //            }
+        //         }
+        //     }
+        //    return max
+        // }
+        //
+        // console.log(getMaxElementsEachColumn(matrix))
+
+        // Количество отрицательных элементов под главной диагональю матрицы
+
+        // let matrix = [
+        //     [-1, 2, 4, 5],
+        //     [5, 6, 7, 8],
+        //     [1, -2, 10, 4],
+        //     [5, 6, -7, 8]
+        // ]
+        //
+        // function getCountNegativeElementsUnderMainDiagonal(matrix) {
+        //     let count = 0
+        //     for (let i = 0; i < matrix.length; i++) {
+        //         for (let j = 0; j < matrix[i].length; j++) {
+        //             if(matrix[i][j] < 0 && i > j){
+        //                 count++
+        //             }
+        //         }
+        //     }
+        //     return count
+        // }
+        //
+        // console.log(getCountNegativeElementsUnderMainDiagonal(matrix))
+        //
+        //==============================================================================================
+        // Найти индекс максимального элемента матрицы.
+
+        // let matrix = [
+        //     [-1, 2, 4, 5],
+        //     [5, 6, 7, 8],
+        //     [1, 2, 100, 4],
+        //     [5, 6, 7, 8]
+        // ]
+        //
+        // function getIndexMaxElement(matrix) {
+        //     let result = [0, 0]
+        //     for (let i = 0; i < matrix.length; i++) {
+        //         for (let j = 0; j < matrix[i].length; j++) {
+        //             let maxIndexI = result[0]
+        //             let maxIndexJ = result[1]
+        //             if (matrix[maxIndexI][maxIndexJ] < matrix[i][j]) {
+        //                 result = [i, j]
+        //             }
+        //         }
+        //     }
+        //     return result
+        // }
+        //
+        // console.log(getIndexMaxElement(matrix))
+
+        //Найти сумму всех четных элементтов, у которых оба индекса четные.
+
+        // let matrix = [
+        //     [-1, 2, 4, 5],
+        //     [5, 6, 7, 8],
+        //     [1, 2, 100, 4],
+        //     [5, 6, 7, 8]
+        // ]
+        //
+        // function getHonestElementsWithIndex(matrix) {
+        //     let result = 0
+        //     for (let i = 0; i < matrix.length; i++) {
+        //         for (let j = 0; j < matrix[i].length; j++) {
+        //            if(matrix[i][j] % 2 === 0 && i % 2 === 0 && j % 2 === 0){
+        //                result += matrix[i][j]
+        //            }
+        //         }
+        //     }
+        //     return result
+        // }
+        // console.log(getHonestElementsWithIndex(matrix))
+
+        // Найти положительные элементы главной диагонали квадратной матрицы.
+
+        // let matrix = [
+        //     [-1, 2, 3, 5],
+        //     [5, -6, 7, 8],
+        //     [1, 2, 3, 4],
+        //     [5, 6, 7, 8]
+        // ]
+        //
+        // function getPositiveElementsInMainDiagonal(matrix) {
+        //     let result = []
+        //     for (let i = 0; i < matrix.length; i++) {
+        //         for (let j = 0; j < matrix[i].length; j++) {
+        //             if (i === j && matrix[i][j] > 0) {
+        //                 result.push(matrix[i][j])
+        //             }
+        //         }
+        //     }
+        //     return result
+        // }
+        // console.log(getPositiveElementsInMainDiagonal(matrix))
+
+        // Найти значение минимального элемента матрицы ниже побочной диагонали
+
+        // let matrix = [
+        //     [-1, 2, 4, 5],// 0-3  j > 4 -0 - 1
+        //     [5, 6, 7, 8],// 1-2  j > 4 -1 - 1
+        //     [1, 2, -1, 4],// 2-1
+        //     [5, 6, 7, 8] // 3-0  j > n - i - 1
+        // ]
+        //
+        // function getMinElementsUnderSecondaryDiagonal(matrix) {
+        //     let min = matrix[matrix.length - 1][matrix.length - 1]
+        //     for (let i = 0; i < matrix.length; i++) {
+        //         for (let j = 0; j < matrix[i].length; j++) {
+        //             if (j > matrix.length - i - 1 && min > matrix[i][j]) {
+        //                 min = matrix[i][j]
+        //             }
+        //         }
+        //     }
+        //     return min
+        // }
+        //
+        // console.log(getMinElementsUnderSecondaryDiagonal(matrix))
+
+        //Дана матрица (двумерный массив). Поменять местами две любые ее строки.
+
+        // let matrix = [
+        //     [-1, 2, 4, 5],
+        //     [5, 6, 7, 8],
+        //     [1, -2, 10, 4],
+        //     [5, 6, -7, 8]
+        // ]
+        //
+        // let a = matrix[0]
+        // matrix[0] = matrix[1]
+        // matrix[1] = a
+        //
+
+        //Поменять столбцы местами.
+
+        // let matrix = [
+        //     [1, 2, 4, 5],
+        //     [5, 6, 7, 8],
+        //     [1, 2, 10, 4],
+        //     [5, 6, -7, 8]
+        // ]
+        //
+        // for (let i = 0; i < matrix.length; i++){
+        //   let a = matrix[i][2]
+        //     matrix[i][2] = matrix[i][3]
+        //     matrix[i][3] = a
+        // }
+        // console.log(matrix)
+
+
+        //function matrixNumber (matrix){
+        // 				if(!Array.isArray(matrix)){
+        // 					console.warn("Переданный аргумент не является массивом")
+        // 					return
+        // 				}
+        // 				if (matrix.length == 0) {
+        // 					console.warn("Матрица пуcтая")
+        // 					return
+        // 				}
+        // 				var sum = 0
+        // 				var len = matrix.length
+        // 				for (var i = 0; i < matrix.length; i++){
+        // 					for(var j = 0; j < matrix[i].length; j++){
+        // 						if(matrix[i].length != len){
+        // 							console.warn("Матрица не квадратная")
+        // 							return
+        // 						}
+
+        // 						if (j == len - i-1 ){
+        // 							sum += matrix[i][j]
+        // 						}
+        // 					}
+        // 				}
+        // 				console.log("Сумма элементов в побочной диагонали равна: " + sum)
+        // 			}
+        // 			//matrixNumber(matrix)
+        //             for(var i = 0; i < testData.length; i ++){
+        //             	matrixNumber(testData[i])
+        //             }
+
+
+        // Сейчас задание будет такое, что нужно код подсчёта суммы элементов побочной диагонали обернуть в функцию.
+
+        // 1: Функция должна в результате корректной работы выводить на экран сообщение "Сумма элементов главной диагонали равна: число"
+
+        // 2: Функция должна проверять, что переданный в неё аргумент является массивом.
+
+        // 3: Функция должна дополнительно проверять то, что переданная в неё матрица квадратная.
+
+        // 4: Подготовить несколько тестовых матриц для того, чтобы проверить работоспособность кода.
+
+        // var matrix = [
+        // [1,2,3,4],
+        // [5,6,7,8],
+        // [9,1,2,3],
+        // [4,5,6,7]
+        // ]
+        // var sum = 0
+        // for (var i = 0; i < matrix.length; i++){
+        // 	var len = matrix[i].length
+        // 	for(var j = 0; j < len; j++){
+        // 		if(j > len - i - 1) {
+        // 			sum += matrix[i][j]
+        // 		}
+        // 	}
+        // }
+        // console.log("Сумма чисел ниже побочной диагонали равна " + sum)
+
+
+        // var matrix = [
+        // [1,2,3,4],
+        // [5,6,7,8],
+        // [9,1,2,3],
+        // [4,5,6,7]
+        // ]
+        // var sum = 0
+        // for (var i = 0; i < matrix.length; i++){
+        // 	for(var j = 0; j < matrix[i].length; j++){
+        // 		if(j % 2 ===0){
+        // 			sum += matrix[i][j]
+        // 		}
+        // 	}
+        // }
+        // console.log("Сумма чисел в четных столбцах равна: " + sum)
+
+
+        // var matrix = [
+        // [1,2,3,4],
+        // [5,6,7,8],
+        // [9,1,2,3],
+        // [4,5,6,7]
+        // ]
+        // sum = 0
+        // var len = matrix.length
+        // for (var i = 0; i < matrix.length; i++){
+        // 	for(var j = 0; j < matrix[i].length; j++){
+        // 		if (j == (len - i)-1 ){
+        // 			sum += matrix[i][j]
+        // 		}
+        // 	}
+        // }
+        // console.log("Сумма чисел в побочной диагонали равна: " + sum)
+
+
+        // var matrix = [
+        // [1,2,3,4],
+        // [5,6,7,8],
+        // [9,1,2,3],
+        // [4,5,6,7]
+        // ]
+        // var sum = 0
+        // for (var i = 0; i < matrix.length; i++){
+        // 	for(var j = 0; j < matrix.length; j++){
+        // 		if(i > j){
+        // 			sum += matrix[i][j]
+        // 		}
+        // 	}
+        // }
+        // 		console.log("Сумма чисел под главной диагональю = " + sum)
+
+
+        //Необходимо найти СУММУ элементов, которые находятся ПОД ГЛАВНОЙ ДИАГОНАЛЬЮ.
+
+        // var matrix = [
+        // [7,4,3],
+        // [9,5,6],
+        // [1,8,2]
+        // ]
+        // for (var i = 0; i < matrix.length; i++){
+        // 	for(var j = 0; j < matrix.length; j++){
+        // 		console.log("Текущий элемент " + matrix[i][j] + ", i = " + i + "; j = " + j)
+        // 	}
+        // }
+
+
+    </script>
+    </body>
+    </html>

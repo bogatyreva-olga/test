@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<style>
+		.number{
+            background-color: #fac43c;
+            color: black;
+            padding: 20px 32px;
+            border-radius: 15px;
+            box-shadow: 
+            inset 0 -2px 4px #7513bf,
+            0 0 3px rgba(0,0,0,0.03);
+            margin-left:3px;
+            margin-top:5px; 
+            font-size: 40px;
+  		}
+  		.operator{
+            background-color: #e3c884;
+            padding: 20px 32px;
+            border-radius: 15px;
+            box-shadow: 
+            inset 0 -2px 4px #7513bf,
+            0 0 3px rgba(0,0,0,0.03);
+            margin-left:3px;
+            margin-top:5px; 
+            font-size: 40px;
+  		}
+		.total{
+			background-color: #de4a0b;
+            padding: 20px 32px;
+            border-radius: 15px;
+            font-size: 40px;
+		}
+
+	</style>
+
+	<p>
+		<b>Solution:</b>
+		<input id ="result" type="text" value="" style="width: 250px; background-color: #e8dbd5; padding: 20px 32px; border-radius: 15px;  font: 25pt sans-serif;" disabled="true">
+	</p>
+	<input class="number" type="button" value="1" onclick="inputNumber(this)">
+	<input class="number" type="button" value="2" onclick="inputNumber(this)">
+	<input class="number" type="button" value="3" onclick="inputNumber(this)">
+	<input class="operator" type="button" value="+" onclick="inputOperator(this)"><br>
+	<input class="number" type="button" value="4" onclick="inputNumber(this)">
+	<input class="number" type="button" value="5" onclick="inputNumber(this)">
+	<input class="number" type="button" value="6" onclick="inputNumber(this)">
+	<input class="operator" type="button" value="-" onclick="inputOperator(this)"><br>
+	<input class="number" type="button" value="7" onclick="inputNumber(this)">
+	<input class="number" type="button" value="8" onclick="inputNumber(this)">
+	<input class="number" type="button" value="9" onclick="inputNumber(this)">
+	<input class="operator" type="button" value="*" onclick="inputOperator(this)"><br>
+	<input class="number" type="button" value="0" onclick="inputNumber(this)">
+	<input class="total" type="button" value="R" onclick="reset()">
+	<input class="total" type="button" value="=" onclick="calculate()">
+	<input class="operator" type="button" value="/" onclick="inputOperator(this)">
+
+	<script type="text/javascript">
+		function inputNumber(t) {
+			// var inputs = document.getElementsByTagName('input')
+			// for (var i = 0; i < inputs.length; i++) {
+			// 	inputs[i].value = 'text'
+			// }
+			document.getElementById('result').value += t.value;
+
+		} 
+		function reset(){
+			document.getElementById('result').value = ""
+		}
+		function inputOperator(t) {
+			var operators = ['+', '-', '/', '*']
+			var input = document.getElementById('result')
+			if(operators.includes(input.value[input.value.length - 1])){
+				input.value = input.value.slice(0, -1) + t.value 
+			}else{
+				input.value += t.value
+				
+			}
+			if(operators.input.value[0] != '-'){
+				t.value += ''
+			}
+		}
+		function calculate(){
+            var inputValue = document.getElementById('result').value 
+            document.getElementById('result').value = eval(inputValue)
+            
+		} 
+		 
+
+	</script>
+
+</body>
+</html>

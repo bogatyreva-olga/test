@@ -1,0 +1,57 @@
+<DOCTYPE>
+	<html>
+	<head>
+	</head>
+	<body>
+		<script>
+
+			
+			
+
+			function randomInteger(min, max){
+				return Math.floor(Math.random() * (max - min) + min);
+				
+			}
+			
+
+
+			function getRandomChilds(count){
+				var nameChildren = ["Villy", "Lena", "Tomas", "Robert", "Diana", "Roma", "Maks"]
+				var eyeChildren = ["grey", "blue", "green", "brown"]
+				var arrChildRandom = []
+				for (var i = 0; i < count; i++) {
+
+					var randomName = nameChildren[randomInteger(0, nameChildren.length)]
+					var randomEye = eyeChildren[randomInteger(0, eyeChildren.length)]
+					var randomAge = randomInteger(8, 15)
+					var randomWeight = randomInteger(25, 50)
+					var child = {
+						name: randomName ,
+						eyeColor: randomEye,
+						age: randomAge,
+						weigth: randomWeight,
+					}
+					arrChildRandom.push(child)
+				}
+				return arrChildRandom      
+			}
+
+			console.log(getRandomChilds(10))
+			console.log(getRandomChilds(5))
+
+            
+
+
+		</script>
+</body>
+	</html>
+
+    у тебя должна быть функция с именем getRandomChilds(n)
+
+    внутри должен быть цикл, где в цикле ты собираешь случайного ребенка и кладёшь его в массив. После того как цикл завершился, ты делаешь return этого массива 
+	напиши функцию, которая будет возвращать массив из N случайных детей. Т.е. у ребёнка должно быть случайное имя, случайный цвет глаз и случайный вес в диапазоне от 20 до 50. Структура ребенка должна быть как в той задаче про детей.
+
+Случайное имя должно выбираться из заготовленного массива имён, цвет глаз также из заготовленного массива. Вес генерируется при помощи той функции randomInteger() 
+
+/[35, 29, 41, 31, 28, 44, 25, 33]
+            //[12, 14, 10, 15, 13, 9, 11, 8]

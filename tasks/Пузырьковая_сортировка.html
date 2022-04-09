@@ -1,0 +1,39 @@
+<DOCTYPE>
+	<html>
+	<head>
+	</head>
+	<body>
+		<script>       
+			var arr = [99, 1, -1, 0, 4, 10, 2, 6]
+
+			function bubbleSort(arr) {
+				for (var i = 0, endI = arr.length - 1; i < endI; i++) {
+					for (var j = 0, endJ = endI - i; j < endJ; j++) {
+						if (arr[j] > arr[j + 1]) {
+							var swap = arr[j];
+							arr[j] = arr[j + 1];
+							arr[j + 1] = swap;
+						}
+					}
+				}
+				return arr;
+			}
+
+			// console.log(bubbleSort(arr))
+			var str  = {
+				"header":{
+					"RequestHeader":{
+						"networkCode": 123456,
+						"applicationName": "DfpApi-Java-2.1.0-dfp_test"
+					}
+				},
+				"body":{
+					"filterStatement":{
+						"query": "WHERE parentId IS NULL LIMIT 500"
+					}
+				}
+			}
+			console.log(JSON.parse(str))
+		</script>
+	</body>
+	</html>

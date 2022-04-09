@@ -1,0 +1,22 @@
+<DOCTYPE>
+    <html>
+    <head>
+    </head>
+    <body>
+    <script>
+        let str1 = " Hello there thanks for trying my Kata"
+        let str2 = "    Hello     World   "
+        let str3 = ""
+
+        function hashTagStringResult(str) {
+            let arr = str.trim().replace(/\s+/, " ").split(" ")
+            let resultArr = arr.map(function (letter, index) {
+                return letter[0].toUpperCase() + letter.slice(1)
+            })
+            return "#" + resultArr.join("")
+        }
+
+        console.log(hashTagStringResult(str1))
+    </script>
+    </body>
+    </html>

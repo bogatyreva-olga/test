@@ -1,0 +1,70 @@
+<DOCTYPE>
+	<html>
+	<head>
+	</head>
+	<body>
+		<script>
+			/*function limitStr(str, n = 0, symb = "...") { 
+				if(typeof str != 'string'){
+					throw new Error("Первый аргумент должен быть строкой")
+				}
+				if(!Number.isInteger(n)){
+					throw new Error("Второй аргумент должен быть целым числом")
+				}
+				if(typeof symb != 'string'){
+					throw new Error("Третий аргумент должен быть строкой")
+				}
+				if(n < 0 || n > str.length){
+                    throw new Error("Второй аргумент должен быть меньше 0 и больше длины строки")
+				}
+                if(n === 0){
+                   return str
+                }
+				return str.slice(0, n) + symb 
+			}
+				try{
+					console.log(limitStr('Каждый охотник желает знать.' ))
+				}catch(e){
+					console.log(e)    
+				}*/
+			
+//=========================================================
+			/*function limitStr(str, n, symb) {
+				if (!n && !symb) return str;
+				symb = symb || '...';
+				return str.substr(0, n - symb.length) + symb;
+			}*/		
+			/*ВАРИАНТ СЛАВЫ*/
+			/* function limitStr(str, n, symb = "...") { 
+           return str.slice(0, n) + symb }	//но отдает строку с ...		
+           /*МОЙ ВАРИАНТ*/
+          /* function limitStr(str, n, symb) {
+           	if(typeof str != 'string'){
+           		throw new Error("Первый аргумент должен быть строкой")
+           	}
+           	if(Number.isInteger(n) === false){
+                 throw new Error("Второй аргумент должен быть целым числом")
+           	}
+           	if(typeof symb != 'string'){
+           		throw new Error("Третий аргумент должен быть строкой")
+           	}
+           	if (!n && !symb) return str
+           		if(symb === undefined){
+           			var result = str.slice(0, n) + "..."
+           		}else{
+           			result = str.slice(0, n) + symb
+           		}
+           		return result   
+           	}
+           	try{
+ 	console.log(limitStr('Каждый охотник желает знать.', 2, "!"))
+ }catch(e){
+    console.log(e)    
+}*/
+ // Каждый охотник желает знать.
+
+
+
+</script>
+</body>
+</html>

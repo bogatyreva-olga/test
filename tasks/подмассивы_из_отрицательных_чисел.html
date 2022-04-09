@@ -1,0 +1,40 @@
+<DOCTYPE>
+	<html>
+	<head>
+	</head>
+	<body>
+		<script>
+
+			var arr = [10,122,1,-4,-6,-7,8,10,12,0,-1,100,350,-1,-2]
+			function getMaxSumEvenSequence(arr){
+				var result = []
+				var currSeq = []
+				var countSeq = 0
+				for (var i = 0; i < arr.length; i++) {
+					if(arr[i] < 0 ){
+						currSeq.push(arr[i])
+					}
+					if(arr[i] >= 0 || i === arr.length -1){
+						if(currSeq.length > 0){
+							result.push(currSeq)
+							currSeq = []
+						}
+
+					}
+				}
+				console.log(result)
+			}
+            getMaxSumEvenSequence(arr)
+         
+
+		</script>
+	</body>
+	</html>
+
+
+
+
+	<!-- Найди мне:
+1!: подмассив максимальной длины, состоящий из чётных чисел.
+2: подмассив, состоящий из чётных чисел и имеющий максимальную сумму элементов.
+3: все подмассивы, состоящий из отрицательных чисел -->

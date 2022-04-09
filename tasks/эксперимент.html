@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<script>
+		var childs = [
+			{
+				name: "Jon",
+				eyeColor: 'blue',
+				age: 10,
+				weigth: 30,
+			},
+			{
+				name: "Niki",
+				eyeColor: 'gray',
+				age: 10,
+				weigth: 41,
+			},
+			{
+				name: "Miky",
+				eyeColor: 'green',
+				age: 13,
+				weigth: 24,
+			},
+			{
+				name: "Yakob",
+				eyeColor: 'blue',
+				age: 14,
+				weigth: 42,
+			}
+			]
+
+			function showChildInfo(child){
+				function getAgeText(age){
+					if (age > 12){
+						return"взрослый "
+					}else{
+						return"ребенок "
+					}
+				}
+				function getYeasColor(eyeColor){
+					switch (eyeColor){
+						case 'blue':
+						return 'голубые'
+						case 'gray':
+						return 'серые'
+						case 'green':
+						return 'зеленые'
+						default:
+						return 'Нет такого цвета'
+					}
+				}
+				console.log("Имя:"+ child.name)
+				console.log("Цвет глаз: " +getYeasColor(child.eyeColor))
+				console.log("Возраст: "+getAgeText(child.age))
+				console.log("Вес ребенка: " +child.weigth + " кг")
+				console.log("Вес ребенка: " +child.weigth + " кг")
+			}
+
+			
+			function showFatChilds(childs){
+				console.log("Информация о толстых детях: ")
+				for (var i = 0; i < childs.length; i++){
+					if (childs[i].weigth > 40){
+						showChildInfo(childs[i])
+					}
+				}
+			}
+			function showAnorexicChild(childs){
+				console.log("Информация о худых детях: ")
+				childs.forEach(function(child){
+					if (child.weigth < 25){
+						showChildInfo(child)
+					}
+				})
+			}
+			showAnorexicChild(childs)
+			// showFatChilds(childs)
+			// showAnorexicChild(childs)		
+   //          console.log("Дети, младше 13 лет: ")
+			// for (var i = 0; i < childs.length; i++){
+			//     if (childs[i].age < 13){
+			// 		showChildInfo(childs[i])
+				//}
+
+			//}
+	</script>
+</body>
+</html>

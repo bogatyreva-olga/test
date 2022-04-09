@@ -1,0 +1,107 @@
+ 
+<DOCTYPE>
+	<html>
+	<head>
+	</head>
+	<body>
+		<script>
+
+
+         /* Удаление указанного количества символов из строки
+Напишите функцию delete_characters(str, length), которая возвращает подстроку, состоящую из указанного количества символов.*/
+// var str = 'Каждый охотник желает знать';
+// function delete_characters(str, length) {
+// var result = ""
+// for (var i = 0; i < length; i++){
+// result += str.charAt(i)
+// }
+// return result
+// }
+// console.log(delete_characters(str, 7));
+ //и вариант 2
+
+ var str = "Каждый охотник должен знать лесной закон"
+ function isNumber(length) {
+ 	return typeof length === 'number' && isFinite(length);
+ }
+ function delete_characters(str, length) {
+ 	if(typeof str != 'string'){
+ 		throw new Error("Первый аргумент должен быть строкой")
+ 	}
+ 	if(!isNumber(length)){
+ 		throw new Error("второй аргумент должен быть числом")
+ 	}
+ 	return str.slice(0, length)
+ }
+ try{
+ 	console.log(delete_characters(str, ""))
+ }catch(e){
+    console.log(e)    
+ }
+
+ 
+/*===================================================================*/
+			/*Поделить строку на фрагменты
+			Напишите функцию cutString(str, n), которая делит строку на подстроки, состоящие из n символов.*/
+
+			// function cutString(str, n) {
+			// 	var result = []
+			// 	var temp = ""
+			// 	for (var i = 0; i < str.length; i++) {
+			// 		temp += str.charAt(i)
+			// 		if((i + 1) % n === 0 || i === str.length-1){
+   //                     result.push(temp)
+   //                     temp = ""   
+			// 		}
+			// 	}
+			// 	return result
+			// }
+
+   //          console.log(cutString('наслаждение',3)) // [нас,лаж,ден,ие]
+/*==============================================================================*/
+			//Напишите функцию path(pathname), которая вовращает имя файла (подстрока после последнего символа "\" ) из полного пути к файлу.
+
+			// var pathname = "/home/user/dir/file.txt";
+   //              function path(pathname) { 
+   //              	var arr = pathname.split("/")
+   //              		return arr[arr.length - 1]
+   //          }
+
+   //         path(pathname)
+/*============================================================================*/
+
+/*Напишите функцию comparison(str1, str2), которая сравнивает строки без учёта регистра символов.*/
+/*function comparison(str1, str2) {
+	return str1.toLowerCase() === str2.toLowerCase()
+}
+  console.log(comparison("cAmeL", "Camel")) 
+  /*===========================================================================*/
+			// 8. Нулевое заполнение строки
+			// Напишите функцию zeros(num, len), которая дополняет нулями до указаной длины числовое значение с дополнительным знаком «+» или « -« в зависимости от передаваемого аргумента.
+			/*function zeros (num, len, sign) {
+				var result = ""
+				var difference = len - num.toString().length
+				for (var i = 0; i < difference; i++) {
+				  	result +=0
+				  
+				}
+            return (sign === undefined || sign === '') ? result  + num + '' : sign + result  + num +'';
+			}
+			console.log(zeros(53, 5, '-'))*/
+/*====================================================================*/		
+ /*1. Преобразовать строку в массив слов
+ Напишите функцию stringToarray(str), которая преобразует строку в массив слов.*/
+ // var str = 'Каждый охотник желает знать';
+ // function stringToarray(str) {
+ // 	var arr = str.trim().split(" ")
+ // 	return arr
+
+ // }
+ // var arr = stringToarray(str);
+ // console.log(arr)
+/*======================================================================*/
+
+
+</script>
+</body>
+</html>
