@@ -10,11 +10,7 @@
     //     i++
     // }
     // console.log(i)
-
-    // for (var i = 0; Math.random() > 0.1; i++) {
-    // }
     //
-    // console.log(i)
 //===========================================================================================================
     //Циклическое вычисление суммы чисел
     //С помощью цикла while разработать программу, которая будет вычислять сумму чисел нацело делящихся на 5.
@@ -40,52 +36,53 @@
     ////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //  Необходимо написать функцию, которая возвращает отсортированный по весу по убыванию массив
     // Дан массив объектов:
-    // let arrayObj = [
-    //     {
-    //         "value": 1,
-    //         "weigth": 0.3
-    //     },
-    //     {
-    //         "value": 2,
-    //         "weigth": 0.2
-    //     },
-    //     {
-    //         "value": 5,
-    //         "weigth": 0.5
-    //     },
-    //     {
-    //         "value": 4,
-    //         "weigth": 0.4
-    //     },
-    //     {
-    //         "value": 0,
-    //         "weigth": 0.01
-    //     }
-    // ]
-    //
-    // function getRandomElementWithWeight(arr) {
-    //     arr.sort((a, b) => b.weigth - a.weigth)
-    //     // arr.sort(function (a, b){
-    //     //     return  b.weigth - a.weigth
-    //     // })
-    //     let sumWeights = 0
-    //     for (let i = 0; i < arr.length; i++) {
-    //         sumWeights += arr[i].weigth
-    //     }
-    //     let randomNumber = Math.random() * sumWeights
-    //     let left = 0
-    //     for (let i = 0; i < arr.length; i++) {
-    //         let right = left + arr[i].weigth
-    //         if (randomNumber >= left && randomNumber <= right) {
-    //             return arr[i].value
-    //         }
-    //         left = right
-    //     }
-    //     return [sumWeights, randomNumber]
-    // }
-    //
-    // console.log(getRandomElementWithWeight(arrayObj))
-    //
+    let arrayObj = [
+        {
+            "value": 1,
+            "weigth": 0.3
+        },
+        {
+            "value": 2,
+            "weigth": 0.2
+        },
+        {
+            "value": 5,
+            "weigth": 0.5
+        },
+        {
+            "value": 4,
+            "weigth": 0.4
+        },
+        {
+            "value": 0,
+            "weigth": 0.01
+        }
+    ]
+
+    function getRandomElementWithWeight(arr) {
+        arr.sort((a, b) => b.weigth - a.weigth)
+        // arr.sort(function (a, b){
+        //     return  b.weigth - a.weigth
+        // })
+        let sumWeights = 0
+        for (let i = 0; i < arr.length; i++) {
+            sumWeights += arr[i].weigth
+        }
+        let randomNumber = Math.random() * sumWeights
+        let left = 0
+        for (let i = 0; i < arr.length; i++) {
+            let right = left + arr[i].weigth
+            console.log(right)
+            if (randomNumber >= left && randomNumber <= right) {
+                return arr[i].value
+            }
+            left = right
+        }
+        return [sumWeights, randomNumber]
+    }
+
+    console.log(getRandomElementWithWeight(arrayObj))
+
 
     //=========================================================================================================
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

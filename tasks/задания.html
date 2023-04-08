@@ -7,20 +7,109 @@
     </html>
     <script>
 
-        function getSqrWithCache(cache, number) {
-            if (cache.has(number)) {
-                console.log("get from cache");
-                return cache.get(number);
-            }
-            let sqr = Math.pow(number, 2);
-            cache.set(number, sqr);
-            console.log("get from solved");
-            return sqr;
-        }
+        // let arr = [1, 2, 1, 3, 2];
+        //
+        // function birthday(s, d, m) {
+        //     let countSum = 0;
+        //     let sum = 0;
+        //     for (let i = 0; i < s.length; m) {
+        //         sum += s[i];
+        //         if (sum === d) {
+        //             countSum++
+        //         }
+        //     }
+        //     return countSum
+        // }
+        //
+        // console.log(birthday(arr, 3, 2))
+//====================================================================================================
 
-        let cache = new Map();
-        console.log(getSqrWithCache(cache, 2));
-        console.log(getSqrWithCache(cache, 2));
+        // let arr = [17, 45, 41, 60, 17, 41, 76, 43, 51, 40, 89, 92, 34, 6, 64, 7, 37, 81, 32, 50];
+        //
+        // function breakingRecords(scores) {
+        //     let countBestScore = 0;
+        //     let countBadScore = 0;
+        //     let maxScore = scores[0];
+        //     let minScore = scores[0];
+        //     for (let i = 0; i < scores.length; i++) {
+        //         if (scores[i + 1] > maxScore) {
+        //             maxScore = scores[i + 1];
+        //             countBestScore++
+        //         }
+        //         if (scores[i + 1]  < minScore) {
+        //             minScore = scores[i + 1];
+        //             countBadScore++
+        //         }
+        //     }
+        //     return [countBestScore, countBadScore]
+        // }
+        //
+        // console.log(breakingRecords(arr))
+
+        // Вы ставите цирковое представление с участием различных животных. На одно действие вам даются два кенгуру на числовой прямой, готовые прыгнуть в положительном направлении (т. е. в сторону положительной бесконечности).
+        //
+        // Первый кенгуру стартует на локациии x1 движется со скоростью метров v1 за прыжок.
+        //     Второй кенгуру стартует на локациии x2 движется со скоростью метров v2 за прыжок.
+        //     Вы должны найти способ собрать обоих кенгуру в одном и том же месте в одно и то же время в рамках шоу. Если возможно, верните YES, иначе верните NO.
+        //
+        // function kangaroo(x1, v1, x2, v2) {
+        //     if (v2 >= v1) {
+        //         return "NO"
+        //     }
+        //     let jump = 1;
+        //     while (  (x1 + jump * v1) <=  (x2 + jump * v2) ) {
+        //         if ((x1 + jump * v1) ===  (x2 + jump * v2)) {
+        //             return "YES"
+        //         }
+        //         jump++
+        //     }
+        //     return "NO"
+        //
+        //
+        // }
+        //
+        // console.log(kangaroo(0, 3, 4, 2))
+
+
+        // let team = [
+        //     {
+        //         name: 'Ronaldo',
+        //         goals: 3,
+        //         passes: 7
+        //     },
+        //     {
+        //         name: 'Zidan',
+        //         goals: 5,
+        //         passes: 2
+        //     },
+        //     {
+        //         name: 'Messi',
+        //         goals: 15,
+        //         passes: 2
+        //     }
+        // ]
+        //
+        // let getStatistics = function (players) {
+        //     let allGoals = team.reduce(function(sum, current) {
+        //         return sum + current.goals;
+        //     }, 0);
+        //     for (let i = 0; i < players.length; i++) {
+        //         players[i].coefficien = players[i].goals * 2 + players[i].passes;
+        //         players[i].percent = Math.round(players[i].goals *100/ allGoals);
+        //     }
+        //     console.log(players)
+        //     return players
+        //
+        // };
+        //
+        //
+        // console.log(getStatistics(team))
+
+
+        //написать функцию, которая принимает массив и возвращает массив,
+        // где элементы стоящие на чётных индексах возведены в квадрат, а на нечётных в куб
+
+
 
         /*вывести уникальные символы*/
         //
@@ -284,8 +373,8 @@
         // Math.pow(2, i - 1) / Math.pow(2, i + 1 )
 
 
-        // Найти сумму и количество элементов последовательности, которые по модулю больше 0.001. Последовательность:
-        //S = 1/2 - 2/4 + 3/8 - 4/16 + ... - ...
+        //Найти сумму и количество элементов последовательности, которые по модулю больше 0.001. Последовательность:
+        // S = 1/2 - 2/4 + 3/8 - 4/16 + ... - ...
 
         // let n = 4
         // let result = 0
@@ -297,7 +386,7 @@
         //Найти сумму n-го количества элементов ряда 1, -0.5, 0.25, -0.125, …
         // 1/1 - 1/2 + 1/4 - 1/8 + 1/16
 
-        // let n = 4
+        // let n = 5
         // let result = 0
         // for (let i = 1; i <= n; i++) {
         //     result += 1 / Math.pow(2, i - 1) * Math.pow(-1, i + 1)

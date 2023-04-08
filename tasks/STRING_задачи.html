@@ -1,105 +1,453 @@
- 
-<DOCTYPE>
-	<html>
-	<head>
-	</head>
-	<body>
-		<script>
+<DOCTYPE/>
+<html>
+<head>
+</head>
+<body>
+<script>
+
+    let grade = [20, 73, 67, 38, 33];
+
+    function gradingStudents(grades) {
+        let result = [];
+        for (let i = 0; i < grades.length; i++) {
+            if (grades[i] <= 37) {
+                return result.push(grades[i]);
+            }
+        }
+        return grades
+    }
+
+    console.log(gradingStudents(grade))
+
+    // Представьте, что у вас кучка из N палочек.
+    // Далее вы выполняете следующую операцию: находите все палочки, которые длиннее,
+    // чем самая короткая палочка в кучке, и разламываете их на две части, так чтобы одна из
+    // частей была равна по длине самой короткой палочке в кучке; при этом для каждой палочки ту часть,
+    // которая равна по длине самой короткой палочке, вы оставляете в кучке, а другую откладываете в сторону.
+    // Таким образом после применения операции, у вас образуется две кучки: первая (изначальная) будет состоять
+    // из N палочек, каждая из которых имеет одинаковую длину (длина изначально минимальной по длине палочки),
+    // вторая (новая) образована частями палочек, которые вы отложили в сторону.
+    //Теперь представьте, что, применив операцию один раз и получив две кучки, вы применяете
+    // операцию далее для новой кучки. А затем снова примените описанную операцию для новой полученной кучки.
+    // И так далее вы будете делать, до тех пор, пока отложенные палочки не будут равны по длине.
+    //Вам заданы палочки в первоначальной кучке, вам требуется вывести последовательность количества палочек в
+    // кучках в процессе применения описанной операции.
+
+    // let arr1 = [1, 2, 3, 4, 3, 3, 2, 1]
+    //
+    // function cutTheSticks(arr) {
+    //     let minNumberElemToArr;
+    //     let arrLengthValue = [];
+    //     while (arr.length > 0) {
+    //         arrLengthValue.push(arr.length);
+    //         minNumberElemToArr = Math.min(...arr);
+    //         arr = arr.filter(el => el !== minNumberElemToArr).map((el) => el - minNumberElemToArr)
+    //     }
+    //     return arrLengthValue
+    // }
+    //
+    // console.log(cutTheSticks(arr1))
+
+    //================================================================================================
+
+    // let minNumberElemToArr = 0;
+    // let arrMinValuesElements = [];
+    // let result = [];
+    // for (let i = 0; i < arr.length; i++) {
+    //     minNumberElemToArr = Math.min(...arr);
+    //     result.push(arr.length);
+    //}
 
 
-         /* Удаление указанного количества символов из строки
+    // while (arr[i] !== 0) {
+    //     minNumberElemToArr = Math.min(...arr);
+    //
+    //     console.log(minNumberElemToArr)
+    //
+    // }
+
+
+    //Вы хотите купить видеоигры в известном онлайн-магазине видеоигр Mist.
+
+    //   Обычно все игры продаются по одной цене, p долларов. Однако в следующем месяце они планируют
+    //   провести сезонную распродажу на Хэллоуин, на которой вы сможете купить игры по более низкой цене. В частности,
+    //   первая игра будет стоить p долларов, а каждая последующая игра будет стоить d долларов меньше предыдущего.
+    //   Так продолжается до тех пор, пока стоимость не станет меньше или равна m долларов, после чего каждая игра будет
+    //   стоить m долларов. Сколько игр можно купить во время Хэллоуинской распродажи?
+    //   Return the number of games you can buy
+    //  Пример:
+    //   p = 20  стоимость первой игры
+    //   d = 3 скидка на каждую последующую игру
+    //   m = 6 минимальная стоимость игры
+    //   s = 70  сумма на игры
+
+    //
+    // function howManyGames(p, d, m, s) {
+    //     let countGames = 0
+    //     while (s >= p) {
+    //         s -= p
+    //         if ((p - d) > m) {
+    //             p -= d
+    //         } else {
+    //             p = m
+    //         }
+    //         countGames++
+    //     }
+    //
+    //     return countGames;
+    // }
+    //
+    // console.log(howManyGames(100, 19, 1, 180))
+
+    //Найти самую минимальную разницу между повторяющимися элементами или вернуть -1
+
+
+    // let arr = [7, 1, 3, 4, 1, 7]
+    //
+    // function minimumDistances(a) {
+    //     let indexDifferenceElements = [];
+    //     let indexDifference = 0;
+    //     for (let i = 0; i < a.length; i++) {
+    //         for (let j = 0; j < a.length; j++) {
+    //             if (a[i] === a[j] && i !== j && i < j) {
+    //                 indexDifference = j - i
+    //                 indexDifferenceElements.push(indexDifference)
+    //             }
+    //         }
+    //     }
+    //     if (indexDifferenceElements.length !== 0) {
+    //         return Math.min(...indexDifferenceElements)
+    //     }
+    //     return -1
+    // }
+    //
+    // console.log(minimumDistances(arr))
+
+    //==============================================================================================
+
+
+    // const users = [
+    //     {id: '123', name: 'John'},
+    //     {id: '345', name: 'Anna'},
+    //     {id: '567', name: 'Kate'},
+    //     {id: '789', name: 'Jane'}
+    // ]
+    //
+    // const usernamesById = users.reduce(function (result, user) {
+    //     return {
+    //         ...result,
+    //         [user.id]: user.name,
+    //     }
+    // }, {})
+    //
+    // console.log(usernamesById)
+
+
+    // кто из котов (позиция x, z) быстрее доберется до мыши. если вдвоем, то мышь убежит.
+    //   const catAndMouse = (x, y, z) => {
+    //      const cat1 = x;
+    //      const cat2 = y;
+    //      const mouse = z;
+    //      let diffCat1 = 0;
+    //      let diffCat2 = 0;
+    //
+    //      diffCat1 = Math.abs(mouse - cat1)
+    //      diffCat2 = Math.abs(mouse - cat2)
+    //
+    //       if (diffCat1 < diffCat2) {
+    //           return "Cat A"
+    //       }
+    //       if (diffCat1 > diffCat2) {
+    //           return "Cat B"
+    //       }
+    //       if (diffCat1 === diffCat2) {
+    //           return "Mouse C"
+    //       }
+    //   }
+    //
+    //  console.log(catAndMouse(5, 8, 6));
+    //Напишите функцию includes() которая на вход принимает два параметра: массив arr и значение value.
+    // Функция должна возвращать bool,
+    //  Если значение value присутствует в массиве, то функция должна вернуть true,
+    //  если value в массиве отсутствует, функция должна вернуть false. Код функции должен состоять только из базовых операторов for, if
+    // Обращаться ко встроенным функциям массивов (map(), push(), includes(),... ) запрещено
+    //
+    // let arr1 = [3, 1, 6, 7];
+    // const includes = (arr, value) => {
+    //     for (let i = 0; i < arr.length; i++) {
+    //        if (arr[i] === value) {
+    //            return true
+    //        }
+    //     }
+    //     return false
+    // }
+    // console.log(includes(arr1, 7))
+
+
+    // if (flag === true) {
+    //     return true
+    // } else {
+    // }
+    // return false
+
+    //___________________________________________________________________________________________________________________________________________________
+    // Найти наибольшее значение суммы между 2-ух массивов. и сравнит с числом (b). вывести максимально приближенное значение (но не больше) или -1
+
+
+    // let arr1 = [3, 1];
+    // let arr2 = [5, 8];
+    //
+    // function getMoneySpent(keyboards, drives, b) {
+    //     let maxPrice = [];
+    //     let minPrice = [];
+    //     let shoppingOptions = [];
+    //     let result = [];
+    //     let flag = false;
+    //
+    //     if (keyboards.length > drives.length) {
+    //         maxPrice.push(...keyboards);
+    //         minPrice.push(...drives);
+    //
+    //     } else {
+    //         maxPrice.push(...drives);
+    //         minPrice.push(...keyboards);
+    //     }
+    //
+    //     for (let i = 0; i < minPrice.length; i++) {
+    //         for (let j = 0; j < maxPrice.length; j++) {
+    //             shoppingOptions.push(minPrice[i] + maxPrice[j])
+    //         }
+    //     }
+    //
+    //     for (let i = 0; i < shoppingOptions.length; i++) {
+    //         if (shoppingOptions[i] <= b) {
+    //             flag = true;
+    //         }
+    //     }
+    //     if (flag === true) {
+    //         result = shoppingOptions.filter(i => i <= b);
+    //         return Math.max(...result)
+    //     } else {
+    //         return -1
+    //     }
+    // }
+    //
+    // console.log(getMoneySpent(arr1, arr2, 10))
+
+    //В первой строке через пробел записаны два целых числа, обозначающие соответствующие значения s и t.
+    //Во второй строке через пробел записаны два целых числа, обозначающие соответствующие значения a и b.
+    //В третьей строке через пробел записаны два целых числа, обозначающие соответствующие значения m и n.
+    //Четвертая строка содержитцелые числа, разделенные пробелами, обозначающие соответствующие расстояния, на которые каждое яблоко падает из точки a.
+    //Пятая строка содержитцелые числа, разделенные пробелами, обозначающие соответствующие расстояния, на которые каждый апельсин падает от точки b.
+    // let apples = [2]; //m
+    // let oranges = [-2]; //n
+    //      function countApplesAndOranges(s, t, a, b, apples, oranges) {
+    //          let counterApples = 0;
+    //          let counterOranges = 0;
+    //          let fallAreaApples = apples.map((el) => a + el);
+    //          let fallAreaOranges = oranges.map((el) => b + el);
+    //          const resultFallFruit = (arr) => {
+    //              let counter = 0;
+    //              for (let i = 0; i <= arr.length; i++) {
+    //                 if (arr[i] >= s && arr[i] <= t) {
+    //                     counter+=1;
+    //                 }
+    //              }
+    //              return counter
+    //          }
+    //          counterApples = resultFallFruit(fallAreaApples);
+    //          counterOranges = resultFallFruit(fallAreaOranges);
+    //
+    //        return [counterApples, counterOranges]
+    //      }
+    //
+    //      console.log(countApplesAndOranges(2, 3, 1, 5, apples, oranges))
+
+
+    // выбрать меньшее число из массива, указанное большее количество раз
+    //    let arr = [2, 5, 1, 3, 4, 5, 4, 3, 2, 1, 3, 3, 4, 4]
+    //
+    //    function migratoryBirds(arr) {
+    //        let quantityViewsBirds = {};
+    //        let maxNumberValue = 0;
+    //
+    //        for (let i = 0; i < arr.length; i++) {
+    //            let symb = arr[i];
+    //            if (quantityViewsBirds[symb] === undefined) {
+    //                quantityViewsBirds[symb] = 1;
+    //            } else {
+    //                quantityViewsBirds[symb]++
+    //            }
+    //        }
+    //        for (let key in quantityViewsBirds) {
+    //            if (quantityViewsBirds[key] > maxNumberValue) {
+    //                maxNumberValue = quantityViewsBirds[key];
+    //            }
+    //        }
+    //        const getMaxKey = obj => {
+    //            const maxValue = Math.max.apply(null, Object.values(obj));
+    //            let keyWithMaxValue = [];
+    //            for (let key in obj) {
+    //                if (obj[key] === maxValue) {
+    //                    keyWithMaxValue.push(Number(key));
+    //                }
+    //            }
+    //            return Math.min(...keyWithMaxValue)
+    //        }
+    //     return getMaxKey(quantityViewsBirds);
+    //    }
+    // migratoryBirds(arr)
+
+
+    //        Есть большая куча носков, которые должны быть подобраны по цвету. Учитывая массив целых чисел,
+    //            представляющих цвет каждого носка, определите, сколько существует пар носков совпадающих цветов.
+    //            Пример:
+    // n = 7;
+
+
+    //   Есть одна пара цветов 1 и один из цветов 2. Осталось три нечетных носка, по одному каждого цвета. Количество пар 2.
+    // let arr = [10, 20, 20, 10, 10, 30, 50, 10, 20]
+    //
+    // function sockMerchant(ar) {
+    //     let counterPairSocks = 0;
+    //     let socksObject = {};
+    //     let result = [];
+    //     for (let i = 0; i < ar.length; i++) {
+    //         let symb = ar[i];
+    //         if (isNaN(socksObject[symb])) {
+    //             socksObject[symb] = 1;
+    //         } else {
+    //             socksObject[symb]++
+    //         }
+    //     }
+    //     for (let key in socksObject) {
+    //         result.push(socksObject[key])
+    //     }
+    //     for (let i = 0; i < result.length; i++) {
+    //         if (!(result[i] % 2 === 0) && result[i] !== 1) {
+    //             counterPairSocks += ((result[i] - 1) / 2)
+    //         }
+    //         if (result[i] % 2 === 0) {
+    //             counterPairSocks += (result[i] / 2)
+    //         }
+    //     }
+    // }
+    // console.log(sockMerchant(arr));
+
+
+    //  дорешать!!!!
+    // let arr = [1, 4, 1, 3, 2]
+    //
+    // function birthday(s, d, m) {
+    //     let counter = 0;
+    //     for (let i = 0; i < s.length; i++) {
+    //         let sum = 0;
+    //         for (let j = i; j <= m-1; j++) {
+    //             sum += s[j];
+    //             console.log(sum)
+    //         }
+    //         if (d === sum) {
+    //             counter++
+    //         }
+    //     }
+    // }
+    //
+    // birthday(arr, 5, 2)
+
+
+    /* Удаление указанного количества символов из строки
 Напишите функцию delete_characters(str, length), которая возвращает подстроку, состоящую из указанного количества символов.*/
-// var str = 'Каждый охотник желает знать';
-// function delete_characters(str, length) {
-// var result = ""
-// for (var i = 0; i < length; i++){
-// result += str.charAt(i)
-// }
-// return result
-// }
-// console.log(delete_characters(str, 7));
- //и вариант 2
+    // var str = 'Каждый охотник желает знать';
+    // function delete_characters(str, length) {
+    // var result = ""
+    // for (var i = 0; i < length; i++){
+    // result += str.charAt(i)
+    // }
+    // return result
+    // }
+    // console.log(delete_characters(str, 7));
+    //и вариант 2
 
- var str = "Каждый охотник должен знать лесной закон"
- function isNumber(length) {
- 	return typeof length === 'number' && isFinite(length);
- }
- function delete_characters(str, length) {
- 	if(typeof str != 'string'){
- 		throw new Error("Первый аргумент должен быть строкой")
- 	}
- 	if(!isNumber(length)){
- 		throw new Error("второй аргумент должен быть числом")
- 	}
- 	return str.slice(0, length)
- }
- try{
- 	console.log(delete_characters(str, ""))
- }catch(e){
-    console.log(e)    
- }
+    // var str = "Каждый охотник должен знать лесной закон"
+    // function isNumber(length) {
+    // 	return typeof length === 'number' && isFinite(length);
+    // }
+    // function delete_characters(str, length) {
+    // 	if(typeof str != 'string'){
+    // 		throw new Error("Первый аргумент должен быть строкой")
+    // 	}
+    // 	if(!isNumber(length)){
+    // 		throw new Error("второй аргумент должен быть числом")
+    // 	}
+    // 	return str.slice(0, length)
+    // }
+    // try{
+    // 	console.log(delete_characters(str, ""))
+    // }catch(e){
+    //    console.log(e)
+    // }
 
- 
-/*===================================================================*/
-			/*Поделить строку на фрагменты
-			Напишите функцию cutString(str, n), которая делит строку на подстроки, состоящие из n символов.*/
 
-			// function cutString(str, n) {
-			// 	var result = []
-			// 	var temp = ""
-			// 	for (var i = 0; i < str.length; i++) {
-			// 		temp += str.charAt(i)
-			// 		if((i + 1) % n === 0 || i === str.length-1){
-   //                     result.push(temp)
-   //                     temp = ""   
-			// 		}
-			// 	}
-			// 	return result
-			// }
+    /*===================================================================*/
+    /*Поделить строку на фрагменты
+    Напишите функцию cutString(str, n), которая делит строку на подстроки, состоящие из n символов.*/
 
-   //          console.log(cutString('наслаждение',3)) // [нас,лаж,ден,ие]
-/*==============================================================================*/
-			//Напишите функцию path(pathname), которая вовращает имя файла (подстрока после последнего символа "\" ) из полного пути к файлу.
+    // function cutString(str, n) {
+    // 	var result = []
+    // 	var temp = ""
+    // 	for (var i = 0; i < str.length; i++) {
+    // 		temp += str.charAt(i)
+    // 		if((i + 1) % n === 0 || i === str.length-1){
+    //                     result.push(temp)
+    //                     temp = ""
+    // 		}
+    // 	}
+    // 	return result
+    // }
 
-			// var pathname = "/home/user/dir/file.txt";
-   //              function path(pathname) { 
-   //              	var arr = pathname.split("/")
-   //              		return arr[arr.length - 1]
-   //          }
+    //          console.log(cutString('наслаждение',3)) // [нас,лаж,ден,ие]
+    /*==============================================================================*/
+    //Напишите функцию path(pathname), которая вовращает имя файла (подстрока после последнего символа "\" ) из полного пути к файлу.
 
-   //         path(pathname)
-/*============================================================================*/
+    // var pathname = "/home/user/dir/file.txt";
+    //              function path(pathname) {
+    //              	var arr = pathname.split("/")
+    //              		return arr[arr.length - 1]
+    //          }
 
-/*Напишите функцию comparison(str1, str2), которая сравнивает строки без учёта регистра символов.*/
-/*function comparison(str1, str2) {
-	return str1.toLowerCase() === str2.toLowerCase()
-}
-  console.log(comparison("cAmeL", "Camel")) 
-  /*===========================================================================*/
-			// 8. Нулевое заполнение строки
-			// Напишите функцию zeros(num, len), которая дополняет нулями до указаной длины числовое значение с дополнительным знаком «+» или « -« в зависимости от передаваемого аргумента.
-			/*function zeros (num, len, sign) {
-				var result = ""
-				var difference = len - num.toString().length
-				for (var i = 0; i < difference; i++) {
-				  	result +=0
-				  
-				}
-            return (sign === undefined || sign === '') ? result  + num + '' : sign + result  + num +'';
-			}
-			console.log(zeros(53, 5, '-'))*/
-/*====================================================================*/		
- /*1. Преобразовать строку в массив слов
- Напишите функцию stringToarray(str), которая преобразует строку в массив слов.*/
- // var str = 'Каждый охотник желает знать';
- // function stringToarray(str) {
- // 	var arr = str.trim().split(" ")
- // 	return arr
+    //         path(pathname)
+    /*============================================================================*/
 
- // }
- // var arr = stringToarray(str);
- // console.log(arr)
-/*======================================================================*/
+    /*Напишите функцию comparison(str1, str2), которая сравнивает строки без учёта регистра символов.*/
+    /*function comparison(str1, str2) {
+        return str1.toLowerCase() === str2.toLowerCase()
+    }
+      console.log(comparison("cAmeL", "Camel"))
+      /*===========================================================================*/
+    // 8. Нулевое заполнение строки
+    // Напишите функцию zeros(num, len), которая дополняет нулями до указаной длины числовое значение с дополнительным знаком «+» или « -« в зависимости от передаваемого аргумента.
+    /*function zeros (num, len, sign) {
+        var result = ""
+        var difference = len - num.toString().length
+        for (var i = 0; i < difference; i++) {
+              result +=0
+
+        }
+    return (sign === undefined || sign === '') ? result  + num + '' : sign + result  + num +'';
+    }
+    console.log(zeros(53, 5, '-'))*/
+    /*====================================================================*/
+    /*1. Преобразовать строку в массив слов
+    Напишите функцию stringToarray(str), которая преобразует строку в массив слов.*/
+    // var str = 'Каждый охотник желает знать';
+    // function stringToarray(str) {
+    // 	var arr = str.trim().split(" ")
+    // 	return arr
+
+    // }
+    // var arr = stringToarray(str);
+    // console.log(arr)
+    /*======================================================================*/
 
 
 </script>

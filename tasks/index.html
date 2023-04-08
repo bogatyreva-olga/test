@@ -1,232 +1,261 @@
-<DOCTYPE>
-	<html>
-	<head>
-	</head>
-	<body>
-		<script>
-
-
-
-			//вывести на экран те эллементы, которые повторяются более 1 раза.
-
-			var arr = ["php", "php", "css", "css", "script", "script", 
-			"html", "html", "java"];
-			function removeDuplicates(arr) {
-				var result = {}
-				for (var i = 0; i < arr.length; i++){
-                    if(!result.hasOwnProperty(arr[i])){
-                    	result[arr[i]] = 1
-                    }else{
-                    	result[arr[i]]++
-                    }
-				}
-
-                console.log(result)
-			}
-removeDuplicates(arr)
-
-
-
-		
-
-// 			var arr = [1,2,3]
-
-// 	 function evenNumbers (arr)
-// 	 var sum = 0
-// 	 for (var i = 0; i < arr.length; i++) {
-// 	 	if(i % 2== 0){
-// 	 		sum +=arr[i]
-// 	 	}
-// 	 	console.log(sum)
-// 	 }
-// evenNumbers (arr)
-//необходимо написать функцию, которая выведет сумму чётных элементов. Попробуй написать без подглядывания, самую простую функцию, без проверок и всего остального. минимум кода в общем. Нам щас нужно другое закрепить.
-
-// 			var emptyArr = []
-// 			var notArray = "Это не массив"
-// 			var numbersAndLetters = [1, 2, 3, 4, "d", 5]
-// 			var arrValid = [9, 8, 7, 6, 5]
-
-// 			var testArr = [
-// 			emptyArr,
-// 			notArray,
-// 			numbersAndLetters,
-// 			arrValid
-// 			]
-
-
-// 			var arr = [3, 15, 23, 9, 6, -14, 32, 18, 54, 47, 19, -5, 0, 39 ]
-
-// 			function isNumber(value) {
-// 				return typeof value === 'number' && isFinite(value);
-// 			}
-// 			function arrNumdersEvenIndex (arr){
-// 				if (arr.length == 0){
-// 					console.warn("Пустой массив")
-// 					return
-// 				}
-// 				if(!Array.isArray(arr)){
-// 					console.warn("Аргумент не является массивом")
-// 					return
-// 				}
-				
-// 				var max = arr[0]
-// 				for (var i = 0; i < arr.length; i++){
-// 					if(!isNumber(arr[i])){
-// 						console.warn("Все элементы массива должны быть числами")
-// 						return
-// 					}
-// 					if (i % 2==0 && arr[i] > max){
-// 						max = arr[i]
-// 					}
+<DOCTYPE/>
+    <html>
+    <head>
+    </head>
+    <body>
+    <script>
+
+        var makeElement = function (tagName, className, text) {
+            var element = document.createElement(tagName);
+            element.classList.add(className);
+            if (text) {
+                element.textContent = text;
+            }
+            return element;
+        };
+
+        var renderCards = function (product) {
+            var listItem = makeElement('li', 'good');
+
+            var title = makeElement('h2', 'good__description', product.text);
+            listItem.appendChild(title);
+
+            var picture = makeElement('img', 'product__image');
+            picture.src = product.imgUrl;
+            picture.alt = product.text;
+            listItem.appendChild(picture);
+
+            var price = makeElement('p', 'good__price', product.price);
+            listItem.appendChild(price);
+
+            var availabilityClass = 'good--available';
+            if (!product.inStock) {
+                availabilityClass = 'good--unavailable';
+            }
+
+            listItem.classList.add(availabilityClass);
+
+
+            if (product.isHit) {
+                listItem.classList.add('good--hit');
+            }
+
+            if (product.specialOffer) {
+                var specialOff = makeElement('p', 'good__special-offer', product.specialOffer);
+                listItem.appendChild(specialOff);
+                console.log(listItem)
+            }
+            return listItem;
+
+        }
+
+        var cardList = document.querySelector('.goods');
+
+        for (var i = 0; i < cardsData.length; i++) {
+            var cardItem = renderCards(cardsData[i]);
+            cardList.appendChild(cardItem);
+        }
+
+        renderCards(cardsData)
+
+
+        //вывести на экран те эллементы, которые повторяются более 1 раза.
+        //
+        // 			var arr = ["php", "php", "css", "css", "script", "script",
+        // 			"html", "html", "java"];
+        // 			function removeDuplicates(arr) {
+        // 				var result = {}
+        // 				for (var i = 0; i < arr.length; i++){
+        //                     if(!result.hasOwnProperty(arr[i])){
+        //                     	result[arr[i]] = 1
+        //                     }else{
+        //                     	result[arr[i]]++
+        //                     }
+        // 				}
+        //
+        //                 console.log(result)
+        // 			}
+        // removeDuplicates(arr)
+
+
+        // 			var arr = [1,2,3]
+
+        // 	 function evenNumbers (arr)
+        // 	 var sum = 0
+        // 	 for (var i = 0; i < arr.length; i++) {
+        // 	 	if(i % 2== 0){
+        // 	 		sum +=arr[i]
+        // 	 	}
+        // 	 	console.log(sum)
+        // 	 }
+        // evenNumbers (arr)
+        //необходимо написать функцию, которая выведет сумму чётных элементов. Попробуй написать без подглядывания, самую простую функцию, без проверок и всего остального. минимум кода в общем. Нам щас нужно другое закрепить.
+
+        // 			var emptyArr = []
+        // 			var notArray = "Это не массив"
+        // 			var numbersAndLetters = [1, 2, 3, 4, "d", 5]
+        // 			var arrValid = [9, 8, 7, 6, 5]
+
+        // 			var testArr = [
+        // 			emptyArr,
+        // 			notArray,
+        // 			numbersAndLetters,
+        // 			arrValid
+        // 			]
+
+
+        // 			var arr = [3, 15, 23, 9, 6, -14, 32, 18, 54, 47, 19, -5, 0, 39 ]
+
+        // 			function isNumber(value) {
+        // 				return typeof value === 'number' && isFinite(value);
+        // 			}
+        // 			function arrNumdersEvenIndex (arr){
+        // 				if (arr.length == 0){
+        // 					console.warn("Пустой массив")
+        // 					return
+        // 				}
+        // 				if(!Array.isArray(arr)){
+        // 					console.warn("Аргумент не является массивом")
+        // 					return
+        // 				}
 
-// 				}
-// 				console.log("Максимальный элемент с четным индексом: " + max)
-// 			}
+        // 				var max = arr[0]
+        // 				for (var i = 0; i < arr.length; i++){
+        // 					if(!isNumber(arr[i])){
+        // 						console.warn("Все элементы массива должны быть числами")
+        // 						return
+        // 					}
+        // 					if (i % 2==0 && arr[i] > max){
+        // 						max = arr[i]
+        // 					}
 
-// 			for (var i = 0; i < testArr.length; i++) {
-// 				arrNumdersEvenIndex (testArr[i])
-// }
+        // 				}
+        // 				console.log("Максимальный элемент с четным индексом: " + max)
+        // 			}
+
+        // 			for (var i = 0; i < testArr.length; i++) {
+        // 				arrNumdersEvenIndex (testArr[i])
+        // }
+
+
+        // Максимальный из элементов массива с четными индексами
+
+        // В массиве найти максимальный элемент с четным индексом.
+
+        // Другая формулировка задачи: среди элементов массива с четными индексами, найти тот, который имеет максимальное значение.
+
+
+        //=========================================================================================================
 
+        //
 
-// Максимальный из элементов массива с четными индексами
 
-			// В массиве найти максимальный элемент с четным индексом.
+        // var counter = 0
+        // for(var i = 0; i < 10; i++){
+        // 	for(var j = 0; j < 10; j++){
+        // 		for(var k = 0; k < 10; k++){
+        // 			for(var x = 0; x < 10; x++){
+        // 				for(var y = 0; y < 10; y++){
+        // 					for(var z = 0; z < 10; z++){
+        // 						if(i + j + k   == x + y + z){
+        // 							counter ++
+        // 						}
+        // 					}
+        // 				}
+        // 			}
+        // 		}
+        // 	}
+        // }
+        // console.log("Количество счастливых билетов в ленте равно: " + counter)
 
-			// Другая формулировка задачи: среди элементов массива с четными индексами, найти тот, который имеет максимальное значение.
+        //  for(var i = 0; i < 10; i++){
+        //  for(var j = 0; j < 10; j++){
+        // console.log("Текущее значение i = " + i + ", текущее значение j = " + j)
+        //  if(i == j){
+        //  console.log("Билет " + i + j + " счастливый")
+        // }
+        // }
+        // }
 
-			
-//=========================================================================================================
 
-//
+        // for(var i = 0; i < 100; i++){
+        // console.log("Текущее значение i = " + i)
+        // }
 
+        // Допустим у нас задача такая же как и с билетиками, но только в ленте от 00 до 99. Вариант цикла, который я написал выше нам не очень удобен, так как нам нужно будет раскладывать двухзначное число, например 21 на две цифры, на 2 и 1, чтобы узнать, счастливое оно или нет.
 
+        // Потому тут мы применим хитрость со вложенным циклом
 
-			// var counter = 0
-			// for(var i = 0; i < 10; i++){
-			// 	for(var j = 0; j < 10; j++){
-			// 		for(var k = 0; k < 10; k++){
-			// 			for(var x = 0; x < 10; x++){
-			// 				for(var y = 0; y < 10; y++){
-			// 					for(var z = 0; z < 10; z++){
-			// 						if(i + j + k   == x + y + z){
-			// 							counter ++
-			// 						}
-			// 					}
-			// 				}
-			// 			}
-			// 		}
-			// 	}
-			// }
-			// console.log("Количество счастливых билетов в ленте равно: " + counter)
- 
-//  for(var i = 0; i < 10; i++){
-//  for(var j = 0; j < 10; j++){
-// console.log("Текущее значение i = " + i + ", текущее значение j = " + j)
-//  if(i == j){
-//  console.log("Билет " + i + j + " счастливый")
-// }
-// }
-// }
+        // for(var i = 0; i < 10; i++){
+        // for(var j = 0; j < 10; j++){
+        // console.log("Текущее значение i = " + i + ", текущее значение j = " + j)
+        // if(i == j){
+        // console.log("Билет " + i + j + " счастливый")
+        // }
+        // }
+        // }
 
+        // Вот тебе нужно решение со вложенным циклом. Сейчас их у тебя 2, тебе ещё нужно дописать внутри цикла ещё четыре цикла, и тогда ты сможешь складывать первые 3 цифры билета и последние 3 цифры билета и проверять, если их суммы равны, то тогда засчитывать билетик как счастливый.
 
 
+        //========================================================================================================
+        //Вызываем функцию showDivisorNumbers с параметрами: min = "-15", max = "10", divisor = "5"
+        //В showDivisorNumbers ДОБАВИТЬ ПОСЛЕ max аргумент step.
 
-// for(var i = 0; i < 100; i++){
-// console.log("Текущее значение i = " + i)
-// }
 
-// Допустим у нас задача такая же как и с билетиками, но только в ленте от 00 до 99. Вариант цикла, который я написал выше нам не очень удобен, так как нам нужно будет раскладывать двухзначное число, например 21 на две цифры, на 2 и 1, чтобы узнать, счастливое оно или нет.
+        //function isNumber(value) {
+        // return typeof value === 'number' && isFinite(value);
 
-// Потому тут мы применим хитрость со вложенным циклом
+        //  function isNumber(val){
+        //     return typeof val==='number';
+        // }
+        // написать функцию, у которой будут 3 аргумента, min, max, divisor.
 
-// for(var i = 0; i < 10; i++){
-// for(var j = 0; j < 10; j++){
-// console.log("Текущее значение i = " + i + ", текущее значение j = " + j)
-// if(i == j){
-// console.log("Билет " + i + j + " счастливый")
-// }
-// }
-// }
- 
-// Вот тебе нужно решение со вложенным циклом. Сейчас их у тебя 2, тебе ещё нужно дописать внутри цикла ещё четыре цикла, и тогда ты сможешь складывать первые 3 цифры билета и последние 3 цифры билета и проверять, если их суммы равны, то тогда засчитывать билетик как счастливый.
+        // тебе необходимо вывести на экран каждое третье число в интервале от min до max поделённое на divisor. Divisor может быть не целым числом, а вещественным.
 
+        // Прочитай внимательно 5 раз задачу и скажи, понятна ли она тебе. Тут есть места новые, которые мы ещё не делали, и тебе нужно задать правильный вопрос.
 
+        // Напиши мне потом решение по русски сначала.
 
 
-  
-//========================================================================================================
-//Вызываем функцию showDivisorNumbers с параметрами: min = "-15", max = "10", divisor = "5"
-//В showDivisorNumbers ДОБАВИТЬ ПОСЛЕ max аргумент step. 
+        // function showModXNumbers(min, max, x){
+        // 	if(!Number.isInteger(x)||!Number.isInteger(min)||!Number.isInteger(max)){
+        // 		console.log("Минимальное, максимальное и кратное должны быть целыми числами")
 
+        // 		return
+        // 	}
+        // 	if(min >= max){
+        // 		console.log("Минимальное значение должно быть меньше максимального")
+        // 		return
+        // 	}
+        // 	if(x === 0){
+        // 		console.log("Кратная не можеть быть равна 0")
+        // 		return
+        // 	}
+        // 	console.log("Выводим числа от " + min + " до " + max + " кратные " + x)
 
+        // 	for(var i = min; i < max; i ++){
+        // 		if(i%x===0)
+        // 			console.log(i)
+        // 	}
+        // }
+        // showModXNumbers(0, 5, "")
 
- //function isNumber(value) {
-  // return typeof value === 'number' && isFinite(value);
 
-//  function isNumber(val){
-//     return typeof val==='number';
-// }
-// написать функцию, у которой будут 3 аргумента, min, max, divisor.
+        //1 - тебе нужно в теле функции ПЕРЕД for сделать вывод "Выводим числа от min до max кратные x"
+        //2 - внутри тела for сделай вывод на экран переменной i
 
-// тебе необходимо вывести на экран каждое третье число в интервале от min до max поделённое на divisor. Divisor может быть не целым числом, а вещественным.
 
-// Прочитай внимательно 5 раз задачу и скажи, понятна ли она тебе. Тут есть места новые, которые мы ещё не делали, и тебе нужно задать правильный вопрос.
+        //дан массив детей, необходимо вывести по ним информацию на русском языке по порядку.
 
-// Напиши мне потом решение по русски сначала.
+        //вывод должен быть такой
 
+        //Ребёнок #1
+        //Имя: Jon
+        //Глаза: голубые
+        //Возраст: взрослый
+        //Взрослым считать если ему больше 12, если меньше, то писать Возраст: ребёнок.
 
-
-
-			// function showModXNumbers(min, max, x){
-			// 	if(!Number.isInteger(x)||!Number.isInteger(min)||!Number.isInteger(max)){
-			// 		console.log("Минимальное, максимальное и кратное должны быть целыми числами")
-
-			// 		return
-			// 	}
-			// 	if(min >= max){
-			// 		console.log("Минимальное значение должно быть меньше максимального")
-			// 		return
-			// 	}
-			// 	if(x === 0){
-			// 		console.log("Кратная не можеть быть равна 0")
-			// 		return
-			// 	}
-			// 	console.log("Выводим числа от " + min + " до " + max + " кратные " + x)
-
-			// 	for(var i = min; i < max; i ++){
-			// 		if(i%x===0)
-			// 			console.log(i)
-			// 	}
-			// }
-			// showModXNumbers(0, 5, "")
-
-
-
-
-
-
-
-
-//1 - тебе нужно в теле функции ПЕРЕД for сделать вывод "Выводим числа от min до max кратные x"
-//2 - внутри тела for сделай вывод на экран переменной i
-
-			
-
-
-			
-
-
-//дан массив детей, необходимо вывести по ним информацию на русском языке по порядку.
-
-//вывод должен быть такой
-
-//Ребёнок #1
-//Имя: Jon
-//Глаза: голубые
-//Возраст: взрослый
-//Взрослым считать если ему больше 12, если меньше, то писать Возраст: ребёнок.
-
-</script>
-</body>
-</html>
+    </script>
+    </body>
+    </html>
