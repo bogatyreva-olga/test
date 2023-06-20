@@ -12,45 +12,99 @@
 }
 
 .catalog-menu__center .col {
-    flex:0 0 25%;
+    flex: 0 0 25%;
 }
 
 /* TODO что бы корректно заработал ховер, в стилях ниже нужно убрать !important */
 .catalog-menu__item a {
-    color: #4a4a4a!important;
+    color: #4a4a4a !important;
 }
 
 .catalog-menu__item a:hover {
-    color: red!important;
+    color: red !important;
 }
+
 /*hover end*/
 
+
+.catalog-nav__item.active:before {
+    width: 9px;
+}
+
+.catalog-nav__item:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0;
+    background: red;
+    z-index: 2;
+}
+
 @media (max-width: 991.98px) {
-    .catalog-nav {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        /* justify-content: space-between; */
-        max-width: 100%;
-        padding-top: 0;
-        border-right: none;
-        flex-direction: column;
-        justify-content: start;
-        align-items: start;
-        margin-right: 40px;
+    .catalog {
+        flex-direction: unset;
     }
 
-    .header-bottom__catalog {
-        flex-direction: row;
-        align-items: baseline;
+    .catalog-nav {
+        all: unset;
+        align-items: start;
+        list-style: none;
+    }
+
+    .catalog__nav {
+        margin-right: 40px;
+        padding-left: 20px;
+        border-right: 2px solid rgba(39, 39, 39, .1);
+    }
+
+    .catalog-nav__item a {
+        text-align: start;
     }
 
     .catalog-menu__center .col {
         flex: 0 0 33.33%;
     }
+
+    .catalog-nav__item:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 0;
+        background: red;
+        z-index: 2;
+        box-sizing: inherit;
+    }
+
+    .catalog-nav__item.active:before {
+        width: 5px;
+    }
+
+    .catalog-nav__item:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 0;
+        background-color: #fff;
+    }
+
+    .catalog-nav__item.active:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 0;
+        background-color: #fff;
+    }
+
+    .catalog-nav__item.active:after {
+        width: 2000%;
+    }
+
 }
