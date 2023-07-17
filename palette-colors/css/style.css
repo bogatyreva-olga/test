@@ -53,58 +53,6 @@ html body {
 }
 
 
-/*html body {*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*}*/
-
-/*.palette {*/
-/*    position: absolute;*/
-/*    left: 40%;*/
-/*    top: 200px;*/
-/*    border-radius: 10px;*/
-/*}*/
-
-/*.palette div {*/
-/*    width: 500px;*/
-/*    height: 60px;*/
-/*}*/
-
-/*.palette div:first-child {*/
-/*    border-radius: 10px 10px 0 0;*/
-/*}*/
-
-/*.palette div:last-child {*/
-/*    border-radius: 0 0 10px 10px;*/
-/*}*/
-
-/*.palette div:hover {*/
-/*    width: 520px;*/
-/*    border-radius: 0 10px 10px 0;*/
-/*}*/
-
-/*.palette div span:last-child {*/
-/*    display: none;*/
-/*}*/
-
-/*.palette:hover div span:last-child {*/
-/*    display: inline-block;*/
-/*}*/
-/*.palette div span:last-child {*/
-/*    float: right;*/
-/*    margin-right: 10px;*/
-/*    position: relative;*/
-/*}*/
-/*.palette div span {*/
-/*    margin-top: 20px;*/
-/*    position: absolute;*/
-/*}*/
-
-/*.palette div span:first-child {*/
-/*    margin-left: 10px;*/
-/*}*/
-
-
 
 
 

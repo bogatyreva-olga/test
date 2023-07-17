@@ -5,19 +5,157 @@
 <body>
 <script>
 
-    let grade = [20, 73, 67, 38, 33];
+ //https://www.hackerrank.com/challenges/jim-and-the-orders/problem?isFullScreen=true
 
-    function gradingStudents(grades) {
-        let result = [];
-        for (let i = 0; i < grades.length; i++) {
-            if (grades[i] <= 37) {
-                return result.push(grades[i]);
-            }
-        }
-        return grades
+ let arr = [[8, 1], [4, 2], [5, 6], [3, 1], [4, 3]];
+
+    function jimOrders(orders) {
+        let arraySumElem = [];
+        let obj = {};
+       for (let i = 0; i < orders.length; i++) {
+           arraySumElem.push([i + 1 ,orders[i][0] + orders[i][1]])
+       }
+ console.log(arraySumElem)
     }
 
-    console.log(gradingStudents(grade))
+    console.log(jimOrders(arr))
+
+    // Является лли строка полидромом https://www.hackerrank.com/challenges/game-of-thrones/problem?isFullScreen=true
+
+    // let str = "cdcdcdcdeeeef"
+    //
+    // function gameOfThrones(s) {
+    //     let obj = {};
+    //     let count = 0;
+    //     for (let item of s) {
+    //         obj[item] = obj[item] ? obj[item] + 1 : 1;
+    //     }
+    //     for (let key in obj) {
+    //         if (obj[key] % 2 !== 0 ) {
+    //            count++
+    //         }
+    //     }
+    //     if (count > 1) {
+    //         return "NO"
+    //     }
+    //     return "YES"
+    // }
+    //
+    // console.log(gameOfThrones(str))
+
+    //        Шашанку нравятся строки, в которых последовательные символы отличаются.
+    //        Например, ему нравится строка ABAB, но не нравится строка ABAA. Задана строка, состоящая только из символов A и B.
+    //        Шашанк хочет сделать из нее строку, которая ему понравится. Для этого он может удалять из нее символы.
+    //        Ваша задача - найти минимальное количество необходимых удалений.
+
+    // let str = "ABABBABAAB";
+    //
+    // function alternatingCharacters(s) {
+    //     let lastGoodIndex = 0;
+    //     let countBadSymbols = 0;
+    //     for (let i = 1; i < s.length; i++) {
+    //         if (s.charAt(i) !== s.charAt(lastGoodIndex)) {
+    //             lastGoodIndex = i;
+    //             continue
+    //         }
+    //         countBadSymbols++
+    //     }
+    //     return countBadSymbols
+    // }
+    //
+    // console.log(alternatingCharacters(str))
+
+
+    // точнее так, если оно число, то тогда -1, если пустой массив, тогда -2, если null тогда -3
+
+    // function camelcase(s) {
+    //     if (s.length === 0) {
+    //         return 0
+    //     }
+    //     let regUpWord = /([A-Z]+)/g;
+    //     let upWords = s.match(regUpWord);
+    //     if (upWords === null) {
+    //         return -3
+    //     }
+    //     if ( upWords === null) {
+    //         return -3
+    //     }
+    //     if ( upWords) {
+    //         return -3
+    //     }
+    //     return upWords.length + 1
+    // }
+
+
+    // посчитать, сколько слов в строке. Строка в верблюжьей нотации
+
+    // let str = 'saveChangesInTheEditor'
+    //
+    // function camelcase(s) {
+    //     if (s.length === 0) {
+    //         return 0
+    //     }
+    //     let regUpWord = /([A-Z]+)/g;
+    //     let upWords = s.match(regUpWord);
+    //     if (upWords === null) {
+    //         return 1
+    //     }
+    //     return upWords.length + 1
+    // }
+    //
+    // console.log(camelcase(str))
+
+
+    // посчитать долины
+
+    // let path = "UDDDUDUU";
+    //
+    // function countingValleys(steps, path) {
+    //     let counterStepsUpAndDown = 0;
+    //     let counterValley = 0;
+    //
+    //     for (let i = 0; i < path.length; i++) {
+    //         if (path[i] === 'U') {
+    //             counterStepsUpAndDown += 1;
+    //         }
+    //         if (path[i] === 'D') {
+    //             counterStepsUpAndDown -= 1;
+    //         }
+    //         if (counterStepsUpAndDown === 0 && path[i] === 'U') {
+    //             counterValley++
+    //         }
+    //     }
+    //    return counterValley
+    // }
+    //
+    // console.log(countingValleys(8, path))
+
+    /// Округлить балы. Если разница меньше 3, то в сторону большего числа, кратного 5 (73 => 75), или оставить как есть.
+    //Если число меньше 38, то неуд, вернуть как есть.
+
+
+    //    let grade = [73, 67, 38, 33];
+    //
+    //    function gradingStudents(grades) {
+    //        let result = [];
+    //        const multiplicity = 5;
+    //        for (let i = 0; i < grades.length; i++) {
+    //            let item = grades[i];
+    //            if (item <= 37) {
+    //                result.push(item);
+    //                continue
+    //            }
+    //            let mod = item % multiplicity;
+    //            if (mod >= 3) {
+    //                result.push(item + (multiplicity - mod));
+    //                continue
+    //            }
+    //            result.push(item);
+    //        }
+    //        return result
+    //    }
+    //
+    //    console.log(gradingStudents(grade))
 
     // Представьте, что у вас кучка из N палочек.
     // Далее вы выполняете следующую операцию: находите все палочки, которые длиннее,
@@ -41,11 +179,36 @@
     //     while (arr.length > 0) {
     //         arrLengthValue.push(arr.length);
     //         minNumberElemToArr = Math.min(...arr);
-    //         arr = arr.filter(el => el !== minNumberElemToArr).map((el) => el - minNumberElemToArr)
+    //         arr = arr.filter(function (el) {
+    //             return el !== minNumberElemToArr
+    //         }).map(function (el) {
+    //             return el - minNumberElemToArr
+    //         });
     //     }
     //     return arrLengthValue
     // }
     //
+    // console.log(cutTheSticks(arr1))
+
+    //
+    // let arr1 = [1, 2, 3, 4, 3, 3, 2, 1]
+    //
+    // function cutTheSticks(arr) {
+    //     let minNumberElemToArr;
+    //     let arrLengthValue = [];
+    //     while (arr.length > 0) {
+    //         arrLengthValue.push(arr.length);
+    //         minNumberElemToArr = Math.min(...arr);
+    //         let arr2 = [];
+    //         for (let i = 0; i < arr.length; i++) {
+    //             if (arr[i] > minNumberElemToArr) {
+    //                 arr2.push(arr[i] - minNumberElemToArr)
+    //             }
+    //         }
+    //         arr = arr2
+    //     }
+    //     return arrLengthValue
+    // }
     // console.log(cutTheSticks(arr1))
 
     //================================================================================================
@@ -65,65 +228,6 @@
     //     console.log(minNumberElemToArr)
     //
     // }
-
-
-    //Вы хотите купить видеоигры в известном онлайн-магазине видеоигр Mist.
-
-    //   Обычно все игры продаются по одной цене, p долларов. Однако в следующем месяце они планируют
-    //   провести сезонную распродажу на Хэллоуин, на которой вы сможете купить игры по более низкой цене. В частности,
-    //   первая игра будет стоить p долларов, а каждая последующая игра будет стоить d долларов меньше предыдущего.
-    //   Так продолжается до тех пор, пока стоимость не станет меньше или равна m долларов, после чего каждая игра будет
-    //   стоить m долларов. Сколько игр можно купить во время Хэллоуинской распродажи?
-    //   Return the number of games you can buy
-    //  Пример:
-    //   p = 20  стоимость первой игры
-    //   d = 3 скидка на каждую последующую игру
-    //   m = 6 минимальная стоимость игры
-    //   s = 70  сумма на игры
-
-    //
-    // function howManyGames(p, d, m, s) {
-    //     let countGames = 0
-    //     while (s >= p) {
-    //         s -= p
-    //         if ((p - d) > m) {
-    //             p -= d
-    //         } else {
-    //             p = m
-    //         }
-    //         countGames++
-    //     }
-    //
-    //     return countGames;
-    // }
-    //
-    // console.log(howManyGames(100, 19, 1, 180))
-
-    //Найти самую минимальную разницу между повторяющимися элементами или вернуть -1
-
-
-    // let arr = [7, 1, 3, 4, 1, 7]
-    //
-    // function minimumDistances(a) {
-    //     let indexDifferenceElements = [];
-    //     let indexDifference = 0;
-    //     for (let i = 0; i < a.length; i++) {
-    //         for (let j = 0; j < a.length; j++) {
-    //             if (a[i] === a[j] && i !== j && i < j) {
-    //                 indexDifference = j - i
-    //                 indexDifferenceElements.push(indexDifference)
-    //             }
-    //         }
-    //     }
-    //     if (indexDifferenceElements.length !== 0) {
-    //         return Math.min(...indexDifferenceElements)
-    //     }
-    //     return -1
-    // }
-    //
-    // console.log(minimumDistances(arr))
-
-    //==============================================================================================
 
 
     // const users = [
@@ -166,30 +270,7 @@
     //   }
     //
     //  console.log(catAndMouse(5, 8, 6));
-    //Напишите функцию includes() которая на вход принимает два параметра: массив arr и значение value.
-    // Функция должна возвращать bool,
-    //  Если значение value присутствует в массиве, то функция должна вернуть true,
-    //  если value в массиве отсутствует, функция должна вернуть false. Код функции должен состоять только из базовых операторов for, if
-    // Обращаться ко встроенным функциям массивов (map(), push(), includes(),... ) запрещено
     //
-    // let arr1 = [3, 1, 6, 7];
-    // const includes = (arr, value) => {
-    //     for (let i = 0; i < arr.length; i++) {
-    //        if (arr[i] === value) {
-    //            return true
-    //        }
-    //     }
-    //     return false
-    // }
-    // console.log(includes(arr1, 7))
-
-
-    // if (flag === true) {
-    //     return true
-    // } else {
-    // }
-    // return false
-
     //___________________________________________________________________________________________________________________________________________________
     // Найти наибольшее значение суммы между 2-ух массивов. и сравнит с числом (b). вывести максимально приближенное значение (но не больше) или -1
 
