@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let slides = [
+        {
+            id: '1',
+            brand: 'Buff',
+            mainPhoto: 'url...',
+            descriptionText: "Свиная латынь — это способ изменения английских слов",
+            propertyPhoto: [
+                {
+                photo1: 'url...',
+                description: 'качество пошива'
+            },
+                {
+                photo2: 'url...',
+                description: 'возьмите первый'
+            },
+                {
+                photo2: 'url...',
+                description: 'кончились мысли'
+            },
+            ],
+            linkCatalog: 'https//:...',
+            logoBrand: 'url...',
+        }
+    ]
+
+    ///////////////// ФУНКЦИОНАЛЬНОЕ ПРОГРАММИРОВАНИЕ ///////////////////////////////////////////////////////////
+
+    // Свиная латынь — это способ изменения английских слов. Правила следующие:
+    //     - Если слово начинается с согласного, возьмите первый согласный или группу согласных,
+    //     переместите его в конец слова и добавьте ay к нему.
+    // - Если слово начинается с гласной, просто добавьте way в конце.
+    //
+    // function translatePigLatin(str) {
+    //     let result = "";
+    //     let reg = /^([aiouye]+)/
+    //         let reg2 = /(?=[^aeiouy])/
+    //     let vowels = "aeiouy";
+    //     result = str.match(reg)? str + "way" : str.replace(reg2, "") + "ay";
+    //
+    //
+    //     return result
+    // }
+    //
+    // console.log(translatePigLatin("consonant"));
+
+
+    //==================================================================================================
+    //Преобразование строки в спинной регистр. В спинном регистре все строчные слова соединены тире.
+    //
+    // function spinalCase(str) {
+    //     let reg = /\s+|_+/g;
+    //     str = str.replace(/([a-z])([A-Z])/g, "$1 $2");
+    //     return str.replace(reg, "-").toLowerCase();
+    // }
+    //
+    // console.log(spinalCase('ThisIs Spinal_Tap'));
+
+    //или
+
+    // function spinalCase(str) {
+    //
+    //     return str
+    //         .split(/\s|_|(?=[A-Z])/)
+    //         .join("-")
+    //         .toLowerCase();
+    // }
+    // console.log(spinalCase('ThisIs Spinal_Tap'));
+
+    //=============================================================================================================
+    // Создайте функцию, которая просматривает массив объектов (первый аргумент) и возвращает массив всех
+    // объектов, имеющих совпадающие пары имени и значения (второй аргумент). Каждая пара имени и значения
+    // исходного объекта должна присутствовать в объекте из коллекции, если он должен быть включен в возвращаемый массив.
+    //     Например, если первый аргумент [{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null },
+    //     { first: "Tybalt", last: "Capulet" }], а второй аргумент { last: "Capulet" }, то вы должны вернуть третий
+    // объект из массива (первый аргумент), потому что он содержит имя и его значение, которые были переданы в качестве
+    // второго аргумента.
+    //
+    // function whatIsInAName(collection, source) {
+    //     const arr = [];
+    //     for (let i = 0; i < collection.length; i++) {
+    //         let found = true;
+    //         for (const sourceProp in source) {
+    //             if (collection[i][sourceProp] !== source[sourceProp]) {
+    //                 found = false;
+    //                 break;
+    //             }
+    //         }
+    //         if (found) arr.push(collection[i]);
+    //     }
+    //     return arr;
+    // }
+    //
+    //
+    // function whatIsInAName(collection, source) {
+    //     const sourceKeys = Object.keys(source);
+    //     return collection.filter(obj => {
+    //         for (let i = 0; i < sourceKeys.length; i++) {
+    //             if (obj[sourceKeys[i]] !== source[sourceKeys[i]]) {
+    //                 return false;
+    //             }
+    //         }
+    //         return true;
+    //     });
+    // }
+    //
+    // //# 2
+    // function whatIsInAName(collection, source) {
+    //     const sourceKeys = Object.keys(source);
+    //
+    //     return collection
+    //         .filter(obj => sourceKeys
+    //             .every(key => obj.hasOwnProperty(key) &&
+    //                 obj[key] === source[key]));
+    // }
+    //
+    // console.log(whatIsInAName([{first: "Romeo", last: "Montague"}, {first: "Mercutio"}, {
+    //     first: "Tybalt", last: "Capulet"
+    // }], {first: "Mercutio"}));
+
+
+    //===============================================================================================================
+
+    // оставить в массиве только те значения, которых нет в аргументах далее
+
+    // function destroyer(arr) {
+    //     let arg = Array.from(arguments);
+    //     let arr1 = arg.slice(1)
+    //     let result = [];
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (!arr1.includes(arr[i])) {
+    //             result.push(arr[i])
+    //         }
+    //     }
+    //     return result
+    //
+    // }
+
+    //
+    // console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+
+    // вариант х
+
+    // function destroyer(arr) {
+    //     let arg = Array.from(arguments);
+    //     // let arr1 = arg.slice(1)
+    //     let result = [];
+    //     for (let i = 0; i < arg[0].length; i++) {
+    //         let flag = false
+    //         for (let j = 1; j < arg.length; j++) {
+    //             if (arg[0][i] === arg[j]) {
+    //                 flag = true
+    //             }
+    //         }
+    //         if (flag === false) {
+    //             result.push(arg[0][i])
+    //         }
+    //     }
+    //     return result
+    // }
+    //
+    // console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+    //=====================================================================================================================
+
+    // Различать два массива
+    // Сравните два массива и верните новый массив с любыми элементами, найденными только в одном из
+    // двух заданных массивов, но не в обоих. Другими словами, вернуть симметричную разницу двух массивов.
+
+    // function diffArray(arr1, arr2) {
+    //     return arr1
+    //         .concat(arr2)
+    //         .filter(item => !arr1.includes(item) || !arr2.includes(item));
+    //
+    // }
+    //
+    // console.log(diffArray(["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]));
+    //
+    //
+    //вариант 2
+    // function diffArray(arr1, arr2) {
+    //     const newArr = [];
+    //
+    //     function onlyInFirst(first, second) {
+    //         for (let i = 0; i < first.length; i++) {
+    //             if (second.indexOf(first[i]) === -1) {
+    //                 newArr.push(first[i]);
+    //             }
+    //         }
+    //     }
+    //
+    //     onlyInFirst(arr1, arr2);
+    //     onlyInFirst(arr2, arr1);
+    //
+    //     return newArr;
+    // }
+    //
+    // diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+
+    //вариант 3
+    //
+    // function diffArray(arr1, arr2) {
+    //     const difference = new Set(arr1);
+    //     arr2.forEach((ele) =>
+    //         difference.has(ele) ? difference.delete(ele) : difference.add(ele)
+    //     );
+    //     return Array.from(difference);
+    // }
+
+    // //вариант 4
+    // function diffArray(arr1, arr2) {
+    //     return [...diff(arr1, arr2), ...diff(arr2, arr1)];
+    //
+    //     function diff(a, b) {
+    //         return a.filter(item => b.indexOf(item) === -1);
+    //     }
+    // }
+
+
+    //===============================================================================================================
+    // Суммируйте все числа в диапазоне
+    // Мы передадим вам массив из двух чисел. Верните сумму этих двух чисел плюс сумму всех чисел между ними.
+    //     Наименьшее число не всегда будет первым.
+
+    // мой вариант
+    //
+    // function sumAll(arr) {
+    //     let sum = 0;
+    //     let result = arr.sort((a, b) => a - b);
+    //     let i = result[0];
+    //     let n = result[1];
+    //     while (i <= n) {
+    //         sum += i;
+    //         i++
+    //     }
+    //     return sum
+    // }
+    //
+    // console.log(sumAll([1, 4]));
+
+    //вариант 2
+
+    // function sumAll(arr) {
+    //     let sumBetween = 0;
+    //     for (let i = Math.min(...arr); i <= Math.max(...arr); i++) {
+    //         sumBetween += i;
+    //     }
+    //     return sumBetween;
+    // }
+    //
+    // sumAll([1, 4]);
+
+
+    //=============================================================================================================
+
+    //вернуть квадрат положительных целых чисел
+
+    // const squareList = arr => {
+    //    return arr.filter(el => Number.isInteger(el) && el > 0).map(num => Math.pow(num, 2))
+    // };
+    //
+    // const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+    // console.log(squaredIntegers);
+
+
+    //===============================================================================================================
+
+    // const watchList = [
+    //     {
+    //         "Title": "Inception",
+    //         "Year": "2010",
+    //         "Rated": "PG-13",
+    //         "Released": "16 Jul 2010",
+    //         "Runtime": "148 min",
+    //         "Genre": "Action, Adventure, Crime",
+    //         "Director": "Christopher Nolan",
+    //         "Writer": "Christopher Nolan",
+    //         "Actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page, Tom Hardy",
+    //         "Plot": "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
+    //         "Language": "English, Japanese, French",
+    //         "Country": "USA, UK",
+    //         "Awards": "Won 4 Oscars. Another 143 wins & 198 nominations.",
+    //         "Poster": "http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+    //         "Metascore": "74",
+    //         "imdbRating": "8.8",
+    //         "imdbVotes": "1,446,708",
+    //         "imdbID": "tt1375666",
+    //         "Type": "movie",
+    //         "Response": "True"
+    //     },
+    //     {
+    //         "Title": "Interstellar",
+    //         "Year": "2014",
+    //         "Rated": "PG-13",
+    //         "Released": "07 Nov 2014",
+    //         "Runtime": "169 min",
+    //         "Genre": "Adventure, Drama, Sci-Fi",
+    //         "Director": "Christopher Nolan",
+    //         "Writer": "Jonathan Nolan, Christopher Nolan",
+    //         "Actors": "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow",
+    //         "Plot": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    //         "Language": "English",
+    //         "Country": "USA, UK",
+    //         "Awards": "Won 1 Oscar. Another 39 wins & 132 nominations.",
+    //         "Poster": "http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg",
+    //         "Metascore": "74",
+    //         "imdbRating": "8.6",
+    //         "imdbVotes": "910,366",
+    //         "imdbID": "tt0816692",
+    //         "Type": "movie",
+    //         "Response": "True"
+    //     }
+    // ]
+    //
+    // function getRating(watchList) {
+    //     const averageRating = watchList
+    //             .filter(film => film.Director === "Christopher Nolan")
+    //             .map(film => Number(film.imdbRating))
+    //             .reduce((sumOfRatings, rating) => sumOfRatings + rating)/
+    //         watchList.filter(film => film.Director === "Christopher Nolan").length;
+    //     return averageRating ;
+    // }
+    //
+    // console.log(getRating(watchList));
+
+
+    //Написать ф-ю Filter
+    // мой вариант
+    //   Array.prototype.myFilter = function(callback) {
+    //       const newArray = [];
+    //       for (let i = 0; i < this.length; i++) {
+    //           if(callback(this[i], i, this) == true){
+    //               newArray.push(this[i])
+    //           }}
+    //       return newArray;
+    //   };
+    //
+    //   // вариант 2
+    //   Array.prototype.myFilter = function (callback) {
+    //       const newArray = [];
+    //       for (const [index, elem] of this.entries()) {
+    //           if (callback(elem, index, this)) newArray.push(elem);
+    //       }
+    //       return newArray;
+    //   };
+    //
+    //   // вариант3
+    //
+    //   Array.prototype.myFilter = function(callback) {
+    //       const newArray = [];
+    //       for (let i = 0; i < this.length; i++) {
+    //           if (Boolean(callback(this[i], i, this)) === true) {
+    //               newArray.push(this[i]);
+    //           }
+    //       }
+    //       return newArray;
+    //   };
+
+
+    //создать ф-ию map
+    //
+    // Array.prototype.myMap = function(callback) {
+    //     const newArray = [];
+    //     for (let i = 0; i < this.length; i++) {
+    //         newArray.push(callback(this[i], i, this));
+    //     }
+    //     return newArray;
+    // };
+    // console.log([23, 65, 98, 5, 13].myMap(item => item * 2))
+
+    //
+    // //второй вариант
+    //
+    // Array.prototype.myMap = function (callback) {
+    //     const newArray = [];
+    //     this.forEach((element, index, originalArr) =>
+    //         newArray.push(callback(element, index, originalArr))
+    //     );
+    //     return newArray;
+    // };
+
+    //=====================================================================================================================
+    // The global variable
+    // const bookList = ["The Hound of the Baskervilles", "On The Electrodynamics of Moving Bodies", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae"];
+    //
+    //
+    // function add(bookList, bookName) {
+    //     let newArr = [...bookList]; // Copy the bookList array to a new array.
+    //     newArr.push(bookName); // Add bookName parameter to the end of the new array.
+    //     return newArr; // Return the new array.
+    // }
+    //
+    // function remove(bookList, bookName) {
+    //     let newArr = [...bookList]; // Copy the bookList array to a new array.
+    //     if (newArr.indexOf(bookName) >= 0) {
+    //         newArr.splice(newArr.indexOf(bookName), 1); // Remove the given paramater from the new array.
+    //         return newArr; // Return the new array.
+    //     }
+    // }
+
+    // вариант 2
+    //
+    // function add(list, bookName) {
+    //     return [...list, bookName];
+    // }
+    //
+    // /* This function should remove a book from the list and return the list */
+    // // New parameters should come before the bookName one
+    //
+    // function remove(list, bookName) {
+    //     return list.filter(book => book !== bookName);
+    // }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // разбить маассив на подмассивы размером size
+    //
+    // function chunkArrayInGroups(arr, size) {
+    //     const newArr = [];
+    //     while (arr.length > 0) {
+    //         newArr.push(arr.splice(0, size));
+    //     }
+    //     return newArr;
+    // }
+
+    // function chunkArrayInGroups(arr, size) {
+    //     const result = [];
+    //
+    //     for (let i = 0; i < arr.length; i += size) {
+    //         result.push(arr.slice(i, i + size));
+    //     }
+    //     return result
+    // }
+    //
+    // console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
+
+    //===================================================================================================================
+
+    // Мутации
+    // Возврат true, если строка в первом элементе массива содержит все буквы строки во втором элементе массива.
+    // Например, ["hello", "Hello"]должно возвращаться значение true, поскольку все буквы во второй строке присутствуют в первой без учета регистра.
+    // Аргументы ["hello", "hey"]должны возвращаться false, потому что строка helloне содержит расширение y.
+    // Наконец, ["Alien", "line"]должен вернуться , trueпотому что все буквы lineприсутствуют в Alien.
+
+    // function mutation(arr) {
+    //     return arr[1]
+    //         .toLowerCase()
+    //         .split("")
+    //         .every(function(letter) {
+    //             return arr[0].toLowerCase().indexOf(letter) !== -1;
+    //         });
+    // }
+
+    // function mutation(arr) {
+    //     const test = arr[1].toLowerCase();
+    //     const target = arr[0].toLowerCase();
+    //     for (let i = 0; i < test.length; i++) {
+    //         if (target.indexOf(test[i]) < 0) return false;
+    //     }
+    //     return true;
+    // }
+
+    //console.log(mutation(["hello", "hey"]));
+
+    //    Удалить все ложные значения из массива. Вернуть новый массив; не изменяйте исходный массив.
+    //        Ложными значениями в JavaScript являются , false, null, , и .0""undefinedNaN
+    //    Подсказка: попробуйте преобразовать каждое значение в логическое значение.
+    // function bouncer(arr) {
+    //     const filteredArr = [];
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (arr[i]) filteredArr.push(arr[i]);
+    //     }
+    //     return filteredArr;
+    // }
+    //
+    // // мой
+    // function bouncer(arr) {
+    //     return arr.filter(Boolean)
+    // }
+    //
+    // console.log(bouncer([7, "ate", "", false, 9]));
+
+    //=============================================================================================================
+    //
+    //     Вам даны два массива и индекс.
+    //     Скопируйте каждый элемент первого массива во второй массив по порядку.
+    //     Начните вставлять элементы с индекса nвторого массива.
+    //     Вернуть полученный массив. Входные массивы должны оставаться неизменными после запуска функции.
+
+    // 2
+    //    function frankenSplice(arr1, arr2, n) {
+    //        return [...arr2.slice(0, n), ...arr1, ...arr2.slice(n)];
+    //    }
+    //1
+    // function frankenSplice(arr1, arr2, n) {
+    //     let localArr = arr2.slice();
+    //     localArr.splice(n, 0, ...arr1);
+    //     return localArr;
+    // }
+
+    // мой вариант
+    // function frankenSplice(arr1, arr2, n) {
+    //     let result = [];
+    //     if (arr2.length === 0) {
+    //         result.push(...arr1)
+    //     }
+    //     for (let i = 0; i < arr2.length; i++) {
+    //         result.push(arr2[i])
+    //        if (i === n - 1) {
+    //            result.push(...arr1)
+    //        }
+    //     }
+    //     return result
+    // }
+
+    //console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
+
+    //======================================================================================================================
+
+    // сделать все слова с заглавной буквы
+    //     function titleCase(str) {
+    //         const arr = str.toLowerCase().split(" ");
+    //         const result = [];
+    //
+    //         for (let el in arr) {
+    //             result[el] = arr[el][0].toUpperCase() + arr[el].slice(1);
+    //         }
+    //         return result.join(" ");
+    //     }
+    //
+    //     console.log(titleCase("I'm a little tea pot"));
+
+    //=========================================================================================================
+    //
+    // function booWho(bool) {
+    //    return typeof (bool) === "boolean"
+    // }
+    //
+    // console.log(booWho(655));
+
+    //Создайте функцию, которая просматривает массив arrи возвращает первый элемент в нем, прошедший «проверку на истинность».
+    // Это означает, что для данного элемента x«проверка на истинность» пройдена, если func(x)есть true. Если ни один элемент не прошел тест, верните undefined.
+    //
+    //     function findElement(arr, func) {
+    //         let num = 0;
+    //         for (let i = 0; i < arr.length; i++) {
+    //             if (func(arr[i])) {
+    //                 num = arr[i];
+    //                 return num
+    //             }
+    //         }
+    //         return undefined
+    //     }
+    //
+    //     console.log(findElement([1, 2, 3, 4], num => num % 2 === 0));
+
+    // или
+    // function findElement(arr, func) {
+    //     return arr.find(func);
+    // }
+
+    //====================================================================================================================================
+
+    //Обрезать строку (первый аргумент), если она длиннее заданной максимальной длины строки
+    // (второй аргумент). Вернуть усеченную строку с ...окончанием.
+
+    // function truncateString(str, num) {
+    //     let result = "";
+    //     if(str.length > num) {
+    //         result += str.slice(0, num).trim() + "..."
+    //         return result
+    //     }
+    //     return str
+    //
+    // }
+    //
+    // // или
+    //
+    // function truncateString(str, num) {
+    //     return str.length > num ? str.slice(0, num) + "..." : str;
+    // }
+    //
+    // console.log(truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length + 2));
+
+    //Повторить заданную строку str(первый аргумент) несколько numраз (второй аргумент).
+    // Возвращает пустую строку, если numне является положительным числом. Для целей этой задачи не используйте встроенный .repeat()метод.
+    //
+    // function repeatStringNumTimes(str, num) {
+    //     let result = "";
+    //     let i = 0;
+    //     while (i < num) {
+    //         result += str;
+    //         i++
+    //     }
+    //     return result
+    // }
+    //
+    // console.log(repeatStringNumTimes("abc", 3));
+    //
+    // вариант с рекурсией
+    //
+    // function repeatStringNumTimes(str, num) {
+    //     if (num < 1) {
+    //         return "";
+    //     } else {
+    //         return str + repeatStringNumTimes(str, num - 1);
+    //     }
+    // }
+
+
+    //=======================================================================================================
+
+    //Проверьте, заканчивается ли строка (первый аргумент, str) заданной целевой строкой (второй аргумент, target).
+
+    //Эту задачу можно решить с помощью .endsWith()метода, представленного в ES2015.
+    //  Но для целей этой задачи мы хотели бы, чтобы вы вместо этого использовали один из методов подстроки JavaScript.
+
+    // function confirmEnding(str, target) {
+    //     return str.slice(-target.length) === target;
+    // }
+    //
+    // console.log(confirmEnding("Bastian world", "rld"))
+    //
+    //вариант с регуляркой
+    // function confirmEnding(str, target) {
+    //     let re = new RegExp(target + "$", "i");
+    //
+    //     return re.test(str);
+    // }
+    // console.log(confirmEnding("Bastian world", "rld"))
+    //================================================================================================================
+
+    //Возвращает массив, состоящий из наибольшего числа из каждого предоставленного подмассива.
+    // Для простоты предоставленный массив будет содержать ровно 4 подмассива.
+    // мой вариант
+    //     function largestOfFour(arr) {
+    //         let result = [];
+    //         for (let i = 0; i < arr.length; i++) {
+    //             let max = Math.max(...arr[i])
+    //             result.push(max)
+    //         }
+    //         return result
+    //   }
+    //
+    //     console.log(largestOfFour([[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10]]));
+
+    //вариант 2
+    // function largestOfFour(arr) {
+    //     const results = [];
+    //     for (let i = 0; i < arr.length; i++) {
+    //         let largestNumber = arr[i][0];
+    //         for (let j = 1; j < arr[i].length; j++) {
+    //             if (arr[i][j] > largestNumber) {
+    //                 largestNumber = arr[i][j];
+    //             }
+    //         }
+    //         results[i] = largestNumber;
+    //     }
+    //
+    //     return results;
+    // }
+
+
+    //================================================================================================================
+    //наибольшее число в массиве с помощью цикла for и arr[i]
+    //
+    // function largestOfFour(arr) {
+    //     let arr2 = [];
+    //     let arr3 = [];
+    //     let result = [];
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (Array.isArray(arr[i])) {
+    //             arr3 = arr2.concat(arr[i])
+    //             for (let j = 0; j < arr3.length; j++) {
+    //                 if (!Array.isArray(arr3[j])) {
+    //                     result.push(arr3[j])
+    //                 }
+    //             }
+    //         } else {
+    //             result.push(arr[i])
+    //         }
+    //     }
+    //    return Math.max(...result)
+    // }
+    //
+    // console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]))
+
+
+    //Наибольшее число в массиве.
+    // function largestOfFour(arr) {
+    //     return  Math.max(...arr.flat(Infinity))
+    // }
+    //
+    // console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]))
+
+    //=====================================================================================================================
+
+    //найти самое длинноу слово в строке
+    // function findLongestWordLength(str) {
+    //     let arr = str.split(" ");
+    //     let max = 0;
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (arr[i].length > max) {
+    //             max = arr[i].length
+    //         }
+    //     }
+    //     return max;
+    // }
+    //
+    // console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
+
+    //или
+
+    // function findLongestWordLength(s) {
+    //     return s
+    //         .split(' ')
+    //         .reduce((longest, word) => Math.max(longest, word.length), 0);
+    // }
+
+    //или
+    //
+    // function findLongestWordLength(str) {
+    //     return Math.max(...str.split(" ").map(word => word.length));
+    // }
+
+
+    // варианты решения нахождения факториала
+    // function factorialize(num) {
+    //     if (num === 0) {
+    //         return 1;
+    //     }
+    //     return num * factorialize(num - 1);
+    // }
+    //
+    // factorialize(5);
+    //
+    // function factorialize(num) {
+    //     return num < 0 ? 1 :
+    //         new Array(num)
+    //             .fill(undefined)
+    //             .reduce((product, _, index) => product * (index + 1), 1);
+    // }
+    // factorialize(5);
+
+
+    // function factorialize(num) {
+    //     let product = 1;
+    //     for (let i = 2; i <= num; i++) {
+    //         product *= i;
+    //     }
+    //     return product;
+    // }
+    // factorialize(5);
+
+
+    // Взгляните на объект, который мы предоставили в редакторе кода. Объект userсодержит три ключа.
+    //     Ключ dataсодержит пять ключей, один из которых содержит массив friends. Отсюда видно, насколько
+    // гибкими являются объекты как структуры данных. Мы начали писать функцию addFriend. Завершите его написание,
+    //     чтобы он принимал userобъект и добавлял имя аргумента friendк хранящемуся в нем массиву user.data.friendsи возвращал этот массив.
+    //
+    // let user = {
+    //     name: 'Kenneth',
+    //     age: 28,
+    //     data: {
+    //         username: 'kennethCodesAllDay',
+    //         joinDate: 'March 26, 2016',
+    //         organization: 'freeCodeCamp',
+    //         friends: [
+    //             'Sam',
+    //             'Kira',
+    //             'Tomo'
+    //         ],
+    //         location: {
+    //             city: 'San Francisco',
+    //             state: 'CA',
+    //             country: 'USA'
+    //         }
+    //     }
+    // };
+    //
+    // function addFriend(userObj, friend) {
+    //     userObj.data.friends.push(friend);
+    //     return userObj.data.friends;
+    // }
+    //
+    // console.log(addFriend(user, 'Pete'));
+
+    //=================================================================================================================
+
+    // Мы определили функцию countOnline, которая принимает один аргумент, allUsers. Используйте оператор for...in
+    // внутри этой функции, чтобы перебрать allUsersобъект и вернуть количество пользователей, чье onlineсвойство установлено на true.
+    //     Пример объекта, которому можно передать, countOnlineпоказан ниже. Каждый пользователь будет иметь onlineсвойство, установленное на trueили false.
+    //
+    // const users = {
+    //     Alan: {
+    //         online: false
+    //     },
+    //     Jeff: {
+    //         online: true
+    //     },
+    //     Sarah: {
+    //         online: false
+    //     }
+    // }
+    //
+    // function countOnline(allUsers) {
+    //     let result = 0;
+    //     for (let user in allUsers) {
+    //         if (allUsers[user].online === true) {
+    //             result++;
+    //         }
+    //     }
+    // }
+    //
+    // console.log(countOnline(users));
+
+    //Завершите написание функции, чтобы она возвращала значение true, если переданный ей объект содержит все четыре имени,
+    //Alan, Jeffи Sarahи Ryanвозвращает falseв противном случае.
+    //
+    // let users = {
+    //     Alan: {
+    //         age: 27,
+    //         online: true
+    //     },
+    //     Jeff: {
+    //         age: 32,
+    //         online: true
+    //     },
+    //     Sarah: {
+    //         age: 48,
+    //         online: true
+    //     },
+    //     Ryan: {
+    //         age: 19,
+    //         online: true
+    //     }
+    // };
+    //
+    // function isEveryoneHere(userObj) {
+    //     return ["Alan", "Jeff", "Sarah", "Ryan"].every(name =>
+    //         userObj.hasOwnProperty(name));
+    // }
+    //
+    // console.log(isEveryoneHere(users));
+
+</script>
+</body>
+</html>

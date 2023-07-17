@@ -1,0 +1,110 @@
+.header-bottom__catalog {
+    padding: 0 calc(50% - 490px);
+}
+
+.catalog-menu__center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /*height: calc(100vh - 152px);*/
+    height: auto;
+    flex-direction: row;
+}
+
+.catalog-menu__center .col {
+    flex: 0 0 25%;
+}
+
+/* TODO что бы корректно заработал ховер, в стилях ниже нужно убрать !important */
+.catalog-menu__item a {
+    color: #4a4a4a !important;
+}
+
+.catalog-menu__item a:hover {
+    color: red !important;
+}
+
+/*hover end*/
+
+
+.catalog-nav__item.active:before {
+    width: 9px;
+}
+
+.catalog-nav__item:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0;
+    background: red;
+    z-index: 2;
+}
+
+@media (max-width: 991.98px) {
+    .catalog {
+        flex-direction: unset;
+    }
+
+    .catalog-nav {
+        all: unset;
+        align-items: start;
+        list-style: none;
+    }
+
+    .catalog__nav {
+        margin-right: 40px;
+        padding-left: 20px;
+        border-right: 2px solid rgba(39, 39, 39, .1);
+    }
+
+    .catalog-nav__item a {
+        text-align: start;
+    }
+
+    .catalog-menu__center .col {
+        flex: 0 0 33.33%;
+    }
+
+    .catalog-nav__item:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 0;
+        background: red;
+        z-index: 2;
+        box-sizing: inherit;
+    }
+
+    .catalog-nav__item.active:before {
+        width: 5px;
+    }
+
+    .catalog-nav__item:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 0;
+        background-color: #fff;
+    }
+
+    .catalog-nav__item.active:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 0;
+        background-color: #fff;
+    }
+
+    .catalog-nav__item.active:after {
+        width: 2000%;
+    }
+
+}
