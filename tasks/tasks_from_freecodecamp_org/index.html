@@ -6,50 +6,291 @@
 </head>
 <body>
 <script>
-    let slides = [
-        {
-            id: '1',
-            brand: 'Buff',
-            mainPhoto: 'url...',
-            descriptionText: "Свиная латынь — это способ изменения английских слов",
-            propertyPhoto: [
-                {
-                photo1: 'url...',
-                description: 'качество пошива'
-            },
-                {
-                photo2: 'url...',
-                description: 'возьмите первый'
-            },
-                {
-                photo2: 'url...',
-                description: 'кончились мысли'
-            },
-            ],
-            linkCatalog: 'https//:...',
-            logoBrand: 'url...',
-        }
-    ]
 
     ///////////////// ФУНКЦИОНАЛЬНОЕ ПРОГРАММИРОВАНИЕ ///////////////////////////////////////////////////////////
 
-    // Свиная латынь — это способ изменения английских слов. Правила следующие:
-    //     - Если слово начинается с согласного, возьмите первый согласный или группу согласных,
-    //     переместите его в конец слова и добавьте ay к нему.
-    // - Если слово начинается с гласной, просто добавьте way в конце.
+    // Найдите наименьшее общее кратное заданных параметров, которое можно без остатка разделить на оба,
+    // а также на все порядковые номера в диапазоне между этими параметрами.
+    // Диапазон будет массивом из двух чисел, которые не обязательно будут упорядочены по порядку.
+
+    function smallestCommons(arr) {
+        return arr;
+    }
+
+    console.log(smallestCommons([1,5]));
+
+
+
+
+
+
+    //================================================================================================================
+
+    // Простое число — это целое число больше 1, имеющее ровно два делителя: 1 и само себя. Например, 2 — простое число,
+    // потому что оно делится только на 1 и 2. Напротив, 4 не является простым, поскольку делится на 1, 2 и 4.
+    // Перепишите его sumPrimesтак, чтобы он возвращал сумму всех простых чисел, которые меньше или равны num.
+
+    //вариант 1
+
+    // function sumPrimes(num) {
+    //     let sum = 0;
+    //     for (let i = 2; i <= num; i++) {
+    //         let flag = 1;
+    //         for (let j = 2; (j <= i / 2) && (flag === 1); j = j + 1) {
+    //             if (i % j === 0) {
+    //                 flag = 0;
+    //             }
+    //         }
+    //         if (flag === 1) {
+    //             sum += i;
+    //         }
+    //     }
+    //     return sum
+    // }
+
+    //вариант 2
     //
-    // function translatePigLatin(str) {
-    //     let result = "";
-    //     let reg = /^([aiouye]+)/
-    //         let reg2 = /(?=[^aeiouy])/
-    //     let vowels = "aeiouy";
-    //     result = str.match(reg)? str + "way" : str.replace(reg2, "") + "ay";
+    // function sumPrimes(num) {
+    //     let sum = 0;
+    //     for (let i = 1; i <= num; i++) {
+    //         for (let j = 2; j <= i; j++) {
+    //             if (i % j === 0 && j < i) {
+    //                 break;
+    //             } else if (j === i) {
+    //                sum += i;
+    //             }
+    //         }
+    //     }
+    //     return sum
+    // }
+    //     console.log(sumPrimes(10));
+
+    //=====================================================================================================================
+
+    // Учитывая положительное целое число num, вернуть сумму всех нечетных чисел Фибоначчи, которые меньше или равны num.
+    //  Первые два числа в последовательности Фибоначчи — это 0 и 1. Каждое дополнительное число в последовательности
+    // является суммой двух предыдущих чисел. Первые семь чисел последовательности Фибоначчи — это 0, 1, 1, 2, 3, 5 и 8.
+    // Например, sumFibs(10)должно возвращаться 10, поскольку все нечетные числа Фибоначчи меньше или равны 101, 1, 3 и 5.
+
+    // мое решение
+    // function sumFibs(num) {
+    //     let prev = 0, next = 1;
+    //     let sumNegativeNum = 1
+    //     for (let i = 0; i < num; i++) {
+    //         let temp = next;
+    //         next = prev + next;
+    //         prev = temp;
+    //         if (next % 2 !== 0 && next <= num) {
+    //             sumNegativeNum += next
+    //         }
+    //     }
+    //     return sumNegativeNum;
+    // }
     //
+    // console.log(sumFibs(4));
+
+    //===============================================================================================================
+
+    //Преобразуйте символы &, <, >, "(двойные кавычки) и '(апостроф) в строке в соответствующие им объекты HTML.
+
+    // function convertHTML(str) {
+    //     return str .replaceAll("&", '&amp;')
+    //         .replaceAll(">", '&gt;')
+    //         .replaceAll("<", '&lt;')
+    //         .replaceAll('"', '&quot;')
+    //         .replaceAll("'", '&apos;')
+    // }
     //
+    // console.log(convertHTML("<>"));
+
+    //==============================================================================================================
+
+    // Напишите функцию, которая принимает два или более массива и возвращает новый массив уникальных значений в
+    // порядке исходных предоставленных массивов.Другими словами, все значения из всех массивов должны быть включены
+    // в их исходном порядке, но без дубликатов в конечном массиве. Уникальные числа должны быть отсортированы в
+    // соответствии с их первоначальным порядком, но окончательный массив не должен быть отсортирован в числовом порядке.
+
+
+    // мой вариант
+    // function uniteUnique(arr) {
+    //     let result = [];
+    //     let args = [];
+    //     for (let i = 0; i < arguments.length; i++) {
+    //         args.push(...arguments[i])
+    //     }
+    //     args.forEach((el) => {
+    //         if (!result.includes(el)) {
+    //             result.push(el)
+    //         }
+    //     })
     //     return result
     // }
     //
-    // console.log(translatePigLatin("consonant"));
+    // console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+
+    //============================================================================================================
+    // Найдите пропущенную букву в пройденном диапазоне букв и верните ее.Если все буквы присутствуют
+    // в диапазоне, вернуть undefined.
+
+    //мой вариант
+    //
+    // function fearNotLetter(str) {
+    //   let alphabet = "abcdefghijklmnopqrstuvwxyz";
+    //   let firstLetter = alphabet.indexOf(str.charAt(0));
+    //   let  subStr = alphabet.slice(firstLetter, firstLetter + str.length + 1);
+    //   console.log(subStr, firstLetter, str.length + 1)
+    //   for (let i = 0; i < subStr.length; i++) {
+    //       if (subStr[i] !== str[i]) {
+    //           return subStr[i]
+    //       }
+    //   }
+    //   return undefined
+    // }
+    //
+    // console.log(fearNotLetter("stvwx"));
+
+    //=========================================================================================================
+
+    // Пары цепей ДНК состоят из пар азотистых оснований. Пары оснований представлены символами AT и CG ,
+    // которые образуют строительные блоки двойной спирали ДНК. В цепи ДНК отсутствует элемент спаривания.
+    // Напишите функцию для сопоставления отсутствующих пар оснований для предоставленной цепи ДНК. Для каждого
+    //  символа в предоставленной строке найдите символ базовой пары. Верните результаты в виде двумерного массива.
+    //   Например, для ввода GCGверните[["G", "C"], ["C","G"], ["G", "C"]]ж
+
+    // вариант 3
+    //
+    // function pairElement(str) {
+    //     let pairs = {
+    //         "A": ["A", "T"],
+    //         "T": ["T", "A"],
+    //         "C": ["C", "G"],
+    //         "G": ["G", "C"]
+    //     };
+    //
+    //     return str.split("").map(function(elem) {
+    //         return pairs[elem];
+    //     });
+    // }
+
+    //вариант 2
+
+    // function pairElement(str) {
+    //
+    //     const pairs = {
+    //         A: "T",
+    //         T: "A",
+    //         C: "G",
+    //         G: "C"
+    //     };
+    //
+    //     return str
+    //         .split("")
+    //         .map(x => [x, pairs[x]]);
+    // }
+    //
+    // pairElement("GCG")
+
+    //вариант 1
+
+    // function pairElement(str) {
+    //     const matchWithBasePair = function(char) {
+    //         switch (char) {
+    //             case "A":
+    //                 return ["A", "T"];
+    //             case "T":
+    //                 return ["T", "A"];
+    //             case "C":
+    //                 return ["C", "G"];
+    //             case "G":
+    //                 return ["G", "C"];
+    //         }
+    //     };
+    //
+    //     const pairs = [];
+    //     for (let i = 0; i < str.length; i++) {
+    //         pairs.push(matchWithBasePair(str[i]));
+    //     }
+    //
+    //     return pairs;
+    // }
+    //
+    // pairElement("GCG");
+
+
+    //моё решение
+    // function pairElement(str) {
+    //     let arr = str.split("");
+    //     let result = [];
+    //     let arrElem = [];
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (arr[i] === "A") {
+    //             arrElem = [arr[i]];
+    //             arrElem.push("T");
+    //             result.push(arrElem)
+    //         }
+    //
+    //         if (arr[i] === "T") {
+    //             arrElem = [arr[i]];
+    //             arrElem.push("A");
+    //             result.push(arrElem)
+    //         }
+    //         if (arr[i] === "G") {
+    //             arrElem = [arr[i]];
+    //             arrElem.push("C");
+    //             result.push(arrElem)
+    //         }
+    //         if (arr[i] === "C") {
+    //             arrElem = [arr[i]];
+    //             arrElem.push("G");
+    //             result.push(arrElem)
+    //         }
+    //     }
+    //     return result
+    // }
+    //
+    // console.log(pairElement("GCG"));
+
+
+    //============================================================================================================
+
+    // Выполните поиск и замену в предложении, используя предоставленные аргументы, и верните новое предложение.
+    //     Первый аргумент — это предложение для выполнения поиска и замены.
+    //     Второй аргумент — это слово, которое вы будете заменять (before).
+    //     Третий аргумент — это то, на что вы будете заменять второй аргумент (после).
+    //     Примечание. Сохраняйте регистр первого символа в исходном слове при его замене. Например,
+    //     если вы хотите заменить слово Bookна слово dog, его следует заменить какDog
+
+    //моя версия
+
+    // function myReplace(str, before, after) {
+    //     let afterUp = "";
+    //     if (before[0] === before[0].toUpperCase()) {
+    //         afterUp = after[0].toUpperCase() + after.slice(1);
+    //         after = afterUp
+    //     }
+    //     if (before[0] === before[0].toLowerCase()) {
+    //         afterUp = after[0].toLowerCase() + after.slice(1);
+    //         after = afterUp
+    //     }
+    //     return str.split(before).join(after);
+    // }
+    //вариант 2
+    //    function myReplace(str, before, after) {
+    //        let index = str.indexOf(before);
+    //        if (str[index] === str[index].toUpperCase()) {
+    //            after = after.charAt(0).toUpperCase() + after.slice(1);
+    //        } else {
+    //            after = after.charAt(0).toLowerCase() + after.slice(1);
+    //        }
+    //        str = str.replace(before, after);
+    //
+    //        return str;
+    //    }
+    //
+    //    //вариант 3
+    //
+    //
+    //    console.log(myReplace("I think we should look up there", "up", "Down"));
 
 
     //==================================================================================================
