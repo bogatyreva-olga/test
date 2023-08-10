@@ -14,15 +14,31 @@
     // Диапазон будет массивом из двух чисел, которые не обязательно будут упорядочены по порядку.
 
     function smallestCommons(arr) {
-        return arr;
+        let result = 0;
+        let flag = false;
+        let lastNum = arr[arr.length - 1];
+
+        arr = arr.sort(function (a, b) {
+            return a - b;
+        });
+        let i = arr[0];
+        let j = arr[arr.length - 1];
+
+        do {
+            for (i; i < j; i++) {
+                if (j % i !== 0) {
+                   flag = true;
+                }
+            }
+            if (flag === true) {
+                j += lastNum;
+            }
+        } while (flag === false)
+
+        return arr[arr.length - 1];
     }
 
-    console.log(smallestCommons([1,5]));
-
-
-
-
-
+    console.log(smallestCommons([5, 1]));
 
     //================================================================================================================
 
