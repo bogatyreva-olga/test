@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    function telephoneCheck(str) {
+
+    }
+
+    console.log(telephoneCheck("555-555-5555"))
+
+    //======================================================================================================
+
+    // Одним из самых простых и широко известных шифров является шифр Цезаря , также известный как шифр сдвига .
+    //  В шифре сдвига значения букв сдвигаются на некоторую заданную величину.
+    //  Распространенным современным использованием является шифр ROT13 , в котором значения букв сдвинуты на 13 позиций.
+    //  Таким образом A ↔ N, B ↔ Oи так далее.
+    //  Напишите функцию, которая принимает на вход строку в кодировке ROT13 и возвращает декодированную строку.
+    //  Все буквы будут заглавными. Не преобразовывайте никакие неалфавитные символы (например, пробелы, знаки препинания),
+    // но передайте их дальше.
+
+    // function rot13(str) {
+    //     const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    //     let result = "";
+    //     let strSymbols = str.split("");
+    //     for (let i = 0; i < strSymbols.length; i++) {
+    //         let indexAlphabetSymbol = alphabet.indexOf(strSymbols[i]);
+    //         if (indexAlphabetSymbol >= 0) {
+    //             let indexEl = indexAlphabetSymbol + 13;
+    //             if (indexEl > alphabet.length - 1) {
+    //                 indexEl = Math.abs(alphabet.length  - indexEl);
+    //             }
+    //              result += alphabet[indexEl]
+    //         }
+    //         if(indexAlphabetSymbol < 0) {
+    //             result += strSymbols[i]
+    //         }
+    //     }
+    //     return result
+    // }
+    //
+    // console.log(rot13("SERR PBQR PNZC"));
+
+
+    //перевести арабские цифры в римские
+    //вариант с массивами
+
+    // function convertToRoman(num) {
+    //     const decimalValue = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    //     const romanValue = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
+    //     let result = '';
+    //     decimalValue.map((item, index) => {
+    //         while (item <= num) {
+    //             result += romanValue[index];
+    //             num = num - item;
+    //         }
+    //     });
+    //     return result
+    // }
+    //
+    // console.log(convertToRoman(36));
+
+    //вариант со строками
+    //
+    //     function convertToRoman(num) {
+    //       const romes = {
+    //           "M":	1000,
+    //           "CM":	900,
+    //           "D":	500,
+    //           "CD":	400,
+    //           "C":	100,
+    //           "XC":	90,
+    //           "L":	50,
+    //           "XL":	40,
+    //           "X":	10,
+    //           "IX":	9,
+    //           "V":	5,
+    //           "IV":	4,
+    //           "I":	1
+    //       }
+    //       let result = '';
+    //       for (let key in romes) {
+    //           while (romes[key] <= num) {
+    //               result += key;
+    //               num = num - romes[key];
+    //           }
+    //       }
+    //       return result
+    //     }
+    //
+    //     console.log(convertToRoman(36));
+    //====================================================================================================
+    //проверка на полиндром
+
+    // function palindrome(str) {
+    //   let strResult = str.replace(/[^\w0-9\+]/g,'').replace(/_/g, '').toLowerCase();
+    //   let strResultReverse = strResult.split("").reverse().join("");
+    //   return strResult === strResultReverse
+    // }
+    //
+    // console.log(palindrome("0_0 (: /-\ :) 0-0"));
+
+</script>
+</body>
+</html>
